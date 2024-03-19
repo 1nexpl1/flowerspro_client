@@ -1,0 +1,45 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.block{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    margin-bottom: 30px;
+}
+.block:nth-child(2){
+    flex-direction: row-reverse;
+    gap: 0;
+}
+.text{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageWrapper{
+    width: 45%;
+}
+
+.title{
+    font-family: Wermut;
+    font-size: 36px;
+    color: #292929;
+    margin-bottom: 10px;
+    
+}
+
+.descrip{
+    text-align: center;
+    width: 80%;
+    font-family: Graphik;
+    font-style: 16px;
+    color: #292929;
+}

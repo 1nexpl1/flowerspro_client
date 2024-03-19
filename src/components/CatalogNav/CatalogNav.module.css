@@ -1,0 +1,28 @@
+.wrapper{
+    width: 100vw;
+    padding: 0 5vw;
+    padding-bottom: 25px;
+    padding-top: 20px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    top: 130px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.link{
+    color: #292929;
+    text-decoration: none;
+    font-family: Wermut;
+    font-size: 28px;
+    width: auto;
+}
+
+.text{
+    text-align: left;
+}

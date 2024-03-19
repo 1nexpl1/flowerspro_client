@@ -1,0 +1,315 @@
+.wrapper {
+    height: 100%;
+    position: fixed;
+    overflow: auto;
+    top: 0px;
+    right: 0;
+    width: 25vw;
+    background-color: #E8E8E8;
+    padding-top: 40px;
+    z-index: 10000;
+}
+
+.wrapper::-webkit-scrollbar{
+    height: 5px;
+    width: 14px;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+    background-color: #474A51;
+    border-radius: 5px;
+}
+.wrapper::-webkit-scrollbar-track{
+    background-color: #989898;
+}
+.items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonBack {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    color: #292929;
+    cursor: pointer;
+}
+
+.buttonBackIcon {
+    width: 28px;
+    height: 28px;
+}
+
+.buttonBackText {
+    font-family: SONY Fixed;
+}
+
+.item {
+    cursor: default;
+    display: flex;
+    flex-direction: row;
+    gap: 7%;
+    width: 90%;
+    height: 122px;
+    margin-bottom: 40px;
+}
+
+.itemPhoto {
+    width: 30%;
+}
+
+.itemPhoto img {
+    height: 122px;
+}
+
+.itemInfo {
+    width: 45%;
+}
+
+.itemDelete {
+    width: 15%;
+}
+
+
+.value {
+    align-self: flex-end;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #989898;
+    height: 30px;
+}
+
+.value button {
+    padding: 0;
+    color: #989898;
+    width: 33%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    font-family: SONY Fixed;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.value button svg {
+    height: 18px;
+    width: 18px;
+}
+
+.value div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: SONY Fixed;
+    color: #292929;
+    height: 30px;
+    width: 34%;
+    border-right: 2px solid #989898;
+    border-left: 2px solid #989898;
+}
+
+
+.title {
+    padding-top: 45px;
+    padding-bottom: 45px;
+    color: #292929;
+    font-family: SONY Fixed;
+    font-size: 36px;
+    cursor: default;
+}
+
+.itemInfo {
+    display: flex;
+    flex-direction: column;
+    height: 122px;
+    justify-content: space-between;
+
+    align-items: start;
+    text-decoration: none;
+    color: #292929;
+    font-family: Graphik;
+}
+.titleCartItems{
+    font-size: 26px;
+    font-family: Wermut;
+    color: #292929;
+    padding-bottom: 30px;
+}
+.itemTitle {
+    width: 100%;
+    font-size: 22px;
+}
+
+.price {
+    font-style: 18px;
+    text-align: left;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.itemDelete {
+    background-color: transparent;
+    border: none;
+    height: 40px;
+    width: 40px;
+    cursor: pointer
+}
+
+.itemDelete svg {
+    height: 40px;
+    width: 40px;
+    cursor: pointer
+}
+
+
+
+.addressInput {
+    height: 35px;
+    width: 85%;
+    background-color: transparent;
+    border: 2px solid #989898;
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+
+
+.address {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.line{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.line::before{
+    display: block;
+    content: ' ';
+    text-align: center;
+    width: 90%;
+    border-bottom: 2px solid #989898;
+    margin-bottom: 20px;
+}
+
+.sum{
+    width: 95%;
+    color: #292929;
+    text-align: right;
+    font-size: 18px;
+    font-family: Graphik;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-bottom: 40px;
+    gap: 5px;
+}
+
+.num{
+    font-weight: bold;
+}
+
+/* Checkbox */
+
+.checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: start;
+    width: 85%;
+    justify-content: start;
+    margin-bottom: 30px;
+}
+
+.checkSquare {
+    min-width: 15px;
+    height: 15px;
+    width: 15px;
+    border: none;
+    outline: 2px solid #292929;
+    background-color: transparent;
+    margin-right: 8px;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+.checkbox {
+    font-size: 14px;
+    font-family: Graphik;
+    font-weight: normal;
+    color: #292929;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.checkboxes i {
+    min-width: 15px;
+    height: 15px;
+    width: 15px;
+    border: 2px solid #292929;
+    background-color: transparent;
+    margin-right: 8px;
+}
+
+/* Payment */
+
+.payment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 70px;
+}
+.paymentBut{
+    position: relative;
+    width: 85%;
+    height: 40px;
+    border: 2px solid #292929;
+    color: #292929;
+    background-color: transparent;
+    font-family: SONY Fixed;
+    font-style: 22px;
+    cursor: pointer;
+    transition: all .45s;
+}
+
+.paymentBut span{
+    position: relative;
+    z-index: 20000;
+}
+
+.paymentBut::before{
+    position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: #292929;
+        transition: all .45s;
+        z-index: 1;
+}
+
+.paymentBut:hover{
+    color: #E8E8E8;
+}
+
+.paymentBut:hover::before{
+    width: 100%;
+}

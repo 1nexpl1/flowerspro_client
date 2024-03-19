@@ -1,0 +1,47 @@
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: center;
+    gap: 10%;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.block {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    height: 35px;
+    width: 25%;
+    background-color: transparent;
+    border: 2px solid #989898;
+    font-size: 16px;
+    font-family: Graphik;
+    color: #292929;
+}
+
+.title {
+    width: 70%;
+    text-align: center;
+    font-size: 38px;
+    font-family: Wermut;
+    color: #292929;
+    margin-top: 20px;
+    padding-bottom: 15px;
+}
+
+.descrip {
+    color: #292929;
+    width: 70%;
+    text-align: center;
+    font-size: 16px;
+    font-family: Graphik;
+    margin-bottom: 15px;
+}

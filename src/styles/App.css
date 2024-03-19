@@ -1,0 +1,325 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+html {
+    background-color: #E8E8E8;
+}
+
+html::-webkit-scrollbar{
+    height: 8px;
+}
+html::-webkit-scrollbar-thumb {
+    background-color: #292929;
+        border-radius: 5px;
+}
+html::-webkit-scrollbar-track {
+    background-color: #989898;
+}
+@font-face {
+    font-family: 'SONY Fixed';
+    src: url('../fonts/SONY-Fixed.ttf');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Graphik';
+    src: url('../fonts/Graphik/GraphikLCG-Regular.eot');
+    src:
+        url('../fonts/Graphik/GraphikLCG-Regular.woff') format('woff'),
+        url('../fonts/Graphik/GraphikLCG-Regular.ttf') format('truetype'), ;
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Graphik';
+    src: url('../fonts/Graphik/GraphikLCG-Bold.eot');
+    src:
+        url('../fonts/Graphik/GraphikLCG-Bold.woff') format('woff'),
+        url('../fonts/Graphik/GraphikLCG-Bold.ttf') format('truetype'), ;
+    font-style: normal;
+    font-weight: bold;
+}
+
+
+.catalogWrapper {
+    margin: 0 10%;
+    padding-top: 40px;
+    width: 90%;
+}
+
+.catalogItems {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    gap: 1%;
+    width: 85%;
+}
+
+.catalogFilter {
+    margin-top: 30px;
+    width: 15%;
+}
+
+.catalogWrapperContent {
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+}
+
+.thumb {
+    width: 15px;
+    height: 15px;
+    background-color: #E8E8E8;
+    transform: rotate(-45deg);
+    border: 2px solid #292929;
+    top: -8px;
+}
+
+.contactsWrapper{
+    padding-top: 40px;
+    margin: 0 10%;
+    justify-self: center;
+    width: 80%;
+    height: 100vh;
+}
+
+
+.shipWrapper{
+    padding-top: 40px;
+    margin: 0 10%;
+    justify-self: center;
+    width: 80%;
+}
+
+.paymentWrapper{
+    padding-top: 40px;
+        margin: 0 10%;
+        justify-self: center;
+        width: 80%;
+}
+
+.aboutWrapper {
+    padding-top: 40px;
+    margin: 0 10%;
+    justify-self: center;
+    width: 80%;
+}
+.subTitleContacts{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 26px;
+        font-family: Wermut;
+        color: #292929;
+        padding-bottom: 18px;
+}
+
+.subTitleShip {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 34px;
+    font-family: Wermut;
+    color: #292929;
+    padding-bottom: 18px;
+}
+
+
+.shipDescrip{
+    color: #292929;
+    width: 60%;
+    text-align: center;
+    font-size: 16px;
+    font-family: Graphik;
+    margin-bottom: 20px;
+}
+
+.shipContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+
+.subTitlePayment {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 32px;
+    font-family: Wermut;
+    color: #292929;
+    padding-bottom: 18px;
+}
+
+.blocksPaymentWrapper{
+    width: 100%;
+    padding-bottom: 25px;
+    
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+
+    align-items: start;
+    justify-content: center;
+
+    border-bottom: 2px solid #989898;
+}
+
+.blocksPayment{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    font-family: Graphik;
+    font-size: 16px;
+    color: #292929;
+    line-height: 1.3;
+}
+
+.wrapperItem{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    gap: 140px;
+    margin: 0 auto;
+    padding-bottom: 500px;
+    margin-top: 40px;
+}
+
+.adminWrapper{
+    height: 100vh;
+}

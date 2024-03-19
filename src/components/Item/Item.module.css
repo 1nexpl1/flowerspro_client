@@ -1,0 +1,150 @@
+.wrapper{
+    width: 22%;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.wrapperHovering{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    border: 2px solid #989898;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    background-color: #E8E8E8;
+    padding-bottom: 30px;
+    
+}
+
+.wrapperHovering img{
+    margin-top: 20px;
+}
+
+.input{
+    margin-top: 10px;
+    text-align: center;
+    width: 80%;
+    padding: 0 10%;
+    font-family: Graphik;
+        color: #292929;
+        font-size: 14px;
+}
+
+.title{
+    font-family: Graphik;
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 7px;
+    margin-top: 5px;
+}
+
+.desc{
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.description div{
+    text-align: center;
+}
+
+.description{
+    width: 100%;
+    font-family: Graphik;
+    color: #292929;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.price{
+    font-weight: bold;
+}
+
+
+
+.buttons{
+    width: 85%;
+    margin-top: 20px;
+}
+
+
+
+.value {
+    align-self: flex-end;
+    width: 99%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #989898;
+    height: 30px;
+}
+
+.value button {
+    padding: 0;
+    color: #989898;
+    width: 33%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    font-family: SONY Fixed;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.value button svg {
+    height: 18px;
+    width: 18px;
+}
+
+.value div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: SONY Fixed;
+    color: #292929;
+    height: 30px;
+    width: 34%;
+    border-right: 2px solid #989898;
+    border-left: 2px solid #989898;
+}
+
+
+
+.buy{
+    width: 100,5%;
+}
+.buy button{
+    width: 50%;
+    height: 30px;
+    padding: 0;
+    text-align: center;
+    font-family: Graphik;
+    font-size: 14px;
+    background-color: transparent;
+    border: 2px solid #989898;
+    border-top: none;
+    cursor: pointer;
+}
+
+.buy button:nth-child(1){
+    border-right: none;
+}
+.buy button:active {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(105, 100, 100, 0.836);
+}
+.photo{
+    width: 225px;
+    height: 225px;
+}

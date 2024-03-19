@@ -1,0 +1,33 @@
+.contWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+}
+.item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 22%;
+    
+    text-decoration: none;
+    color: #292929;
+}
+.logo{
+    width: 70px;
+    height: 70px;
+    margin-bottom: 10px;
+    
+    color: #292929;
+}
+
+.name{
+    width: 100%;
+    font-family: Graphik;
+    color: #292929;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+}

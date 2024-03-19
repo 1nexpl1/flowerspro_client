@@ -1,0 +1,174 @@
+.wrapper{
+    min-height: 90vh;
+}
+.checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: start;
+    width: 85%;
+    justify-content: start;
+    margin-bottom: 30px;
+}
+
+.checkSquare {
+    min-width: 15px;
+    height: 15px;
+    width: 15px;
+    border: none;
+    outline: 2px solid #292929;
+    background-color: transparent;
+    margin-right: 8px;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+.checkbox {
+    font-size: 16px;
+    font-family: Graphik;
+    font-weight: normal;
+    color: #D1e8E2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: #292929;
+}
+
+.checkboxes i {
+    min-width: 18px;
+    height: 18px;
+    width: 18px;
+    border: 2px solid #292929;
+    background-color: transparent;
+    margin-right: 8px;
+}
+
+
+/* filter price */
+
+.priceFilt{
+    margin-bottom: 20px;
+}
+.priceFilt .inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.inputs div {
+    height: 30px;
+    border: 2px solid #292929;
+    width: 50%;
+    background-color: transparent;
+}
+
+.inputs div:nth-child(1) {
+    border-right: none;
+}
+
+.inputs div input{
+    width: 70%;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    color: #292929;
+    font-family: Graphik;
+    text-align: right;
+    padding-right: 15px;
+}
+
+.input{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input span{
+    padding-left: 5px;
+    font-family: Graphik;
+    font-style: 10px;
+    color: #292929;
+}
+
+.inputs div input:focus {
+    border: none;
+}
+
+.priceFilt .title{
+    margin-bottom: 5px;
+}
+
+.title{
+    font-size: 26px;
+    font-family: Wermut;
+    color: #292929;
+    padding-bottom: 10px;
+}
+
+.slider{
+    width: 100%;
+    height: 2px;
+    background-color: #292929;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
+.priceVal{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: Graphik;
+    font-size: 14px;
+    color: #292929;
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+.approve {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    border: 2px solid #292929;
+    color: #292929;
+    background-color: transparent;
+    font-family: SONY Fixed;
+    font-style: 22px;
+    cursor: pointer;
+}
+
+.approve span{
+    position: relative;
+    z-index: 20000;
+}
+
+.approve::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #292929;
+    transition: all .45s;
+    z-index: 1;
+}
+
+.approve:hover {
+    color: #E8E8E8;
+}
+
+.approve:hover::before {
+    width: 100%;
+}

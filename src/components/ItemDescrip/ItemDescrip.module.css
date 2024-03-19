@@ -1,0 +1,118 @@
+.price{
+    margin-top: 15px;
+    font-style: italic;
+    font-size: 24px;
+    font-family: Graphik;
+    color: #292929;
+}
+
+.subTitle{
+    font-size: 32px;
+    font-family: Graphik;
+    font-style: italic;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #292929;
+}
+.subTitle2{
+    font-size: 26px;
+    font-family: Graphik;
+    font-style: italic;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #292929;
+}
+.desc{
+    font-size: 16px;
+    font-family: Graphik;
+    font-weight: normal;
+    color: #292929;
+}
+.wrapper{
+    width: 40%;
+}
+
+
+.buttons{
+    width: 85%;
+    margin-top: 20px;
+}
+
+.icons{
+    color: #292929;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.icons svg{
+    
+    width: 30px;
+    height: 30px;
+}
+
+
+.value {
+    align-self: flex-end;
+    width: 99%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #989898;
+    height: 30px;
+}
+
+.value button {
+    padding: 0;
+    color: #989898;
+    width: 33%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    font-family: SONY Fixed;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.value button svg {
+    height: 18px;
+    width: 18px;
+}
+
+.value div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: SONY Fixed;
+    color: #292929;
+    height: 30px;
+    width: 34%;
+    border-right: 2px solid #989898;
+    border-left: 2px solid #989898;
+}
+
+
+
+.buy{
+    width: 99%;
+}
+.buy button{
+    width: 50%;
+    height: 30px;
+    padding: 0;
+    text-align: center;
+    font-family: Graphik;
+    font-size: 14px;
+    background-color: transparent;
+    border: 2px solid #989898;
+    border-top: none;
+    cursor: pointer;
+}
+
+.buy button:nth-child(1){
+    border-right: none;
+}
