@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0a14d190.css",
+    "main.js": "/static/js/main.620fde0b.js",
+    "static/media/GraphikLCG-Bold.eot": "/static/media/GraphikLCG-Bold.512a41a502809fa05cfc.eot",
+    "static/media/GraphikLCG-Bold.ttf": "/static/media/GraphikLCG-Bold.768cd7c3be4c3b053725.ttf",
+    "static/media/GraphikLCG-Regular.eot": "/static/media/GraphikLCG-Regular.131ad5e8eab917fe9b29.eot",
+    "static/media/GraphikLCG-Regular.ttf": "/static/media/GraphikLCG-Regular.35faf011ef568c1b8540.ttf",
+    "static/media/logoflowers.png": "/static/media/logoflowers.154405a01999518e43cb.png",
+    "static/media/GraphikLCG-Bold.woff": "/static/media/GraphikLCG-Bold.c9ff0f7c3d4ed57d90d3.woff",
+    "static/media/GraphikLCG-Regular.woff": "/static/media/GraphikLCG-Regular.b4fc93d5073c5d6f5235.woff",
+    "static/media/SONY-Fixed.ttf": "/static/media/SONY-Fixed.744fd5c27058919d8d1a.ttf",
+    "index.html": "/index.html",
+    "main.0a14d190.css.map": "/static/css/main.0a14d190.css.map",
+    "main.620fde0b.js.map": "/static/js/main.620fde0b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0a14d190.css",
+    "static/js/main.620fde0b.js"
+  ]
+}
