@@ -14,7 +14,7 @@ const CartItem = (props) => {
     setCount(count+1)
     props.setSum(props.sum+props.price)
   };
-  let photo = 'http://localhost:5000/'+ props.img
+  let photo = 'http://89.108.70.109:5000/'+ props.img
   return (
     <div className={s.item}>
       <div className={s.itemPhoto}>

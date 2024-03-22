@@ -10,7 +10,7 @@ const Item = (props) => {
     e.stopPropagation()
     count > 1 ? setCount(count - 1) : setCount(1);
   }
-  let photo = 'http://localhost:5000/'+ props.item.img
+  let photo = 'http://89.108.70.109:5000/'+ props.item.img
   let ItemObj = props.item
   ItemObj["count"] = count
   let router = useNavigate()
