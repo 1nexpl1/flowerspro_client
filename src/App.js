@@ -14,17 +14,17 @@ function App() {
 
   const {device} = useContext(Context)
 
-    useEffect(() => {
-        check().then(data => {
-            user.setUser(data)
-            user.setIsAuth(true)
-            console.log(data);
-        }).finally(() => setLoading(false))
-    }, [])
+    // useEffect(() => {
+    //     check().then(data => {
+    //         user.setUser(data)
+    //         user.setIsAuth(true)
+    //         console.log(data);
+    //     }).finally(() => setLoading(false))
+    // }, [])
 
-    if (loading) {
-        return <Spinner animation={"grow"}/>
-    }
+    // if (loading) {
+    //     return <Spinner animation={"grow"}/>
+    // }
 
   
   const addItem = (NewItem) => {
