@@ -3,6 +3,7 @@ import PhotosItem from '../components/PhotosItem/PhotosItem'
 import ItemDescrip from '../components/ItemDescrip/ItemDescrip'
 import { useParams } from 'react-router-dom'
 import { fetchOneDevice } from '../http/DeviceAPI'
+import HoverContact from '../components/HoverContact/HoverContact'
 
 const ItemPage = () => {
   const [device, setDevice] = useState({info: []})
@@ -15,6 +16,7 @@ const ItemPage = () => {
     <div className='wrapperItem'>
        <PhotosItem item={device}/> 
        <ItemDescrip item={device}/>
+       <HoverContact />
     </div>
   )
 }

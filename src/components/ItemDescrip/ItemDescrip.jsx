@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import s from './ItemDescrip.module.css'
 import { useHover } from '@uidotdev/usehooks';
 import { FaMinus, FaPlus, FaTelegram, FaWhatsapp } from 'react-icons/fa';
+import { FaTelegramPlane } from "react-icons/fa";
 import Title from '../UI/Title/Title';
 const ItemDescrip = (props) => {
     const [ref, hovering] = useHover();
@@ -12,7 +13,7 @@ const ItemDescrip = (props) => {
     console.log(props.item);
     return (
         <div className={s.wrapper}>
-            <Title>{props.item.name}</Title>
+            <h1 className={s.h1title}>{props.item.name}</h1>
             <div className={s.price}>{props.item.price}₽</div>
             <div className={s.buttons}>
                 <div className={s.value}>
@@ -64,7 +65,7 @@ const ItemDescrip = (props) => {
                 Поделиться
             </div>
             <div className={s.icons}>
-                <FaTelegram />
+                <FaTelegramPlane />
                 <FaWhatsapp />
             </div>
         </div>

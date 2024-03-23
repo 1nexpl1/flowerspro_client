@@ -1,29 +1,33 @@
 .price{
     margin-top: 15px;
-    font-style: italic;
     font-size: 24px;
-    font-family: Graphik;
+    font-family: Wermut;
     color: #292929;
 }
-
+.h1title{
+    font-family: Wermut;
+    font-size: 37px;
+    color: #292929;
+}
 .subTitle{
     font-size: 32px;
-    font-family: Graphik;
-    font-style: italic;
+    font-family: Wermut;
+    font-style: normal;
     margin-top: 15px;
     margin-bottom: 10px;
     color: #292929;
 }
 .subTitle2{
     font-size: 26px;
-    font-family: Graphik;
-    font-style: italic;
+    font-family: Wermut;
+    font-style: normal;
     margin-top: 15px;
     margin-bottom: 10px;
     color: #292929;
 }
 .desc{
-    font-size: 16px;
+    width: 90%;
+    font-size: 13px;
     font-family: Graphik;
     font-weight: normal;
     color: #292929;
@@ -39,28 +43,29 @@
 }
 
 .icons{
+    margin-top: 15px;
     color: #292929;
     display: flex;
     flex-direction: row;
-    gap: 5px;
+    gap: 10px;
 }
 
 .icons svg{
     
-    width: 30px;
-    height: 30px;
+    width: 22px;
+    height: 22px;
 }
 
 
 .value {
     align-self: flex-end;
-    width: 99%;
+    width: 400px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     border: 2px solid #989898;
-    height: 30px;
+    height: 50px;
 }
 
 .value button {
@@ -79,8 +84,8 @@
 }
 
 .value button svg {
-    height: 18px;
-    width: 18px;
+    height: 14px;
+    width: 14px;
 }
 
 .value div {
@@ -91,18 +96,16 @@
     color: #292929;
     height: 30px;
     width: 34%;
-    border-right: 2px solid #989898;
-    border-left: 2px solid #989898;
 }
 
 
 
 .buy{
-    width: 99%;
+    width: 400px;
 }
 .buy button{
     width: 50%;
-    height: 30px;
+    height: 45px;
     padding: 0;
     text-align: center;
     font-family: Graphik;
@@ -115,4 +118,6 @@
 
 .buy button:nth-child(1){
     border-right: none;
+    background-color: #292929;
+    color: #fff;
 }

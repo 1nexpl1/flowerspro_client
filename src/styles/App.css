@@ -149,7 +149,18 @@ html::-webkit-scrollbar-track {
     font-style: normal;
     font-weight: normal;
 }
-
+@font-face {
+    font-family: 'Wermut';
+    src: url('../fonts/Wermut.ttf');
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Wermut';
+    src: url('../fonts/Wermut-Italic.ttf');
+    font-style: italic;
+    font-weight: normal;
+}
 @font-face {
     font-family: 'Graphik';
     src: url('../fonts/Graphik/GraphikLCG-Regular.eot');
