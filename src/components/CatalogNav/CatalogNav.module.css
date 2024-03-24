@@ -1,15 +1,15 @@
 .wrapper{
-    width: 100vw;
-    padding: 0 5vw;
+    width: 100%;
+    padding-left: 9.5vw;
     padding-bottom: 25px;
     padding-top: 20px;
     background-color: #fff;
     position: absolute;
     left: 0;
-    top: 110px;
+    top: 135px;
     gap: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: start;
     box-shadow: 2px 2px rgba(0, 0, 0, 0.1);
     z-index: 1000;
@@ -19,10 +19,35 @@
     color: #292929;
     text-decoration: none;
     font-family: Wermut;
-    font-size: 28px;
+    font-size: 24px;
     width: auto;
 }
 
 .text{
     text-align: left;
+}
+
+.link:hover{
+    color: rgba(41, 41, 41, 0.4);
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.column:nth-child(2){
+    padding-right: 100px;
+    border-right: 2px solid rgba(0, 0, 0, 0.1);;
+}
+
+.column:nth-child(1){
+    margin-right: 175px;
+}
+
+.photo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -25,7 +25,7 @@ const Item = (props) => {
           <div className={s.description}>
             <div className={s.title}>{props.item.name}</div>
             <div className={s.desc}>{props.item.desc}</div>
-            <div className={s.price}>{props.item.price}</div>
+            <div className={s.price}>{props.item.price}₽</div>
             <div className={s.input}>{props.item.input}</div>
           </div>
           <div className={s.buttons}>
@@ -65,7 +65,7 @@ const Item = (props) => {
           <div className={s.description}>
             <div className={s.title}>{props.item.name}</div>
             <div className={s.desc}>{props.item.desc}</div>
-            <div className={s.price}>{props.item.price}</div>
+            <div className={s.price}>{props.item.price}₽</div>
           </div>
         </div>
       )}

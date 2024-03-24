@@ -2,6 +2,7 @@ import React from "react";
 import Title from "../components/UI/Title/Title";
 import Ship from "../components/Ship/Ship";
 import ShipIndivid from "../components/ShipIndivid/ShipIndivid";
+import HoverContact from "../components/HoverContact/HoverContact";
 
 const ShipPage = () => {
   return (
@@ -24,6 +25,7 @@ const ShipPage = () => {
         <Ship />
         <ShipIndivid />
       </div>
+      <HoverContact />
     </div>
   );
 };

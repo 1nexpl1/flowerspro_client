@@ -10,7 +10,7 @@
 }
 
 .link {
-    height: 110px;
+    height: 135px;
     text-align: center;
     display: flex;
     align-items: center;
@@ -64,8 +64,17 @@
 }
 
 .icon{
-    height: 110px;
+    height: 130px;
     width: 30px;
     color: #292929;
     cursor: pointer;
+}
+
+.icons span{
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Graphik;
+    color: #292929;
 }

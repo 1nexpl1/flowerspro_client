@@ -1,6 +1,7 @@
 import React from "react";
 import Title from "../components/UI/Title/Title";
 import Pay from "../components/Pay/Pay";
+import HoverContact from "../components/HoverContact/HoverContact";
 
 
 const PaymentPage = () => {
@@ -45,6 +46,7 @@ const PaymentPage = () => {
           <Pay />
         </div>
       </div>
+      <HoverContact />
     </div>
   );
 };

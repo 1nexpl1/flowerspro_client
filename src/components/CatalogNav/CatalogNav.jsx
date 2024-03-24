@@ -5,7 +5,6 @@ const CatalogNav = () => {
   const categories = [
     "Смотреть всё",
     "Новинки",
-    "8 марта",
     "Букеты",
     "Монобукеты",
     "Композиции",
@@ -16,11 +15,23 @@ const CatalogNav = () => {
   ];
   return (
     <div className={s.wrapper}>
-      {categories.map((e) => (
+      <div className={s.column}>
+      {categories.slice(0, 5).map((e) => (
         <Link className={s.link} to="/catalog">
           <div className={s.text}>{e}</div>
         </Link>
       ))}
+      </div>
+      <div className={s.column}>  
+      {categories.slice(5, 9).map((e) => (
+        <Link className={s.link} to="/catalog">
+          <div className={s.text}>{e}</div>
+        </Link>
+      ))}
+      </div>
+      <div className={s.photo}>
+        <img src="https://placehold.co/175x175" alt="" />
+      </div>
     </div>
   );
 };

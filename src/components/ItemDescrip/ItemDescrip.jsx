@@ -3,7 +3,6 @@ import s from './ItemDescrip.module.css'
 import { useHover } from '@uidotdev/usehooks';
 import { FaMinus, FaPlus, FaTelegram, FaWhatsapp } from 'react-icons/fa';
 import { FaTelegramPlane } from "react-icons/fa";
-import Title from '../UI/Title/Title';
 const ItemDescrip = (props) => {
     const [ref, hovering] = useHover();
     const [count, setCount] = useState(1);

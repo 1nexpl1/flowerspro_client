@@ -7,6 +7,7 @@ import { fetchBrands, fetchDevices, fetchTypes } from "../http/DeviceAPI";
 import { Context } from "..";
 import BouquetList from "../components/BouquetList/BouquetList";
 import { Spinner } from "react-bootstrap";
+import HoverContact from "../components/HoverContact/HoverContact";
 
 const CatalogPage = (props) => {
   const {device} = useContext(Context)
@@ -33,6 +34,7 @@ const CatalogPage = (props) => {
           <BouquetList addItem = {props.addItem}/>
         </div>
       </div>
+      <HoverContact />
     </div>
   );
 };

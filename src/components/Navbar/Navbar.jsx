@@ -74,6 +74,7 @@ const Navbar = observer((props) => {
               <></>
             )}
           </div>
+          <span>тел.: +7-912-664-46-89</span>
         </div>
       </div>
     </>
