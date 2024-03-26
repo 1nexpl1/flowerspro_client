@@ -1,7 +1,9 @@
 {
   "files": {
-    "main.css": "/static/css/main.2f38a401.css",
-    "main.js": "/static/js/main.1129ef24.js",
+    "main.css": "/static/css/main.7b701b53.css",
+    "main.js": "/static/js/main.01e42baa.js",
+    "static/media/pay.png": "/static/media/pay.8328ed667e8e45e5200c.png",
+    "static/media/individ.png": "/static/media/individ.610d7e50ac73c2afbf01.png",
     "static/media/GraphikLCG-Bold.eot": "/static/media/GraphikLCG-Bold.512a41a502809fa05cfc.eot",
     "static/media/GraphikLCG-Bold.ttf": "/static/media/GraphikLCG-Bold.768cd7c3be4c3b053725.ttf",
     "static/media/GraphikLCG-Regular.eot": "/static/media/GraphikLCG-Regular.131ad5e8eab917fe9b29.eot",
@@ -15,11 +17,11 @@
     "static/media/SONY-Fixed.ttf": "/static/media/SONY-Fixed.744fd5c27058919d8d1a.ttf",
     "static/media/telegram.png": "/static/media/telegram.e1b0bc71fad3ea7e7cce.png",
     "index.html": "/index.html",
-    "main.2f38a401.css.map": "/static/css/main.2f38a401.css.map",
-    "main.1129ef24.js.map": "/static/js/main.1129ef24.js.map"
+    "main.7b701b53.css.map": "/static/css/main.7b701b53.css.map",
+    "main.01e42baa.js.map": "/static/js/main.01e42baa.js.map"
   },
   "entrypoints": [
-    "static/css/main.2f38a401.css",
-    "static/js/main.1129ef24.js"
+    "static/css/main.7b701b53.css",
+    "static/js/main.01e42baa.js"
   ]
 }

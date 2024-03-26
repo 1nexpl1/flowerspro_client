@@ -3,6 +3,7 @@ import { IoMdOpen } from 'react-icons/io';
 import ImageGallery from "react-image-gallery";
 import s from './Carousel.module.css'
 import "react-image-gallery/styles/css/image-gallery.css";
+import { FaAngleLeft } from "react-icons/fa";
 
 const Carousel = (props) => {
     const images = [
@@ -31,7 +32,9 @@ const Carousel = (props) => {
             thumbnailWidth: '92px',
         },
     ];
+    
     return (
+        
         <div><ImageGallery items={images} thumbnailPosition={'left'} showPlayButton={false} showFullscreenButton={false} /></div>
     )
 }

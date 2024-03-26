@@ -34,35 +34,16 @@ const ItemDescrip = (props) => {
                     <button>Быстрый заказ</button>
                 </div>
             </div>
-            
-            <div className={s.subTitle}>
-                Описание
-            </div>
-            <div className={s.desc}>
-                Нежный букет в персиково-белой цветовой гамме. В составе пионовидные розы, махровая эустома, диантус, хлопок, нерине, кустовые розы, кортадерия, эвкалипт и писташ. Букет упакован в стильную матовую пленку винного цвета и перевязан декоративными лентами. С букетом вы получите конверт с открыткой, в которой мы напечатаем любое пожелание, инструкцию свежести и средство для продления жизни срезанных цветов. Для комфортной дальнейшей транспортировки добавьте при заказе к цветам аквапак и пер
-            </div>
-            <div className={s.subTitle2}>
-                Цветы
-            </div>
-            <div className={s.desc}>
-                Роза пионовидная, Роза кустовая, Хлопок, Диантус, Эустома, Роза одноголовая
-            </div>
-            <div className={s.subTitle2}>
-                Упаковка
-            </div>
-            <div className={s.desc}>
-                Ленты, Пленка
-            </div>
-            <div className={s.subTitle2}>
-                Высота
-            </div>
-            <div className={s.desc}>
-                около 45 см
-            </div>
-            
-            <div className={s.subTitle}>
-                Поделиться
-            </div>
+            {props.item.info.map(info=>
+                <>
+                <div className={s.subTitle}>
+                    {info.title}
+                </div>
+                <div className={s.desc}>
+                    {info.description}
+                </div>
+                </>
+            )}
             <div className={s.icons}>
                 <FaTelegramPlane />
                 <FaWhatsapp />

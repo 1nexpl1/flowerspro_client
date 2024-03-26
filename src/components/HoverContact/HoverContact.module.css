@@ -14,6 +14,17 @@
     font-size: 12px;
     border-top-left-radius: 5px;
     border-top-right-radius: 35px;
+    text-decoration: none;
+    z-index: 1000000000;
+}
+
+.block::before{
+    content: " ";
+    position: absolute;
+    top: -10px;
+    right: 0;
+    width: 300px;
+    height: 10px;
 }
 
 .block::after{
@@ -37,9 +48,14 @@
     display: flex;
     flex-direction: column;
     border-radius: 10px;
+    background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 17px 1px, rgba(0, 0, 0, 0.16) 0px 0px 4px;
+    text-decoration: none;
 }
-
+.blocks span{
+    color: #292929;
+    text-decoration: none;
+}
 .blockCont:nth-child(1){
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -62,4 +78,11 @@
     padding-right: 10px;
     padding-top: 15px;
     padding-bottom: 15px;
+    
+    text-decoration: none;
 }
+
+.block:hover{
+    cursor: pointer;
+}
+

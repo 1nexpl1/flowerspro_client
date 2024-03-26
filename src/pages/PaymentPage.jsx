@@ -2,6 +2,7 @@ import React from "react";
 import Title from "../components/UI/Title/Title";
 import Pay from "../components/Pay/Pay";
 import HoverContact from "../components/HoverContact/HoverContact";
+import photo from '../images/pay.png'
 
 
 const PaymentPage = () => {
@@ -15,7 +16,7 @@ const PaymentPage = () => {
           <div className="blocksPaymentWrapper">
             <div className="imageWrapperPayment">
               <img
-                src="https://placehold.co/500x400"
+                src={photo}
                 alt=""
                 className="imagePayment"
               />

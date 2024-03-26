@@ -7,23 +7,24 @@ const HoverContact = () => {
     const [ref, hovering] = useHover()
     return (
         <>
-        <div ref={ref} className={s.block}>
-            Напишите нам, мы онлайн 
-        </div>
-        {hovering ? (
-            <div  className={s.blocks}>
-                <div className={s.blockCont}>
-                    <img src={tglogo} alt="" />
-                    <span>Telegram</span>
-                </div>
-                <div className={s.blockCont}>
-                    <img src={vklogo} alt="" />
-                    <span>Сообщение вконтакте</span>
-                </div>
+            <div ref={ref} className={s.block}>
+                Напишите нам, мы онлайн
+                {hovering ? (
+                    <div className={s.blocks}>
+                        <a href='https://t.me/flowerspro_vp'  className={s.blockCont}>
+                            <img src={tglogo} alt="" />
+                            <span>Telegram</span>
+                        </a>
+                        <a className={s.blockCont}>
+                            <img src={vklogo} alt="" />
+                            <span>Сообщение вконтакте</span>
+                        </a>
+                    </div>
+                ) : (
+                    <></>
+                )}
             </div>
-        ): (
-            <></>
-        )}
+
         </>
     )
 }

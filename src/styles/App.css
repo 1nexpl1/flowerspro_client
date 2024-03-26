@@ -327,10 +327,15 @@ html::-webkit-scrollbar-track {
     flex-direction: row;
     gap: 140px;
     margin: 0 auto;
-    padding-bottom: 500px;
+    padding-bottom: 150px;
     margin-top: 40px;
 }
 
 .adminWrapper{
     height: 100vh;
+}
+
+.imagePayment{
+    width: 500px;
+    height: 400px;
 }

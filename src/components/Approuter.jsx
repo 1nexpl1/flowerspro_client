@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import MainPage from "../pages/MainPage";
 import AboutPage from "../pages/AboutPage";
@@ -8,20 +8,41 @@ import ContactsPage from "../pages/ContactsPage";
 import ShipPage from "../pages/ShipPage.jsx";
 import AdminPage from "../pages/AdminPage.jsx";
 import ItemPage from "../pages/ItemPage.jsx";
+import { Context } from "../index.js";
 
 const Approuter = (props) => {
+
+  const { user } = useContext(Context)
+  console.log(user);
   return (
-    <Routes>
-      <Route path="/*" element={<Navigate to="/catalog" replace />} />
-      <Route path="/main" element={<MainPage />} />
-      <Route path="/about" element={<AboutPage />} />
-      <Route path="/catalog" element={<CatalogPage addItem = {props.addItem}/>} />
-      <Route path="/payment" element={<PaymentPage />} />
-      <Route path="/contacts" element={<ContactsPage />} />
-      <Route path="/ship" element={<ShipPage />} />
-      <Route path="/admin" element={<AdminPage />} />
-      <Route path="/catalog/:id" element={<ItemPage />} />
-    </Routes>
+    <>
+    {
+      user.isAuth ? (
+        <Routes>
+          <Route path="/*" element={<Navigate to="/catalog" replace />} />
+          <Route path="/main" element={<MainPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/catalog" element={<CatalogPage addItem={props.addItem} />} />
+          <Route path="/payment" element={<PaymentPage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
+          <Route path="/ship" element={<ShipPage />} />
+          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/catalog/:id" element={<ItemPage />} />
+        </Routes>
+      ) : (
+        <Routes>
+          <Route path="/*" element={<Navigate to="/catalog" replace />} />
+          <Route path="/main" element={<MainPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/catalog" element={<CatalogPage addItem={props.addItem} />} />
+          <Route path="/payment" element={<PaymentPage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
+          <Route path="/ship" element={<ShipPage />} />
+          <Route path="/catalog/:id" element={<ItemPage />} />
+        </Routes>
+      )
+    }
+  </>
   );
 };
 
