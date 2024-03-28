@@ -1,16 +1,17 @@
 import React, { useContext } from 'react'
 import { Context } from '../..'
 import Item from '../Item/Item'
+import { observer } from 'mobx-react-lite'
 
-const BouquetList = (props) => {
+const BouquetList = observer((props) => {
   const {device} = useContext(Context)
   return (
     <>
     {device.devices.map(device =>
-        <Item key={device.id} item={device} addItem={props.addItem}/>
+        <Item toggleCart={props.toggleCart} key={device.id} item={device} addItem={props.addItem}/>
     )}
     </>
   )
-}
+})
 
 export default BouquetList

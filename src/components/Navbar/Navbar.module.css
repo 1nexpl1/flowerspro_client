@@ -69,12 +69,3 @@
     color: #292929;
     cursor: pointer;
 }
-
-.icons span{
-    height: 130px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Graphik;
-    color: #292929;
-}

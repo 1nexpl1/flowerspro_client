@@ -13,7 +13,7 @@ import { Context } from "../index.js";
 const Approuter = (props) => {
 
   const { user } = useContext(Context)
-  console.log(user);
+
   return (
     <>
     {
@@ -22,7 +22,7 @@ const Approuter = (props) => {
           <Route path="/*" element={<Navigate to="/catalog" replace />} />
           <Route path="/main" element={<MainPage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/catalog" element={<CatalogPage addItem={props.addItem} />} />
+          <Route path="/catalog" element={<CatalogPage addItem={props.addItem} toggleCart={props.toggleCart}/>} />
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/contacts" element={<ContactsPage />} />
           <Route path="/ship" element={<ShipPage />} />
@@ -34,7 +34,7 @@ const Approuter = (props) => {
           <Route path="/*" element={<Navigate to="/catalog" replace />} />
           <Route path="/main" element={<MainPage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/catalog" element={<CatalogPage addItem={props.addItem} />} />
+          <Route path="/catalog" element={<CatalogPage addItem={props.addItem} toggleCart={props.toggleCart}/>} />
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/contacts" element={<ContactsPage />} />
           <Route path="/ship" element={<ShipPage />} />

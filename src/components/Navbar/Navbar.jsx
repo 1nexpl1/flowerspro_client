@@ -13,7 +13,6 @@ import { MdLogout } from "react-icons/md";
 import { observer } from "mobx-react-lite";
 const Navbar = observer((props) => {
   const [openAuth, toggleAuth] = useToggle();
-  const [openCart, toggleCart] = useToggle();
   const [ref, hovering] = useHover();
   const router = useNavigate();
   const [isAuth, setIsAuth] = useState()
@@ -61,12 +60,12 @@ const Navbar = observer((props) => {
             {openAuth ? <Auth toggle={toggleAuth} /> : <></>}
           </div>
           <div className={s.cart}>
-            <FaShoppingCart className={s.icon} onClick={toggleCart} />
-            {openCart ? (
+            <FaShoppingCart className={s.icon} onClick={props.toggleCart} />
+            {props.openCart ? (
               <Cart
                 deleteItem={props.deleteItem}
                 items={props.items}
-                toggle={toggleCart}
+                toggle={props.toggleCart}
                 sum={props.sum}
                 setSum={props.setSum}
               />

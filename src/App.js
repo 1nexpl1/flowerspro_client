@@ -6,6 +6,7 @@ import { Spinner } from "react-bootstrap";
 import { Context } from ".";
 import {check} from "./http/userAPI";
 import { fetchBrands, fetchDevices, fetchTypes } from "./http/DeviceAPI";
+import { useToggle } from "@uidotdev/usehooks";
 function App() {
   const [items, setItems] = useState([]);
   const [sum, setSum] = useState(0);
@@ -26,6 +27,9 @@ function App() {
     // }
 
   
+  const [openCart, toggleCart] = useToggle();
+
+  
   const addItem = (NewItem) => {
     if (!items.includes(NewItem)){
       setItems([...items, NewItem]);
@@ -39,8 +43,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar items={items} sum={sum} deleteItem={deleteItem} setSum={setSum}/>
-      <Approuter addItem={addItem} />
+      <Navbar openCart ={openCart} toggleCart={toggleCart} items={items} sum={sum} deleteItem={deleteItem} setSum={setSum}/>
+      <Approuter addItem={addItem} toggleCart={toggleCart}/>
     </BrowserRouter>
   );
 }

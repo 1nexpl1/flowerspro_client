@@ -11,11 +11,11 @@ const HoverContact = () => {
                 Напишите нам, мы онлайн
                 {hovering ? (
                     <div className={s.blocks}>
-                        <a href='https://t.me/flowerspro_vp'  className={s.blockCont}>
+                        <a href='https://t.me/flowerspro_vp' target='_blank'  className={s.blockCont}>
                             <img src={tglogo} alt="" />
                             <span>Telegram</span>
                         </a>
-                        <a className={s.blockCont}>
+                        <a href='https://vk.com/flowersprovp' target='_blank' className={s.blockCont}>
                             <img src={vklogo} alt="" />
                             <span>Сообщение вконтакте</span>
                         </a>

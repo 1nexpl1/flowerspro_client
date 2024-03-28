@@ -1,166 +1,67 @@
 import React, { useContext, useState } from "react";
-import Slider from "react-slider";
 import s from "./Filter.module.css";
 import { Context } from "../..";
 import Checkbox from "../UI/Checkbox/Checkbox";
+import RangeSlider from "../Slider/Slider";
+import { observer } from "mobx-react-lite";
 
-const MIN = 490;
-const MAX = 11490;
-
-const Filter = () => {
-  const [checked, setChecked] = useState(false);
-  const [checked1, setChecked1] = useState(false);
-  const [checked2, setChecked2] = useState(false);
-  const [checked3, setChecked3] = useState(false);
-  const [checked4, setChecked4] = useState(false);
-  const [checked5, setChecked5] = useState(false);
-  const [checked6, setChecked6] = useState(false);
-  const [checked7, setChecked7] = useState(false);
-  const [checked8, setChecked8] = useState(false);
-  const [checked9, setChecked9] = useState(false);
-  const [checked10, setChecked10] = useState(false);
-  const [values, setValues] = useState([MIN, MAX]);
+const Filter = observer((props) => {
   const {device} = useContext(Context)
+  let prices =[]
+  device.devices.map((e)=>{
+    prices.push(e.price)
+  })
+  const [value, setValue] = React.useState([Math.min(...prices), Math.max(...prices)]);
+  const MIN = Math.min(...prices)
+  const MAX = Math.max(...prices)
+  const [type, setType] = useState(null)
+  const [brand, setBrand] = useState(null)
+
+  const click = () =>{
+    device.setSelectedType(type)
+    device.setSelectedBrand(brand)
+    let arr = []
+    device.devices.map((dev)=>{
+      if (dev.price >= value[0] && dev.price <= value[1]){
+        arr.push(dev)
+      }
+    })
+    device.setDevices(arr)
+  }
   return (
     <div className={s.wrapper}>
-      
       <div className={s.checkboxes}>
-        
-        <div className={s.title}>Цветы</div>
-        
-        
-        <label className={s.checkbox}>
-          <input
-            className={s.checkSquare}
-            type="checkbox"
-            checked={checked}
-            onChange={() => setChecked(!checked)}
-          />
-          <span>Роза</span>
-        </label>
-        <label className={s.checkbox}>
-          <input
-            className={s.checkSquare}
-            type="checkbox"
-            checked={checked1}
-            onChange={() => setChecked1(!checked1)}
-          />
-          <span>Пион</span>
-        </label>
-        <label className={s.checkbox}>
-          <input
-            className={s.checkSquare}
-            type="checkbox"
-            checked={checked2}
-            onChange={() => setChecked2(!checked2)}
-          />
-          <span>Гортензия</span>
-        </label>
-        <label className={s.checkbox}>
-          <input
-            className={s.checkSquare}
-            type="checkbox"
-            checked={checked3}
-            onChange={() => setChecked3(!checked3)}
-          />
-          <span>Гелиантус</span>
-        </label>
-        <label className={s.checkbox}>
-          <input
-            className={s.checkSquare}
-            type="checkbox"
-            checked={checked4}
-            onChange={() => setChecked4(!checked4)}
-          />
-          <span>Лаванда</span>
-        </label>
-        <label className={s.checkbox}>
-          <input
-            className={s.checkSquare}
-            type="checkbox"
-            checked={checked5}
-            onChange={() => setChecked5(!checked5)}
-          />
-          <span>Тюльпан</span>
-        </label>
-        <label className={s.checkbox}>
-          <input
-            className={s.checkSquare}
-            type="checkbox"
-            checked={checked6}
-            onChange={() => setChecked6(!checked6)}
-          />
-          <span>Маттиола</span>
-        </label>
-        <label className={s.checkbox}>
-          <input
-            className={s.checkSquare}
-            type="checkbox"
-            checked={checked7}
-            onChange={() => setChecked7(!checked7)}
-          />
-          <span>Ахилея</span>
-        </label>
+        <div className={s.title}>Тип</div>
+        {device.types.map(name =>
+          <Checkbox name={name.name} setType={setType} id = {name.id}/>
+        )}
       </div>
       <div className={s.priceFilt}>
         <div className={s.title}>Цена</div>
-        <Slider
-          className={s.slider}
-          value={values}
-          onChange={setValues}
-          min={MIN}
-          max={MAX}
-        />
-        <div className={s.priceVal}>
-          <div>490</div>
-          <div>11490</div>
-        </div>
+        <RangeSlider MIN = {MIN} MAX = {MAX} value ={value} setValue={setValue}/>
         <div className={s.inputs}>
           <div className={s.input}>
             <span>от</span>
-            <input type="text" name="" id="" />
+            <input type="text" name="" id="" value={value[0]} onChange={(e)=>setValue([e.target.value, value[1]])}/>
           </div>
           <div className={s.input}>
             <span>до</span>
-            <input type="text" name="" id="" />
+            <input type="text" name="" id="" value={value[1]} onChange={(e)=>setValue([value[0], e.target.value])}/>
           </div>
         </div>
       </div>
+      
       <div className={s.checkboxes}>
         <div className={s.title}>Упаковка</div>
-        <label className={s.checkbox}>
-          <input
-            className={s.checkSquare}
-            type="checkbox"
-            checked={checked8}
-            onChange={() => setChecked(!checked8)}
-          />
-          <span>Корзина</span>
-        </label>
-        <label className={s.checkbox}>
-          <input
-            className={s.checkSquare}
-            type="checkbox"
-            checked={checked9}
-            onChange={() => setChecked9(!checked9)}
-          />
-          <span>Лента</span>
-        </label>
-        <label className={s.checkbox}>
-          <input
-            className={s.checkSquare}
-            type="checkbox"
-            checked={checked10}
-            onChange={() => setChecked10(!checked10)}
-          />
-          <span>Пленка</span>
-        </label>
+        {device.brands.map(name =>
+          <Checkbox name={name.name} setType={setBrand} id={name.id}/>
+        )}
       </div>
-      <button className={s.approve}>
+      <button className={s.approve} onClick={click}>
         <span>Применить</span>
       </button>
     </div>
   );
-};
+});
 
 export default Filter;

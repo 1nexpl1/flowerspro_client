@@ -49,6 +49,7 @@ const Item = (props) => {
                 onClick={(e) => {
                   e.stopPropagation()
                   props.addItem(ItemObj)
+                  props.toggleCart()
                 }}
               >
                 Купить

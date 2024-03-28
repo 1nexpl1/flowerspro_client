@@ -78,6 +78,10 @@
     text-align: right;
     padding-right: 15px;
 }
+.inputs input:focus{
+    outline: none;
+    border: none;
+}
 
 .input{
     display: flex;

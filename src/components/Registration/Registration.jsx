@@ -4,21 +4,36 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { registration } from '../../http/userAPI';
 import { Context } from '../..';
 const Registration = (props) => {
-    const [checked1, setChecked1] = useState(false);
+  const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const {user} = useContext(Context)
+  const [password1, setPassword1] = useState('')
+  const { user } = useContext(Context)
   const click = async () => {
-    try {
-        let data = await registration(email, password);
-        console.log(data);
-        user.setIsAuth(true)
-    } catch (e) {
-        alert(e.response.data.message)
+    if (validateEmail(email)) {
+      if (password === password1) {
+        try {
+          let data = await registration(email, password);
+          console.log(data);
+          user.setIsAuth(true)
+          props.toggle()
+        } catch (e) {
+          alert(e.response.data.message)
+        }
+      } else {
+        alert('Пароли не совпадают')
+      } 
+    } else {
+      alert('Некорректный email')
     }
 
-}
+  }
+  function validateEmail(email) {
+    let re = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+    return re.test(String(email).toLowerCase());
+  }
+
   return (
     <div className={s.wrapper}>
       <button className={s.buttonBack} onClick={props.toggle}>
@@ -30,12 +45,14 @@ const Registration = (props) => {
       <div className={s.reg}>
         <div className={s.inputs}>
           <input className={s.addressInput} type="text" placeholder="Имя" />
-          <input className={s.addressInput} type="text" placeholder="e-mail" value={email} onChange={e => setEmail(e.target.value)}/>
-          <input className={s.addressInput} type="password" placeholder="Пароль" value={password} onChange={e => setPassword(e.target.value)}/>
+          <input className={s.addressInput} type="text" placeholder="e-mail" value={email} onChange={e => setEmail(e.target.value)} />
+          <input className={s.addressInput} type="password" placeholder="Пароль" value={password} onChange={e => setPassword(e.target.value)} />
           <input
             className={s.addressInput}
             type="password"
             placeholder="Повторите пароль"
+            value={password1}
+            onChange={e => setPassword1(e.target.value)}
           />
         </div>
         <div className={s.checkboxes}>
@@ -63,7 +80,7 @@ const Registration = (props) => {
           <button className={s.registerBut} onClick={click}>Зарегистрироваться</button>
         </div>
         <div className={s.change}>
-        У меня уже есть аккаунт <span onClick={() =>{props.setIsAuth(false)}}>Войти</span>
+          У меня уже есть аккаунт <span onClick={() => { props.setIsAuth(false) }}>Войти</span>
         </div>
       </div>
     </div>

@@ -8,20 +8,27 @@ import { Context } from "..";
 import BouquetList from "../components/BouquetList/BouquetList";
 import { Spinner } from "react-bootstrap";
 import HoverContact from "../components/HoverContact/HoverContact";
+import { observer } from "mobx-react-lite";
 
-const CatalogPage = (props) => {
-  const {device} = useContext(Context)
+const CatalogPage = observer((props) => {
+  const { device } = useContext(Context)
   const [loading, setLoading] = useState(true)
   useEffect(() => {
     fetchTypes().then(data => device.setTypes(data))
     fetchBrands().then(data => device.setBrands(data))
     fetchDevices(null, null).then(data => {
+      device.setDevices(data.rows)
+      device.setTotalCount(data.count)
+    }).finally(() => setLoading(false))
+  }, [])
+  useEffect(() => {
+    fetchDevices(device.selectedType, device.selectedBrand).then(data => {
         device.setDevices(data.rows)
         device.setTotalCount(data.count)
-    }).finally(() => setLoading(false))
-}, [])
+    })
+}, [ device.selectedType, device.selectedBrand,])
   if (loading) {
-    return <Spinner animation={"grow"}/>
+    return <Spinner animation={"grow"} />
   }
   return (
     <div className="catalogWrapper">
@@ -31,12 +38,12 @@ const CatalogPage = (props) => {
           <Filter />
         </div>
         <div className="catalogItems">
-          <BouquetList addItem = {props.addItem}/>
+          <BouquetList toggleCart={props.toggleCart} addItem={props.addItem} />
         </div>
       </div>
       <HoverContact />
     </div>
   );
-};
+});
 
 export default CatalogPage;
