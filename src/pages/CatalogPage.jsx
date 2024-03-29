@@ -19,23 +19,27 @@ const CatalogPage = observer((props) => {
     fetchDevices(null, null).then(data => {
       device.setDevices(data.rows)
       device.setTotalCount(data.count)
-    }).finally(() => setLoading(false))
+      let prices =[]
+      device.devices.map((e)=>{
+      prices.push(e.price)
+      })
+      device.setMin(Math.min(...prices))
+      device.setMax(Math.max(...prices))
+    }).finally(() => setLoading(false))   
   }, [])
   useEffect(() => {
-    fetchDevices(device.selectedType, device.selectedBrand).then(data => {
-        device.setDevices(data.rows)
-        device.setTotalCount(data.count)
-    })
-}, [ device.selectedType, device.selectedBrand,])
+    
+    
+  }, [])
   if (loading) {
     return <Spinner animation={"grow"} />
-  }
+  } 
   return (
     <div className="catalogWrapper">
       <Title>Каталог</Title>
       <div className="catalogWrapperContent">
         <div className="catalogFilter">
-          <Filter />
+          <Filter/>
         </div>
         <div className="catalogItems">
           <BouquetList toggleCart={props.toggleCart} addItem={props.addItem} />

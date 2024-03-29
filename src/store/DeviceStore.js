@@ -7,6 +7,8 @@ export default class DeviceStore {
         this._devices = []
         this._selectedType = {}
         this._selectedBrand = {}
+        this._min = 1
+        this._max = 1
         this._page = 1
         this._totalCount = 0
         this._limit = 3
@@ -37,6 +39,12 @@ export default class DeviceStore {
     setTotalCount(count) {
         this._totalCount = count
     }
+    setMin(min) {
+        this._min = min
+    }
+    setMax(max) {
+        this._max = max
+    }
 
     get types() {
         return this._types
@@ -61,5 +69,11 @@ export default class DeviceStore {
     }
     get limit() {
         return this._limit
+    }
+    get min() {
+        return this._min
+    }
+    get max() {
+        return this._max
     }
 }

@@ -1,44 +1,56 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import s from "./Filter.module.css";
 import { Context } from "../..";
 import Checkbox from "../UI/Checkbox/Checkbox";
 import RangeSlider from "../Slider/Slider";
 import { observer } from "mobx-react-lite";
+import { fetchDevices } from "../../http/DeviceAPI";
+import { Spinner } from "react-bootstrap";
 
 const Filter = observer((props) => {
   const {device} = useContext(Context)
-  let prices =[]
-  device.devices.map((e)=>{
-    prices.push(e.price)
-  })
-  const [value, setValue] = React.useState([Math.min(...prices), Math.max(...prices)]);
-  const MIN = Math.min(...prices)
-  const MAX = Math.max(...prices)
+  const [loading, setLoading] = useState(true)
+  
+  let MIN;
+  let MAX;
+
+ 
+  console.log(device.max);
+  
+  
+  const [value, setValue] = React.useState([device.min, device.max]);
   const [type, setType] = useState(null)
   const [brand, setBrand] = useState(null)
 
   const click = () =>{
     device.setSelectedType(type)
     device.setSelectedBrand(brand)
-    let arr = []
-    device.devices.map((dev)=>{
-      if (dev.price >= value[0] && dev.price <= value[1]){
-        arr.push(dev)
-      }
-    })
-    device.setDevices(arr)
+    fetchDevices(device.selectedType, device.selectedBrand).then(data => {
+      let arr = []
+      data.rows.map((dev)=>{
+        console.log(dev, value[0], value[1]);
+        if ((dev.price >= value[0] && dev.price <= value[1])){
+          arr.push(dev)
+        }
+      })
+      console.log(arr);
+      device.setDevices(arr)
+      device.setTotalCount(data.count)
+  })
   }
+
+  
   return (
     <div className={s.wrapper}>
       <div className={s.checkboxes}>
         <div className={s.title}>Тип</div>
         {device.types.map(name =>
-          <Checkbox name={name.name} setType={setType} id = {name.id}/>
+          <Checkbox name={name.name} setType={setType} id = {name.id} key = {name.id}/>
         )}
       </div>
       <div className={s.priceFilt}>
         <div className={s.title}>Цена</div>
-        <RangeSlider MIN = {MIN} MAX = {MAX} value ={value} setValue={setValue}/>
+        <RangeSlider MIN = {device.min} MAX = {device.max} value ={value} setValue={setValue}/>
         <div className={s.inputs}>
           <div className={s.input}>
             <span>от</span>
@@ -54,7 +66,7 @@ const Filter = observer((props) => {
       <div className={s.checkboxes}>
         <div className={s.title}>Упаковка</div>
         {device.brands.map(name =>
-          <Checkbox name={name.name} setType={setBrand} id={name.id}/>
+          <Checkbox name={name.name} setType={setBrand} id={name.id} key = {name.id}/>
         )}
       </div>
       <button className={s.approve} onClick={click}>
@@ -63,5 +75,6 @@ const Filter = observer((props) => {
     </div>
   );
 });
+
 
 export default Filter;
