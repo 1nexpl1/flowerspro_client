@@ -38,6 +38,7 @@ const Approuter = (props) => {
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/contacts" element={<ContactsPage />} />
           <Route path="/ship" element={<ShipPage />} />
+          <Route path="/admin" element={<AdminPage />} />
           <Route path="/catalog/:id" element={<ItemPage />} />
         </Routes>
       )

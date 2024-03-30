@@ -1,6 +1,7 @@
 import React from "react";
 import s from "./ShipIndivid.module.css";
-import photo1 from '../../images/individ.png'
+import photo1 from '../../images/IndPhot.png'
+import photo2 from '../../images/KorPhot.png'
 const ShipIndivid = () => {
   return (
     <div className={s.wrapper}>
@@ -14,7 +15,7 @@ const ShipIndivid = () => {
         <button className={s.button}>Подробнее</button>
       </div>
       <div className={s.block}>
-        <img className={s.image} src="https://placehold.co/500x400" alt="" />
+        <img className={s.image} src={photo2} alt="" />
         <div className={s.title}>Букеты корпоративным клиентам</div>
         <div className={s.descrip}>
           Хотите сделать заказ для компании? Свяжитесь с нами или опишите
