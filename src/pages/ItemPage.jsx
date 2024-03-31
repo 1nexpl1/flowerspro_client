@@ -11,7 +11,6 @@ const ItemPage = () => {
   useEffect(() => {
       fetchOneDevice(id).then(data => setDevice(data))
   }, [])
-  console.log(device);
   return (
     <div className='wrapperItem'>
        <PhotosItem item={device}/> 

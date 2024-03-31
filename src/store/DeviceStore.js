@@ -5,6 +5,7 @@ export default class DeviceStore {
         this._types = []
         this._brands = []
         this._devices = []
+        this._flowers = []
         this._selectedType = {}
         this._selectedBrand = {}
         this._min = 1
@@ -23,6 +24,10 @@ export default class DeviceStore {
     }
     setDevices(devices) {
         this._devices = devices
+    }
+
+    setFlowers(flowers){
+        this._flowers = flowers
     }
 
     setSelectedType(type) {
@@ -75,5 +80,9 @@ export default class DeviceStore {
     }
     get max() {
         return this._max
+    }
+
+    get flowers() {
+        return this._flowers
     }
 }

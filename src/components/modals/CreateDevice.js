@@ -10,6 +10,11 @@ const CreateDevice = observer(({show, onHide}) => {
     const [name, setName] = useState('')
     const [price, setPrice] = useState(0)
     const [file, setFile] = useState(null)
+    const [file1, setFile1] = useState(null)
+    const [file2, setFile2] = useState(null)
+    const [file3, setFile3] = useState(null)
+    const [file4, setFile4] = useState(null)
+    const [file5, setFile5] = useState(null)
     const [info, setInfo] = useState([])
 
     useEffect(() => {
@@ -30,12 +35,29 @@ const CreateDevice = observer(({show, onHide}) => {
     const selectFile = e => {
         setFile(e.target.files[0])
     }
+    const selectFile1 = e => {
+        setFile1(e.target.files[0])
+    }
+    const selectFile2 = e => {
+        setFile2(e.target.files[0])
+    }
+    const selectFile3 = e => {
+        setFile3(e.target.files[0])
+    }
+    const selectFile4 = e => {
+        setFile4(e.target.files[0])
+    }
+    
 
     const addDevice = () => {
         const formData = new FormData()
         formData.append('name', name)
         formData.append('price', `${price}`)
         formData.append('img', file)
+        formData.append('img1', file1)
+        formData.append('img2', file2)
+        formData.append('img3', file3)
+        formData.append('img4', file4) 
         formData.append('brandId', device.selectedBrand.id)
         formData.append('typeId', device.selectedType.id)
         formData.append('info', JSON.stringify(info))
@@ -99,6 +121,28 @@ const CreateDevice = observer(({show, onHide}) => {
                         type="file"
                         onChange={selectFile}
                     />
+                    <span>Дополнительные фото(карусель)</span>
+                    <Form.Control
+                        className="mt-3"
+                        type="file"
+                        onChange={selectFile1}
+                    />
+                    <Form.Control
+                        className="mt-3"
+                        type="file"
+                        onChange={selectFile2}
+                    />
+                    <Form.Control
+                        className="mt-3"
+                        type="file"
+                        onChange={selectFile3}
+                    />
+                    <Form.Control
+                        className="mt-3"
+                        type="file"
+                        onChange={selectFile4}
+                    />
+                    
                     <hr/>
                     <Button
                         variant={"outline-dark"}

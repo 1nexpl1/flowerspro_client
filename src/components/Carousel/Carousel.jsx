@@ -16,16 +16,34 @@ const Carousel = (props) => {
             thumbnailWidth: '92px',
         },
         {
-            original: props.image,
-            thumbnail: props.image,
+            original: props.image1,
+            thumbnail: props.image1,
+            originalHeight: '550px',
+            originalWidth: '550px',
+            thumbnailHeight: '92px',
+            thumbnailWidth: '92px',
+        },
+
+        
+        {
+            original: props.image2,
+            thumbnail: props.image2,
             originalHeight: '550px',
             originalWidth: '550px',
             thumbnailHeight: '92px',
             thumbnailWidth: '92px',
         },
         {
-            original: props.image,
-            thumbnail: props.image,
+            original: props.image3,
+            thumbnail: props.image3,
+            originalHeight: '550px',
+            originalWidth: '550px',
+            thumbnailHeight: '92px',
+            thumbnailWidth: '92px',
+        },
+        {
+            original: props.image4,
+            thumbnail: props.image4,
             originalHeight: '550px',
             originalWidth: '550px',
             thumbnailHeight: '92px',
