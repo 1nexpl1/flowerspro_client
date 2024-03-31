@@ -3,3 +3,9 @@
     font-size: 36px;
     color: #292929;
 }
+
+@media (max-width:1350px) {
+    .text{
+        font-size: 32px;
+    }
+}

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import s from "./CatalogNav.module.css";
+import { Context } from "../..";
 const CatalogNav = () => {
+  const {device} = useContext(Context)
   const categories = [
     "Смотреть всё",
     "Новинки",
@@ -15,15 +17,9 @@ const CatalogNav = () => {
   ];
   return (
     <div className={s.wrapper}>
-      <div className={s.column}>
-      {categories.slice(0, 5).map((e) => (
-        <Link className={s.link} to="/catalog">
-          <div className={s.text}>{e}</div>
-        </Link>
-      ))}
-      </div>
+      
       <div className={s.column}>  
-      {categories.slice(5, 9).map((e) => (
+      {categories.map((e) => (
         <Link className={s.link} to="/catalog">
           <div className={s.text}>{e}</div>
         </Link>

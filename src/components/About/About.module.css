@@ -27,6 +27,9 @@
 .imageWrapper{
     width: 45%;
 }
+.imageWrapper img{
+    width: 100%;
+}
 
 .title{
     font-family: Wermut;
@@ -42,4 +45,17 @@
     font-family: Graphik;
     font-style: 16px;
     color: #292929;
+}
+@media (max-width:1350px) {
+    .imageWrapper{
+        width: 40%;
+    }
+    .block:nth-child(2){
+        flex-direction: row-reverse;
+        gap: 10%;
+    }
+    .title{
+        font-size: 26px;
+        text-align: center;
+    }
 }

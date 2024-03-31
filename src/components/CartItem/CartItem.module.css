@@ -94,6 +94,7 @@
 .itemTitle {
     width: 100%;
     font-size: 22px;
+    text-align: left;
 }
 
 .price {
@@ -115,4 +116,19 @@
     height: 40px;
     width: 40px;
     cursor: pointer
+}
+
+@media (max-width:1670px) {
+    .itemPhoto {
+        width: 30%;
+    }
+    
+    
+    .itemInfo {
+        width: 55%;
+    }
+    
+    .itemDelete {
+        width: 5%;
+    }
 }

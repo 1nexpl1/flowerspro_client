@@ -8,7 +8,7 @@ export default function RangeSlider(props) {
     props.setValue(newValue);
   };
   return (
-    <Box sx={{ width: 300 }}>
+    <Box sx={{ width: '100%' }}>
       <Slider
         value={props.value}
         onChange={handleChange}

@@ -12,23 +12,23 @@ function App() {
   const [sum, setSum] = useState(0);
   const {user} = useContext(Context)
   const [loading, setLoading] = useState(true)
-  const [openCart, toggleCart] = useToggle();
-  const {device} = useContext(Context)
-    // useEffect(() => {
-    //   try {
-    //     check().then(data => {
-    //       user.setUser(data)
-    //       user.setIsAuth(true)
-    //     }).finally(() => setLoading(false))
-    //   } catch (error) {
-    //     setLoading(false)
-    //   }
-        
-    // }, [])
+  
+  const [openCart, toggleCart] = useToggle();  
 
-    // if (loading) {
-    //     return <Spinner animation={"grow"}/>
-    // }
+  const {device} = useContext(Context)
+    useEffect(() => {
+        check().then(data => {
+            user.setUser(data)
+            user.setIsAuth(true)
+        }).finally(() => setLoading(false))
+    }, [])
+
+    if (loading) {
+        return <Spinner animation={"grow"}/>
+    }
+
+
+
 
   
   const addItem = (NewItem) => {

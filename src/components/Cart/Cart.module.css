@@ -313,3 +313,9 @@
 .paymentBut:hover::before{
     width: 100%;
 }
+
+@media (max-width:1865px) {
+    .paymentBut{
+        height: 60px;
+    }
+}
