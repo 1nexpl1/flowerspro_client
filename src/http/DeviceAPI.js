@@ -37,3 +37,13 @@ export const fetchOneDevice = async (id) => {
     const {data} = await $host.get('api/device/' + id)
     return data
 }
+
+export const deleteDevice = async (id) => {
+    const {data} = await $host.delete('api/device/' + id)
+    return data
+}
+ 
+export const deleteBrand = async (id) => {
+    const {data} = await $host.delete('api/brand/' + id)
+    return data
+}
