@@ -47,7 +47,7 @@ const AdminPage = () => {
             >
                 Удалить товар
             </Button>
-            {/* <Button
+            <Button
                 variant={"outline-dark"}
                 className="mt-4 p-2"
                 onClick={() => setDeleteTypeVisible(true)}
@@ -60,13 +60,13 @@ const AdminPage = () => {
                 onClick={() => setDeleteBrandVisible(true)}
             >
                 Удалить упаковку
-            </Button> */}
+            </Button>
             <CreateBrand show={brandVisible} onHide={() => setBrandVisible(false)}/>
             <CreateDevice show={deviceVisible} onHide={() => setDeviceVisible(false)}/>
             <CreateType show={typeVisible} onHide={() => setTypeVisible(false)}/>
             <DeleteDevice show={deleteDeviceVisible} onHide = {() => setDeleteDeviceVisible(false)} />            
-            {/* <DeleteType show={deleteTypeVisible} onHide = {() => setDeleteTypeVisible(false)} />        
-            <DeleteBrand show={deleteBrandVisible} onHide = {() => setDeleteBrandVisible(false)} /> */}
+            <DeleteType show={deleteTypeVisible} onHide = {() => setDeleteTypeVisible(false)} />        
+            <DeleteBrand show={deleteBrandVisible} onHide = {() => setDeleteBrandVisible(false)} />
         </Container>
         </div>
     );

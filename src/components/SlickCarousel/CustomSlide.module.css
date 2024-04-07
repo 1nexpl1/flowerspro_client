@@ -1,0 +1,42 @@
+.slide {
+    background-color: #f1f6e9;
+    border-radius: 35px;
+    padding: 20px 40px;
+    padding-bottom: 250px;
+    position: relative;
+}
+
+.titleSlide {
+    
+    font-family: Wermut;
+    width: 40%;
+    font-size: 96px;
+    color: #292929;
+    margin-bottom: 40px;
+}
+
+.linkSlide {
+    font-family: Graphik;
+    font-size: 26px;
+    text-decoration: none;
+    color: #292929;
+    margin-top: 40px;
+}
+
+.photo1 {
+    border-radius: 20px;
+    position: absolute;
+    right: 310px;
+    bottom: 30px;
+    width: 250px;
+    height: 250px;
+} 
+.photo2 {
+    
+    border-radius: 20px;
+    position: absolute;
+    right: 40px;
+    bottom: 30px;
+    width: 250px;
+    height: 250px;
+}

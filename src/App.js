@@ -7,29 +7,29 @@ import { Context } from ".";
 import {check} from "./http/userAPI";
 import { fetchBrands, fetchDevices, fetchTypes } from "./http/DeviceAPI";
 import { useToggle } from "@uidotdev/usehooks";
+import Navigation from "./components/NavMobile/Navigation";
 function App() {
   const [items, setItems] = useState([]);
   const [sum, setSum] = useState(0);
   const {user} = useContext(Context)
   const [loading, setLoading] = useState(true)
-  
+  const mediaQuerry = window.matchMedia('(max-width:780px)')
   const [openCart, toggleCart] = useToggle();  
-
+  
   const {device} = useContext(Context)
     useEffect(() => {
-        check().then(data => {
+        check().then(data => {         
             user.setUser(data)
             user.setIsAuth(true)
+            if (data.role === 'ADMIN'){
+              user.setIsAdmin(true)
+            }
         }).finally(() => setLoading(false))
     }, [])
 
     if (loading) {
         return <Spinner animation={"grow"}/>
     }
-
-
-
-
   
   const addItem = (NewItem) => {
     if (!items.includes(NewItem)){
@@ -41,10 +41,15 @@ function App() {
     setItems(items.filter((element) => element.id !== Item.id));
     setSum(sum - Item.price * Item.count);
   };
-
   return (
     <BrowserRouter>
-      <Navbar openCart ={openCart} toggleCart={toggleCart} items={items} sum={sum} deleteItem={deleteItem} setSum={setSum}/>
+      {mediaQuerry.matches ? (
+        <div className="navigationSticky">
+          <Navigation />
+        </div>
+      ) : (
+        <Navbar openCart ={openCart} toggleCart={toggleCart} items={items} sum={sum} deleteItem={deleteItem} setSum={setSum}/>
+      )}
       <Approuter addItem={addItem} toggleCart={toggleCart}/>
     </BrowserRouter>
   );

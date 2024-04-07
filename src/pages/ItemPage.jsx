@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 import { fetchOneDevice } from '../http/DeviceAPI'
 import HoverContact from '../components/HoverContact/HoverContact'
 
-const ItemPage = () => {
+const ItemPage = (props) => {
   const [device, setDevice] = useState({info: []})
   const {id} = useParams()
   useEffect(() => {
@@ -14,7 +14,7 @@ const ItemPage = () => {
   return (
     <div className='wrapperItem'>
        <PhotosItem item={device}/> 
-       <ItemDescrip item={device}/>
+       <ItemDescrip item={device} addItem={props.addItem} toggleCart={props.toggleCart}/>
        <HoverContact />
     </div>
   )

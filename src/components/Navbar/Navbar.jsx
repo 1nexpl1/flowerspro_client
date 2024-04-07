@@ -28,10 +28,13 @@ const Navbar = observer((props) => {
     <>
       <div className={s.wrapper}>
         <div className={s.navbar}>
+          <Link className={s.link} to="/main">
+            Главная
+          </Link>
           <Link className={s.linkCatalog} to="/catalog" ref={ref}>
             <div className={s.link}>Каталог</div>
             {hovering ? <CatalogNav /> : <></>}
-          </Link>
+          </Link>         
           <Link className={s.link} to="/payment">
             Оплата
           </Link>

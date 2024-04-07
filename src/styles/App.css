@@ -342,6 +342,45 @@ html::-webkit-scrollbar-track {
     height: 400px;
 }
 
+.navigationSticky{
+    height: 50px;
+    z-index: -1;
+}
+.mainWrapper {
+    margin: 0 10%;
+    padding-top: 40px;
+    width: 80%;
+    padding-bottom: 200px;
+}
+.mainSlick{
+    width: 100%;
+    display: block;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 150px;
+}
+.slick-prev::before{
+    display: none;
+}
+.slick-next:before {
+    display: none;
+}
+
+.slick-dots li{
+    width: 100%;
+    background-color: #989898;
+    height: 5px;
+    border-radius: 2px;
+}
+.slick-dots .slick-active{
+    background-color: #292929;
+}
+.slick-dots li button:before{
+    display: none;
+}
+.slick-dots li button{
+    width: 100%;
+}
 @media (max-width:1890px) {
     .catalogItems{
         grid-template-columns: repeat(3, 1fr);

@@ -13,11 +13,12 @@ import { Context } from "../index.js";
 const Approuter = (props) => {
 
   const { user } = useContext(Context)
-
+  const Auth = user.isAuth
+  const Admin = user.isAdmin
   return (
     <>
     {
-      user.isAuth ? (
+      Admin ? (
         <Routes>
           <Route path="/*" element={<Navigate to="/catalog" replace />} />
           <Route path="/main" element={<MainPage />} />
@@ -27,7 +28,7 @@ const Approuter = (props) => {
           <Route path="/contacts" element={<ContactsPage />} />
           <Route path="/ship" element={<ShipPage />} />
           <Route path="/admin" element={<AdminPage />} />
-          <Route path="/catalog/:id" element={<ItemPage />} />
+          <Route path="/catalog/:id" element={<ItemPage addItem={props.addItem} toggleCart={props.toggleCart}/>} />
         </Routes>
       ) : (
         <Routes>
@@ -38,8 +39,7 @@ const Approuter = (props) => {
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/contacts" element={<ContactsPage />} />
           <Route path="/ship" element={<ShipPage />} />
-          <Route path="/admin" element={<AdminPage />} />
-          <Route path="/catalog/:id" element={<ItemPage />} />
+          <Route path="/catalog/:id" element={<ItemPage addItem={props.addItem} toggleCart={props.toggleCart}/>} />
         </Routes>
       )
     }

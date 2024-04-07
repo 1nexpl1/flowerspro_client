@@ -47,3 +47,8 @@ export const deleteBrand = async (id) => {
     const {data} = await $host.delete('api/brand/' + id)
     return data
 }
+
+export const deleteType = async (id) => {
+    const {data} = await $host.delete('api/type/' + id)
+    return data
+}

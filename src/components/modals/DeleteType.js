@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Modal, Table } from 'react-bootstrap'
-import { deleteDevice, fetchTypes } from '../../http/DeviceAPI'
+import { deleteDevice, deleteType, fetchTypes } from '../../http/DeviceAPI'
 import Checkbox from '../UI/Checkbox/Checkbox'
 
 const DeleteType = ({ show, onHide }) => {
     const [value, setValue] = useState([])
     const [selectId, setSelectId] = useState(null)
     const deleteOneType = () => {
-        deleteDevice(selectId).then(data => {
+        deleteType(selectId).then(data => {
             setSelectId(null)
             onHide()
         })

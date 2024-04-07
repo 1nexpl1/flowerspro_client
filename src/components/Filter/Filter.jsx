@@ -32,8 +32,6 @@ const Filter = observer((props) => {
     })
     })
   }, [])
-  
-  console.log(flower == null);
   const click = () =>{
     device.setSelectedType(type)
     device.setSelectedBrand(brand)
