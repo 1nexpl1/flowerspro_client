@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick-theme.css'
 import "slick-carousel/slick/slick.css";
@@ -7,14 +7,17 @@ import CustomArrNext from './CustomArrNext';
 import s from './Slick.module.css'
 import CustomArrBefore from './CustomArrBefore';
 import CustomDots from './CustomDots';
+import { Context } from '../..';
 
 const Slick = () => {
+    const {content} = useContext(Context)
     const settings = {
         dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
+        adaptiveHeight: true,
         nextArrow: <CustomArrNext />,
         prevArrow: <CustomArrBefore />,
         appendDots: dots => (
@@ -26,11 +29,9 @@ const Slick = () => {
       return (
         <div className="slider-container">
           <Slider {...settings}>
-            <CustomSlide/>
-            <CustomSlide/>
-            <CustomSlide/>
-            <CustomSlide/>
-            <CustomSlide/>
+            {content.posts.map((el)=>
+              <CustomSlide item = {el}/>
+            )}
           </Slider>
         </div>
       );

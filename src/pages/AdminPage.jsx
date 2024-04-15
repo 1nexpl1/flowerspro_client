@@ -7,10 +7,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import DeleteDevice from '../components/modals/DeleteDevice';
 import DeleteType from '../components/modals/DeleteType';
 import DeleteBrand from '../components/modals/DeleteBrand';
+import CreatePost from '../components/modals/CreatePost';
+import CreateStorie from '../components/modals/CreateStorie';
 
 const AdminPage = () => {
     const [brandVisible, setBrandVisible] = useState(false)
     const [typeVisible, setTypeVisible] = useState(false)
+    const [postVisible, setPostVisible] = useState(false)
+    const [storieVisible, setStorieVisible] = useState(false)
     const [deviceVisible, setDeviceVisible] = useState(false)
     const [deleteDeviceVisible, setDeleteDeviceVisible] = useState(false)
     const [deleteTypeVisible, setDeleteTypeVisible] = useState(false)
@@ -32,6 +36,20 @@ const AdminPage = () => {
                 onClick={() => setBrandVisible(true)}
             >
                 Добавить упаковку
+            </Button>
+            <Button
+                variant={"outline-dark"}
+                className="mt-4 p-2"
+                onClick={() => setPostVisible(true)}
+            >
+                Добавить пост
+            </Button>
+            <Button
+                variant={"outline-dark"}
+                className="mt-4 p-2"
+                onClick={() => setStorieVisible(true)}
+            >
+                Добавить историю
             </Button>
             <Button
                 variant={"outline-dark"}
@@ -63,7 +81,9 @@ const AdminPage = () => {
             </Button>
             <CreateBrand show={brandVisible} onHide={() => setBrandVisible(false)}/>
             <CreateDevice show={deviceVisible} onHide={() => setDeviceVisible(false)}/>
-            <CreateType show={typeVisible} onHide={() => setTypeVisible(false)}/>
+            <CreateType show={typeVisible} onHide={() => setTypeVisible(false)}/>           
+            <CreatePost show={postVisible} onHide={() => setPostVisible(false)}/>       
+            <CreateStorie show={storieVisible} onHide={() => setStorieVisible(false)}/>
             <DeleteDevice show={deleteDeviceVisible} onHide = {() => setDeleteDeviceVisible(false)} />            
             <DeleteType show={deleteTypeVisible} onHide = {() => setDeleteTypeVisible(false)} />        
             <DeleteBrand show={deleteBrandVisible} onHide = {() => setDeleteBrandVisible(false)} />

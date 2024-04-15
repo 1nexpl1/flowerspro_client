@@ -27,10 +27,6 @@ const CatalogPage = observer((props) => {
       device.setMax(Math.max(...prices))
     }).finally(() => setLoading(false))   
   }, [])
-  useEffect(() => {
-    
-    
-  }, [])
   if (loading) {
     return <Spinner animation={"grow"} />
   } 
