@@ -11,7 +11,8 @@ const MainPage = observer(() => {
   const {content} = useContext(Context) 
   const [loading, setLoading] = useState(true)
   useEffect(()=>{
-    fetchStorie().then(data => {     
+    fetchStorie().then(data => {   
+      console.log(data);  
       content.setStories(data)
     })
     fetchPost().then(data => {      

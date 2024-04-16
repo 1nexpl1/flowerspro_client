@@ -70,13 +70,13 @@
     cursor: pointer;
 }
 
-@media (max-width:1310px) {
+@media (max-width:1590px) {
     .navbar{
         width: 60%;
     }
 }
 
-@media (max-width:1050px) {
+@media (max-width:1270px) {
     .logoWrapper{
         width: 20%;
     }

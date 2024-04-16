@@ -8,7 +8,7 @@ import { fetchDevices, fetchOneDevice } from "../../http/DeviceAPI";
 import { Spinner } from "react-bootstrap";
 
 const Filter = observer((props) => {
-  const {device} = useContext(Context)
+  const { device } = useContext(Context)
   const [value, setValue] = React.useState([device.min, device.max]);
   const [type, setType] = useState(null)
   const [brand, setBrand] = useState(null)
@@ -17,51 +17,58 @@ const Filter = observer((props) => {
 
 
   useEffect(() => {
-    device.devices.map((e)=>{
-      fetchOneDevice(e.id).then(data=>{
-        if (data.info){
-          data.info.map((e)=>{
-            if (e.title === 'Состав' || e.title === 'Состав Букета'){
+    device.devices.map((e) => {
+      fetchOneDevice(e.id).then(data => {
+        if (data.info) {
+          data.info.map((e) => {
+            if (e.title === 'Состав' || e.title === 'Состав Букета') {
               let res = e.description.split(', ')
-              let res2 = [...device.flowers,...res]
+              let arr2 = []
+              res.map((el) => {
+                arr2.push(el.split(' -')[0])
+              })
+              let res2 = [...device.flowers, ...arr2]
               let uniqRes = [...new Set(res2)]
               device.setFlowers(uniqRes)
             }
           })
         }
-    })
+      })
     })
   }, [])
-  const click = () =>{
+  const click = () => {
     device.setSelectedType(type)
     device.setSelectedBrand(brand)
     fetchDevices(device.selectedType, device.selectedBrand).then(data => {
       let arr = []
-      data.rows.map((dev)=>{
-        if ((dev.price >= value[0] && dev.price <= value[1])){
+      data.rows.map((dev) => {
+        if ((dev.price >= value[0] && dev.price <= value[1])) {
           if (flower !== null) {
-            
-            fetchOneDevice(dev.id).then(e=>{
-                if (e.info) {
-                  e.info.map((i)=>{
-                    if (i.title === 'Состав' || i.title === 'Состав Букета'){
-                      let res = i.description.split(', ')
-                      if (res.includes(flower)){
-                        arr.push(dev)
-                      }
+            fetchOneDevice(dev.id).then(e => {
+              if (e.info) {
+                e.info.map((i) => {
+                  if (i.title === 'Состав' || i.title === 'Состав Букета') {
+                    let res = i.description.split(', ')
+                    let arr2 = []
+                    res.map((el) => {
+                      arr2.push(el.split(' -')[0])
+                    })
+                    if (arr2.includes(flower)) {
+                      arr.push(dev)
                     }
-                  })
-                }
+                  }
+                })
+              }
               device.setDevices(arr)
               device.setTotalCount(data.count)
             })
-          } else{
-            data.rows.map((dev)=>{
-              if ((dev.price >= value[0] && dev.price <= value[1])){
+          } else {
+            data.rows.map((dev) => {
+              if ((dev.price >= value[0] && dev.price <= value[1])) {
                 arr.push(dev)
               }
             })
-            
+
             console.log(arr);
             device.setDevices(arr)
             arr = []
@@ -70,41 +77,41 @@ const Filter = observer((props) => {
         }
       })
     })
-}
-  
+  }
+
   return (
     <div className={s.wrapper}>
       <div className={s.checkboxes}>
         <div className={s.title}>Тип</div>
         {device.types.map(name =>
-          <Checkbox name={name.name} setType={setType} id = {name.id} key = {name.id}/>
+          <Checkbox name={name.name} setType={setType} id={name.id} key={name.id} />
         )}
       </div>
       <div className={s.priceFilt}>
         <div className={s.title}>Цена</div>
-        <RangeSlider MIN = {device.min} MAX = {device.max} value ={value} setValue={setValue}/>
+        <RangeSlider MIN={device.min} MAX={device.max} value={value} setValue={setValue} />
         <div className={s.inputs}>
           <div className={s.input}>
             <span>от</span>
-            <input type="text" name="" id="" value={value[0]} onChange={(e)=>setValue([e.target.value, value[1]])}/>
+            <input type="text" name="" id="" value={value[0]} onChange={(e) => setValue([e.target.value, value[1]])} />
           </div>
           <div className={s.input}>
             <span>до</span>
-            <input type="text" name="" id="" value={value[1]} onChange={(e)=>setValue([value[0], e.target.value])}/>
+            <input type="text" name="" id="" value={value[1]} onChange={(e) => setValue([value[0], e.target.value])} />
           </div>
         </div>
       </div>
-      
+
       <div className={s.checkboxes}>
         <div className={s.title}>Упаковка</div>
         {device.brands.map(name =>
-          <Checkbox name={name.name} setType={setBrand} id={name.id} key = {name.id}/>
+          <Checkbox name={name.name} setType={setBrand} id={name.id} key={name.id} />
         )}
       </div>
       <div className={s.checkboxes}>
         <div className={s.title}>Цветы</div>
         {device.flowers.map(name =>
-          <Checkbox name={name} setType={setFlower}/>
+          <Checkbox name={name} setType={setFlower} />
         )}
       </div>
       <button className={s.approve} onClick={click}>
