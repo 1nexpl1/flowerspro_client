@@ -19,6 +19,11 @@ const Cart = (props) => {
           type="text"
           placeholder="Введите адрес доставки"
         />
+        <input
+          className={s.addressInput}
+          type="text"
+          placeholder="Введите номер телефона"
+        />
         <div className={s.checkboxes}>
           <label className={s.checkbox}>
             <input
