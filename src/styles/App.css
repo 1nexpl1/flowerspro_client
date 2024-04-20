@@ -390,6 +390,9 @@ html::-webkit-scrollbar-track {
     align-items: center;
     gap: 5%;
 }
+.adminWrapper{
+    margin-top: 20px;
+}
 @media (max-width:1890px) {
     .catalogItems{
         grid-template-columns: repeat(3, 1fr);

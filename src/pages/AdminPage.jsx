@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Button, Container} from "react-bootstrap";
+import React, { useEffect, useState } from 'react';
+import { Button, Container } from "react-bootstrap";
 import CreateBrand from "../components/modals/CreateBrand";
 import CreateDevice from "../components/modals/CreateDevice";
 import CreateType from "../components/modals/CreateType";
@@ -11,6 +11,15 @@ import CreatePost from '../components/modals/CreatePost';
 import CreateStorie from '../components/modals/CreateStorie';
 import DeleteStorie from '../components/modals/DeleteStorie';
 import DeletePost from '../components/modals/DeletePost';
+import Title from '../components/UI/Title/Title';
+import { fetchOrders } from '../http/OrderAPI';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
 const AdminPage = () => {
     const [brandVisible, setBrandVisible] = useState(false)
@@ -23,91 +32,131 @@ const AdminPage = () => {
     const [deleteBrandVisible, setDeleteBrandVisible] = useState(false)
     const [deletePostVisible, setDeletePostVisible] = useState(false)
     const [deleteStorieVisible, setDeleteStorieVisible] = useState(false)
-
+    const [orders, setOrders] = useState([])
+    useEffect(() => {
+        fetchOrders().then(data => {
+            setOrders(data)
+        })
+    }, [])
     return (
         <div className='adminWrapper'>
-        <Container className="d-flex flex-column">
-            <Button
-                variant={"outline-dark"}
-                className="mt-4 p-2"
-                onClick={() => setTypeVisible(true)}
-            >
-                Добавить тип
-            </Button>
-            <Button
-                variant={"outline-dark"}
-                className="mt-4 p-2"
-                onClick={() => setBrandVisible(true)}
-            >
-                Добавить упаковку
-            </Button>
-            <Button
-                variant={"outline-dark"}
-                className="mt-4 p-2"
-                onClick={() => setPostVisible(true)}
-            >
-                Добавить пост
-            </Button>
-            <Button
-                variant={"outline-dark"}
-                className="mt-4 p-2"
-                onClick={() => setStorieVisible(true)}
-            >
-                Добавить историю
-            </Button>
-            <Button
-                variant={"outline-dark"}
-                className="mt-4 p-2"
-                onClick={() => setDeviceVisible(true)}
-            >
-                Добавить товар
-            </Button>
-            <Button
-                variant={"outline-dark"}
-                className="mt-4 p-2"
-                onClick={() => setDeleteDeviceVisible(true)}
-            >
-                Удалить товар
-            </Button>
-            <Button
-                variant={"outline-dark"}
-                className="mt-4 p-2"
-                onClick={() => setDeleteTypeVisible(true)}
-            >
-                Удалить тип
-            </Button>
-            <Button
-                variant={"outline-dark"}
-                className="mt-4 p-2"
-                onClick={() => setDeleteBrandVisible(true)}
-            >
-                Удалить упаковку
-            </Button>
-            <Button
-                variant={"outline-dark"}
-                className="mt-4 p-2"
-                onClick={() => setDeletePostVisible(true)}
-            >
-                Удалить пост
-            </Button>
-            <Button
-                variant={"outline-dark"}
-                className="mt-4 p-2"
-                onClick={() => setDeleteStorieVisible(true)}
-            >
-                Удалить историю
-            </Button>
-            <CreateBrand show={brandVisible} onHide={() => setBrandVisible(false)}/>
-            <CreateDevice show={deviceVisible} onHide={() => setDeviceVisible(false)}/>
-            <CreateType show={typeVisible} onHide={() => setTypeVisible(false)}/>           
-            <CreatePost show={postVisible} onHide={() => setPostVisible(false)}/>       
-            <CreateStorie show={storieVisible} onHide={() => setStorieVisible(false)}/>
-            <DeleteDevice show={deleteDeviceVisible} onHide = {() => setDeleteDeviceVisible(false)} />            
-            <DeleteType show={deleteTypeVisible} onHide = {() => setDeleteTypeVisible(false)} />        
-            <DeleteBrand show={deleteBrandVisible} onHide = {() => setDeleteBrandVisible(false)} />             
-            <DeletePost show={deletePostVisible} onHide = {() => setDeletePostVisible(false)} />        
-            <DeleteStorie show={deleteStorieVisible} onHide = {() => setDeleteStorieVisible(false)} />
-        </Container>
+            <Container className="d-flex flex-column">
+                <Button
+                    variant={"outline-dark"}
+                    className="mt-4 p-2"
+                    onClick={() => setTypeVisible(true)}
+                >
+                    Добавить тип
+                </Button>
+                <Button
+                    variant={"outline-dark"}
+                    className="mt-4 p-2"
+                    onClick={() => setBrandVisible(true)}
+                >
+                    Добавить упаковку
+                </Button>
+                <Button
+                    variant={"outline-dark"}
+                    className="mt-4 p-2"
+                    onClick={() => setPostVisible(true)}
+                >
+                    Добавить пост
+                </Button>
+                <Button
+                    variant={"outline-dark"}
+                    className="mt-4 p-2"
+                    onClick={() => setStorieVisible(true)}
+                >
+                    Добавить историю
+                </Button>
+                <Button
+                    variant={"outline-dark"}
+                    className="mt-4 p-2"
+                    onClick={() => setDeviceVisible(true)}
+                >
+                    Добавить товар
+                </Button>
+                <Button
+                    variant={"outline-dark"}
+                    className="mt-4 p-2"
+                    onClick={() => setDeleteDeviceVisible(true)}
+                >
+                    Удалить товар
+                </Button>
+                <Button
+                    variant={"outline-dark"}
+                    className="mt-4 p-2"
+                    onClick={() => setDeleteTypeVisible(true)}
+                >
+                    Удалить тип
+                </Button>
+                <Button
+                    variant={"outline-dark"}
+                    className="mt-4 p-2"
+                    onClick={() => setDeleteBrandVisible(true)}
+                >
+                    Удалить упаковку
+                </Button>
+                <Button
+                    variant={"outline-dark"}
+                    className="mt-4 p-2"
+                    onClick={() => setDeletePostVisible(true)}
+                >
+                    Удалить пост
+                </Button>
+                <Button
+                    variant={"outline-dark"}
+                    className="mt-4 p-2"
+                    onClick={() => setDeleteStorieVisible(true)}
+                >
+                    Удалить историю
+                </Button>
+
+                <div className='adminWrapper'>
+                    <Title>Заказы</Title>
+                    <TableContainer component={Paper}>
+                        <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>Имя</TableCell>
+                                    <TableCell align="right">Адрес</TableCell>
+                                    <TableCell align="right">Номер телефона</TableCell>
+                                    <TableCell align="right">Цена</TableCell>
+                                    <TableCell align="right">Статус</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {orders.map((row) => (
+                                    <TableRow
+                                        key={row.name}
+                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                    >
+                                        <TableCell component="th" scope="row">
+                                            {row.name}
+                                        </TableCell>
+                                        <TableCell align="right">{row.adress}</TableCell>
+                                        <TableCell align="right">{row.number}</TableCell>
+                                        <TableCell align="right">{row.value}</TableCell>
+                                        <TableCell align="right">{row.status}</TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                </div>
+
+
+                <CreateBrand show={brandVisible} onHide={() => setBrandVisible(false)} />
+                <CreateDevice show={deviceVisible} onHide={() => setDeviceVisible(false)} />
+                <CreateType show={typeVisible} onHide={() => setTypeVisible(false)} />
+                <CreatePost show={postVisible} onHide={() => setPostVisible(false)} />
+                <CreateStorie show={storieVisible} onHide={() => setStorieVisible(false)} />
+                <DeleteDevice show={deleteDeviceVisible} onHide={() => setDeleteDeviceVisible(false)} />
+                <DeleteType show={deleteTypeVisible} onHide={() => setDeleteTypeVisible(false)} />
+                <DeleteBrand show={deleteBrandVisible} onHide={() => setDeleteBrandVisible(false)} />
+                <DeletePost show={deletePostVisible} onHide={() => setDeletePostVisible(false)} />
+                <DeleteStorie show={deleteStorieVisible} onHide={() => setDeleteStorieVisible(false)} />
+            </Container>
         </div>
     );
 };

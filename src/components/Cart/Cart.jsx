@@ -1,11 +1,27 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import CartItem from "../CartItem/CartItem";
 import s from "./Cart.module.css";
+import { createOrder } from "../../http/OrderAPI";
+import { Context } from "../..";
 const Cart = (props) => {
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
-
+  const [adress, setAdress] = useState('');
+  const [name, setName] = useState('')
+  const [number, setNumber] = useState('')
+  const {user} = useContext(Context)
+  console.log(user.user.id);
+  const addOrder = () => {
+    const formData = new FormData()
+    formData.append('adress', adress)
+    formData.append('name', name)
+    formData.append('number', number)
+    formData.append('value', props.sum)
+    formData.append('status', 'оплачено')
+    formData.append('userId', user.user.id)
+    createOrder(formData).then(data => props.toggle)
+  }
   return (
     <div className={s.wrapper}>
       <button className={s.buttonBack} onClick={props.toggle}>
@@ -18,11 +34,22 @@ const Cart = (props) => {
           className={s.addressInput}
           type="text"
           placeholder="Введите адрес доставки"
+          value={adress}          
+          onChange={e => setAdress(e.target.value)}
         />
         <input
           className={s.addressInput}
           type="text"
-          placeholder="Введите номер телефона"
+          placeholder="Введите номер телефона"          
+          value={number}          
+          onChange={e => setNumber(e.target.value)}
+        />
+        <input
+          className={s.addressInput}
+          type="text"
+          placeholder="Введите имя получателя"          
+          value={name}          
+          onChange={e => setName(e.target.value)}
         />
         <div className={s.checkboxes}>
           <label className={s.checkbox}>
@@ -54,9 +81,9 @@ const Cart = (props) => {
             name={arr.name}
             price={arr.price}
             count={arr.count}
-            img = {arr.img}
+            img={arr.img}
             sum={props.sum}
-            setSum = {props.setSum}
+            setSum={props.setSum}
           />
         ))}
       </div>
@@ -65,7 +92,7 @@ const Cart = (props) => {
         Сумма: <div className={s.num}>{props.sum}₽</div>
       </div>
       <div className={s.payment}>
-        <button className={s.paymentBut}>
+        <button className={s.paymentBut} onClick={addOrder}>
           <span>Перейти к оплате</span>
         </button>
       </div>

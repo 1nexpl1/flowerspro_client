@@ -9,6 +9,7 @@ import ShipPage from "../pages/ShipPage.jsx";
 import AdminPage from "../pages/AdminPage.jsx";
 import ItemPage from "../pages/ItemPage.jsx";
 import { Context } from "../index.js";
+import Profile from "./Profile/Profile.jsx";
 
 const Approuter = (props) => {
 
@@ -27,7 +28,8 @@ const Approuter = (props) => {
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/contacts" element={<ContactsPage />} />
           <Route path="/ship" element={<ShipPage />} />
-          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/admin" element={<AdminPage />} />         
+          <Route path="/profile" element={<Profile logout={props.logout}/>} />
           <Route path="/catalog/:id" element={<ItemPage addItem={props.addItem} toggleCart={props.toggleCart}/>} />
         </Routes>
       ) : (
@@ -39,6 +41,7 @@ const Approuter = (props) => {
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/contacts" element={<ContactsPage />} />
           <Route path="/ship" element={<ShipPage />} />
+          <Route path="/profile" element={<Profile logout={props.logout}/>} />
           <Route path="/catalog/:id" element={<ItemPage addItem={props.addItem} toggleCart={props.toggleCart}/>} />
         </Routes>
       )

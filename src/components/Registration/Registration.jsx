@@ -6,7 +6,8 @@ import { Context } from '../..';
 const Registration = (props) => {
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
-  const [email, setEmail] = useState('')
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('')
   const [password1, setPassword1] = useState('')
   const { user } = useContext(Context)
@@ -14,7 +15,7 @@ const Registration = (props) => {
     if (validateEmail(email)) {
       if (password === password1) {
         try {
-          let data = await registration(email, password);
+          let data = await registration(name, email, password);
           console.log(data);
           user.setIsAuth(true)
           props.toggle()
@@ -44,7 +45,7 @@ const Registration = (props) => {
       <h1 className={s.title}>Регистрация</h1>
       <div className={s.reg}>
         <div className={s.inputs}>
-          <input className={s.addressInput} type="text" placeholder="Имя" />
+          <input className={s.addressInput} type="text" placeholder="Имя" value={name} onChange={e => setName(e.target.value)}/>
           <input className={s.addressInput} type="text" placeholder="e-mail" value={email} onChange={e => setEmail(e.target.value)} />
           <input className={s.addressInput} type="password" placeholder="Пароль" value={password} onChange={e => setPassword(e.target.value)} />
           <input

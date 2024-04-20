@@ -58,7 +58,7 @@ const Navbar = observer((props) => {
         </div>
         <div className={s.icons}>
           <div className={s.link}>
-            {isAuth ? <MdLogout className={s.icon} onClick={logout}/> : <FaRegUser className={s.icon} onClick={toggleAuth} />}
+            {isAuth ? <FaRegUser className={s.icon} onClick={() => router(`/profile`)}/> : <MdLogout className={s.icon} onClick={toggleAuth}/>}
             
             {openAuth ? <Auth toggle={toggleAuth} /> : <></>}
           </div>
