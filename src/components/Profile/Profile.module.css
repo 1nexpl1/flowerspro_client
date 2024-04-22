@@ -14,6 +14,11 @@
     color: #292929;
 }
 
+.subTitle{   
+    font-family: Wermut;   
+    font-size: 26px;
+}
+
 .text{
     font-family: Graphik;
     font-size: 18px;
@@ -21,11 +26,50 @@
     margin-bottom: 5px;
 }
 .textDisc{
+    position: absolute;
+    top: 50px;
+    left: 15px;
     font-family: Graphik;
     font-weight: bold;
     font-size: 38px;
-    color: #292929;
+    color: #c4c4c4;
+}
+.textDiscrip{
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    font-family: Graphik;
+    font-weight: normal;
+    font-size: 26px;
+    color: #c4c4c4;
     margin-bottom: 5px;
+}
+
+.numberCartDisc{
+    position: absolute;
+    bottom: 55px;
+    right: 15px;
+    font-family: Graphik;
+    font-weight: normal;
+    font-size: 26px;
+    color: #c4c4c4;
+    margin-bottom: 5px;
+}
+.numberCart{
+    position: absolute;
+    bottom: 20px;
+    right: 15px;
+    font-family: Graphik;
+    font-weight: normal;
+    font-size: 32px;
+    color: #c4c4c4;
+}
+.textDiscWrapper{    
+    position: relative;
+    border-radius: 25px;
+    width: 350px;
+    height: 200px;
+    background-color: #292929;
 }
 
 .orders{

@@ -10,17 +10,26 @@ const Cart = (props) => {
   const [adress, setAdress] = useState('');
   const [name, setName] = useState('')
   const [number, setNumber] = useState('')
-  const {user} = useContext(Context)
-  console.log(user.user.id);
+  const { user } = useContext(Context)
+  let jsonItems = JSON.stringify(props.items)
+  console.log(props);
   const addOrder = () => {
-    const formData = new FormData()
-    formData.append('adress', adress)
-    formData.append('name', name)
-    formData.append('number', number)
-    formData.append('value', props.sum)
-    formData.append('status', 'оплачено')
-    formData.append('userId', user.user.id)
-    createOrder(formData).then(data => props.toggle)
+    if (number, name, adress, props.items) {
+      const formData = new FormData()
+      formData.append('adress', adress)
+      formData.append('name', name)
+      formData.append('number', number)
+      formData.append('value', props.sum)
+      formData.append('status', 'оплачено')
+      formData.append('items', jsonItems)
+      formData.append('userId', user.user.id)
+      createOrder(formData).then(data => {
+        props.toggle()
+      })
+    } else {
+      alert('Не все поля заполнены')
+    }
+
   }
   return (
     <div className={s.wrapper}>
@@ -34,21 +43,21 @@ const Cart = (props) => {
           className={s.addressInput}
           type="text"
           placeholder="Введите адрес доставки"
-          value={adress}          
+          value={adress}
           onChange={e => setAdress(e.target.value)}
         />
         <input
           className={s.addressInput}
           type="text"
-          placeholder="Введите номер телефона"          
-          value={number}          
+          placeholder="Введите номер телефона"
+          value={number}
           onChange={e => setNumber(e.target.value)}
         />
         <input
           className={s.addressInput}
           type="text"
-          placeholder="Введите имя получателя"          
-          value={name}          
+          placeholder="Введите имя получателя"
+          value={name}
           onChange={e => setName(e.target.value)}
         />
         <div className={s.checkboxes}>

@@ -20,6 +20,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import RawTable from '../components/Profile/RawTable/RawTable';
 
 const AdminPage = () => {
     const [brandVisible, setBrandVisible] = useState(false)
@@ -115,9 +116,10 @@ const AdminPage = () => {
                 <div className='adminWrapper'>
                     <Title>Заказы</Title>
                     <TableContainer component={Paper}>
-                        <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+                        <Table aria-label="collapsible table">
                             <TableHead>
                                 <TableRow>
+                                    <TableCell />
                                     <TableCell>Имя</TableCell>
                                     <TableCell align="right">Адрес</TableCell>
                                     <TableCell align="right">Номер телефона</TableCell>
@@ -125,22 +127,11 @@ const AdminPage = () => {
                                     <TableCell align="right">Статус</TableCell>
                                 </TableRow>
                             </TableHead>
-                            <TableBody>
-                                {orders.map((row) => (
-                                    <TableRow
-                                        key={row.name}
-                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                    >
-                                        <TableCell component="th" scope="row">
-                                            {row.name}
-                                        </TableCell>
-                                        <TableCell align="right">{row.adress}</TableCell>
-                                        <TableCell align="right">{row.number}</TableCell>
-                                        <TableCell align="right">{row.value}</TableCell>
-                                        <TableCell align="right">{row.status}</TableCell>
-                                    </TableRow>
-                                ))}
-                            </TableBody>
+                            {orders.map((row) => (
+                                <TableBody>
+                                    <RawTable row={row} />
+                                </TableBody>
+                            ))}
                         </Table>
                     </TableContainer>
                 </div>

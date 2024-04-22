@@ -7,6 +7,12 @@ export const createOrder = async (order) => {
 
 export const fetchOrders = async () => {
     const {data} = await $host.get('api/order')
-    console.log(data);
+    return data
+}
+
+export const fetchOrdersPersonal = async (userId) => {
+    const {data} = await $host.get('api/order/personal',{params: {
+        userId
+    }})
     return data
 }
