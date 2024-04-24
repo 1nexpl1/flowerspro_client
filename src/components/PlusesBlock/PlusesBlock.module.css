@@ -1,0 +1,27 @@
+.wrapper{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+.list{
+    position: relative;
+    width: auto;
+    list-style: disc;
+    font-family: Graphik;
+    font-size: 18px;
+}
+
+.list li{
+    margin-bottom: 35px;
+}
+
+.title{
+    font-size: 34px;
+    font-family: Wermut;
+    color: #292929;
+}

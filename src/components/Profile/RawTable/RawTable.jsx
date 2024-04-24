@@ -60,7 +60,7 @@ const RawTable = (props) => {
                       {items.map((item) => (
                         <TableRow key={item.id}>
                           <TableCell component="th" scope="row">
-                            <img src={'http://89.108.70.109:5000/'+ item.img}/>
+                            <img className='imgRowTable' src={'http://89.108.70.109:5000/'+ item.img}/>
                           </TableCell>
                           <TableCell>{item.name}</TableCell>
                           <TableCell>{item.price}</TableCell>

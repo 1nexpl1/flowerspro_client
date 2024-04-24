@@ -7,7 +7,9 @@ import StorieIcon from '../components/StorieIcon/StorieIcon';
 import { fetchPost, fetchStorie } from '../http/contentAPI';
 import { Context } from '..';
 import { observer } from 'mobx-react-lite';
-const MainPage = observer(() => {
+import PlusesBlock from '../components/PlusesBlock/PlusesBlock';
+import BlockItems from '../components/BlockItems/BlockItems';
+const MainPage = observer((props) => {
   const {content} = useContext(Context) 
   const [loading, setLoading] = useState(true)
   useEffect(()=>{
@@ -30,7 +32,9 @@ const MainPage = observer(() => {
         {content.stories.map((el) =>
           <StorieIcon el={el}/>
         )}
-      </div>
+      </div>        
+      <PlusesBlock />
+      <BlockItems addItem={props.addItem} toggleCart={props.toggleCart}/>
     </div>
   )
 });

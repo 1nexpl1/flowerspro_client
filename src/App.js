@@ -7,7 +7,6 @@ import { Context } from ".";
 import { check } from "./http/userAPI";
 import { fetchBrands, fetchDevices, fetchTypes } from "./http/DeviceAPI";
 import { useToggle } from "@uidotdev/usehooks";
-import Navigation from "./components/NavMobile/Navigation";
 function App() {
   const [items, setItems] = useState([]);
   const [sum, setSum] = useState(0);
@@ -46,14 +45,8 @@ function App() {
     setSum(sum - Item.price * Item.count);
   };
   return (
-    <BrowserRouter>
-      {mediaQuerry.matches ? (
-        <div className="navigationSticky">
-          <Navigation />
-        </div>
-      ) : (
-        <Navbar openCart={openCart} toggleCart={toggleCart} items={items} sum={sum} deleteItem={deleteItem} setSum={setSum} />
-      )}
+    <BrowserRouter>  
+      <Navbar openCart={openCart} toggleCart={toggleCart} items={items} sum={sum} deleteItem={deleteItem} setSum={setSum} />
       <Approuter addItem={addItem} toggleCart={toggleCart} logout={logout}/>
     </BrowserRouter>
   );

@@ -22,7 +22,7 @@ const Slick = () => {
         prevArrow: <CustomArrBefore />,
         appendDots: dots => (
             <div>
-              <ul style={{ width: '98%', margin: "auto", top: '-45px', display: 'flex',justifyContent: 'space-around', left: '20px'  }}> {dots} </ul>
+              <ul style={{ width: '98%', margin: "auto",position: 'relative', top: '-40px', display: 'flex',justifyContent: 'space-around'}}> {dots} </ul>
             </div>
           )
       };
