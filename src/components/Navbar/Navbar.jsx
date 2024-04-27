@@ -11,42 +11,56 @@ import Auth from "../Auth/Auth";
 import { Context } from "../..";
 import { MdLogout } from "react-icons/md";
 import { observer } from "mobx-react-lite";
+import { NavDropdown } from "react-bootstrap";
+import { motion } from "framer-motion"
+import { NavMobile } from "../NavMobile/NavMobile";
 const Navbar = observer((props) => {
   const [openAuth, toggleAuth] = useToggle();
   const [ref, hovering] = useHover();
   const router = useNavigate();
   const [isAuth, setIsAuth] = useState()
-  const {user} = useContext(Context)
-  useEffect(()=>{
+  const { user } = useContext(Context)
+  const mediaQuerry = window.matchMedia("(max-width: 990px)")
+  useEffect(() => {
     setIsAuth(user.isAuth)
-  },[user.isAuth])
+  }, [user.isAuth])
   const logout = () => {
     user.setUser({})
     user.setIsAuth(false)
   }
+  
+
+
   return (
+    
     <>
       <div className={s.wrapper}>
         <div className={s.navbar}>
-          <Link className={s.link} to="/main">
-            Главная
-          </Link>
-          <Link className={s.linkCatalog} to="/catalog" ref={ref}>
-            <div className={s.link}>Каталог</div>
-            {hovering ? <CatalogNav /> : <></>}
-          </Link>         
-          <Link className={s.link} to="/payment">
-            Оплата
-          </Link>
-          <Link className={s.link} to="/ship">
-            Доставка
-          </Link>
-          <Link className={s.link} to="/about">
-            О нас
-          </Link>
-          <Link className={s.link} to="/contacts">
-            Контакты
-          </Link>
+          {mediaQuerry.matches ? (
+            <NavMobile />
+          ):(
+            <>
+              <Link className={s.link} to="/main">
+                Главная
+              </Link>
+              <Link className={s.linkCatalog} to="/catalog" ref={ref}>
+                <div className={s.link}>Каталог</div>
+                {hovering ? <CatalogNav /> : <></>}
+              </Link>
+              <Link className={s.link} to="/payment">
+                Оплата
+              </Link>
+              <Link className={s.link} to="/ship">
+                Доставка
+              </Link>
+              <Link className={s.link} to="/about">
+                О нас
+              </Link>
+              <Link className={s.link} to="/contacts">
+                Контакты
+              </Link>
+            </>
+          )}           
         </div>
         <div className={s.logoWrapper}>
           <img
@@ -58,8 +72,8 @@ const Navbar = observer((props) => {
         </div>
         <div className={s.icons}>
           <div className={s.link}>
-            {isAuth ? <FaRegUser className={s.icon} onClick={() => router(`/profile`)}/> : <MdLogout className={s.icon} onClick={toggleAuth}/>}
-            
+            {isAuth ? <FaRegUser className={s.icon} onClick={() => router(`/profile`)} /> : <MdLogout className={s.icon} onClick={toggleAuth} />}
+
             {openAuth ? <Auth toggle={toggleAuth} /> : <></>}
           </div>
           <div className={s.cart}>

@@ -81,3 +81,40 @@
         width: 20%;
     }
 }
+
+@media (max-width:1270px) {
+
+    .logoWrapper{
+        width: 20%;
+    }
+
+    .icons {
+        width: 10%;
+    }
+}
+
+@media (max-width:990px) {
+
+    .logoWrapper{
+        width: 30%;
+    }
+
+    .icons {
+        width: 30%;
+    }
+    .navbar{
+        width: 30%;
+    }
+}
+
+@media (max-width:500px) {
+
+    .logoWrapper{
+        display: none;
+    }
+    .wrapper{
+        padding: 0;
+    }
+}
+
+

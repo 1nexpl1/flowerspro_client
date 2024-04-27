@@ -149,3 +149,15 @@
     height: 250px;
 }
 
+
+@media (max-width:1290px) {
+    .wrapper{
+        width: 45%;
+    }
+}
+
+@media (max-width:995px) {
+    .wrapper{
+        width: 100%;
+    }
+}
