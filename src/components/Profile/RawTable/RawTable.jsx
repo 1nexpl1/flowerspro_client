@@ -60,7 +60,7 @@ const RawTable = (props) => {
                       {items.map((item) => (
                         <TableRow key={item.id}>
                           <TableCell component="th" scope="row">
-                            <img className='imgRowTable' src={'https://flowers-pro-vp.ru/'+ item.img}/>
+                            <img className='imgRowTable' src={'https://api.flowers-pro-vp.ru/'+ item.img}/>
                           </TableCell>
                           <TableCell>{item.name}</TableCell>
                           <TableCell>{item.price}</TableCell>

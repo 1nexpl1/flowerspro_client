@@ -10,7 +10,7 @@ const Item = (props) => {
     e.stopPropagation()
     count > 1 ? setCount(count - 1) : setCount(1);
   }
-  let photo = 'https://flowers-pro-vp.ru/'+ props.item.img
+  let photo = 'https://api.flowers-pro-vp.ru/'+ props.item.img
   let ItemObj = props.item
   ItemObj["count"] = count
   let router = useNavigate()

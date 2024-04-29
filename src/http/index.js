@@ -1,11 +1,11 @@
 import axios from "axios";
 
 const $host = axios.create({
-    baseURL: 'https://flowers-pro-vp.ru/'
+    baseURL: 'https://api.flowers-pro-vp.ru/'
 })
 
 const $authHost = axios.create({
-    baseURL: 'https://flowers-pro-vp.ru/'
+    baseURL: 'https://api.flowers-pro-vp.ru/'
 })
 
 const authInterceptor = config => {
