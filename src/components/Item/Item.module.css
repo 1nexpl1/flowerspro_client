@@ -9,7 +9,6 @@
 }
 
 .wrapperHovering{
-    position: absolute;
     top: 0;
     border: 2px solid #989898;
     display: flex;
