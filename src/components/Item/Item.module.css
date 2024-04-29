@@ -10,7 +10,6 @@
 
 .wrapperHovering{
     position: absolute;
-    width: 100%;
     top: 0;
     border: 2px solid #989898;
     display: flex;
@@ -25,6 +24,10 @@
 
 .wrapperHovering img{
     margin-top: 20px;
+    width: 230px;
+    height: 230px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .input{
