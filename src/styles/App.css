@@ -199,8 +199,10 @@ html::-webkit-scrollbar-track {
     display: flex;
     align-items: start;
     gap: 30px;
-    width: 60%;
-
+    width: 80%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: flex-start;
 }
 
 .catalogFilter {
