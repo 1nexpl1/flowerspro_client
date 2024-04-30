@@ -196,13 +196,14 @@ html::-webkit-scrollbar-track {
 
 .catalogItems {
     margin-top: 30px;
-    display: flex;
-    align-items: start;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 350px;
+    justify-content: space-between;
+    grid-row-gap: 5px;
+    grid-column-gap: 5px;
+    position: relative;
     width: 80%;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-content: flex-start;
 }
 
 .catalogFilter {
