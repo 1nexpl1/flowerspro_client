@@ -8,7 +8,7 @@ const StorieIcon = (props) => {
         setModal(!modal)
         console.log(modal);
     }
-    let photo1 = 'http://89.108.70.109:5000/' + props.el.imgSmall
+    let photo1 = 'https://api.flowers-pro-vp.ru/' + props.el.imgSmall
     return (
         <>
             <div className={s.butWrapper}>

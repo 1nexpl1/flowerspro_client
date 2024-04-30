@@ -4,8 +4,8 @@ import s from './Storie.module.css'
 
 const Storie = (props) => {
     console.log(props.el);
-    let photo1 = 'http://89.108.70.109:5000/' + props.el.imgSmall
-    let photo2 = 'http://89.108.70.109:5000/' + props.el.imgMain
+    let photo1 = 'https://api.flowers-pro-vp.ru/' + props.el.imgSmall
+    let photo2 = 'https://api.flowers-pro-vp.ru/' + props.el.imgMain
     const story = [
         {
             url: photo1,

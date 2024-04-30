@@ -2,8 +2,8 @@ import React from 'react'
 import s from './CustomSlide.module.css'
 import { Link } from 'react-router-dom';
 const CustomSlide = (props) => {
-  let photo1 = 'http://89.108.70.109:5000/' + props.item.imgs1
-  let photo2 = 'http://89.108.70.109:5000/' + props.item.imgs2
+  let photo1 = 'https://api.flowers-pro-vp.ru/' + props.item.imgs1
+  let photo2 = 'https://api.flowers-pro-vp.ru/' + props.item.imgs2
   return (
     <div style={{background: props.item.color}} className={s.slide}>
       <h3 className={s.titleSlide}>{props.item.title}</h3>
