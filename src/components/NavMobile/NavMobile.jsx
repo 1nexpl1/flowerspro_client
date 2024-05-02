@@ -77,7 +77,6 @@ export const NavMobile = () => {
                 ref={containerRef}
             >
                 <motion.div className="background" variants={sidebar} />
-                <Navigation toggle={() => toggleOpen()}/>
                 <MenuToggle toggle={() => toggleOpen()} />
             </motion.nav>
         )}
