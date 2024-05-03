@@ -59,3 +59,32 @@
         text-align: center;
     }
 }
+
+@media (max-width: 880px) {
+
+    .wrapper{
+        align-items: center;
+        justify-content: center;
+        margin-top: 40px;
+        gap: 35px;
+    }
+    .descrip{
+        width: 100%;
+    }
+    .imageWrapper{
+        width: 70%;
+    }
+    .block{
+        flex-direction: column;
+        width: 80%;
+        gap: 20px;
+    }
+    .text{
+        width: 90%;
+    }
+    .block:nth-child(2){
+        flex-direction: column;
+        width: 80%;
+        gap: 20px;
+    }
+}
