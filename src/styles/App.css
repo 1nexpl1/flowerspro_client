@@ -464,3 +464,11 @@ html::-webkit-scrollbar-track {
         height: 240px;
     }
 }
+
+@media (max-width: 550px) {
+    .catalogWrapperContent{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

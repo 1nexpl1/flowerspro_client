@@ -1,0 +1,17 @@
+.button{
+    margin-top: 20px;
+    font-family: Graphik;
+    color: #292929;
+    font-size: 26px;
+    text-decoration: underline;
+    margin-bottom: 30px;
+}
+
+.button svg{
+    width: 25px;
+    height: 25px;
+}
+
+.wrapper{
+    align-self: start;
+}

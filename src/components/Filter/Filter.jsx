@@ -6,6 +6,7 @@ import RangeSlider from "../Slider/Slider";
 import { observer } from "mobx-react-lite";
 import { fetchDevices, fetchOneDevice } from "../../http/DeviceAPI";
 import { Spinner } from "react-bootstrap";
+import { FaBullseye } from "react-icons/fa";
 
 const Filter = observer((props) => {
   const { device } = useContext(Context)
@@ -69,10 +70,12 @@ const Filter = observer((props) => {
               }
             })
 
-            console.log(arr);
             device.setDevices(arr)
             arr = []
             device.setTotalCount(data.count)
+          }
+          if (props.setIsOpen) {
+            props.setIsOpen(false)
           }
         }
       })

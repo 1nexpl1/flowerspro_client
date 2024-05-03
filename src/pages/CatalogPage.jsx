@@ -9,8 +9,10 @@ import BouquetList from "../components/BouquetList/BouquetList";
 import { Spinner } from "react-bootstrap";
 import HoverContact from "../components/HoverContact/HoverContact";
 import { observer } from "mobx-react-lite";
+import FilterMobile from "../components/FilterMobile/FilterMobile";
 
 const CatalogPage = observer((props) => {
+  const  mediaQuerry = window.matchMedia('(max-width:550px)')
   const { device } = useContext(Context)
   const [loading, setLoading] = useState(true)
   useEffect(() => {
@@ -34,9 +36,13 @@ const CatalogPage = observer((props) => {
     <div className="catalogWrapper">
       <Title>Каталог</Title>
       <div className="catalogWrapperContent">
-        <div className="catalogFilter">
+        {mediaQuerry.matches ? (
+          <FilterMobile />
+        ):(
+          <div className="catalogFilter">
           <Filter/>
-        </div>
+          </div>
+        )}
         <div className="catalogItems">
           <BouquetList toggleCart={props.toggleCart} addItem={props.addItem} />
         </div>
