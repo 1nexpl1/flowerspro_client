@@ -435,9 +435,10 @@ html::-webkit-scrollbar-track {
 }
 
 @media (max-width:995px) {
-    .catalogFilter{
+    .catalogFilter {
         width: 30%;
     }
+
     .catalogItems {
         width: 70%;
         display: flex;
@@ -446,29 +447,37 @@ html::-webkit-scrollbar-track {
 }
 
 @media (max-width: 995px) {
-    .blocksPaymentWrapper{
+    .blocksPaymentWrapper {
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
 
-    .blocksPayment{
+    .blocksPayment {
         width: 90%;
         margin-top: 40px;
     }
 }
 
 @media (max-width: 680px) {
-    .imagePayment{
+    .imagePayment {
         width: 300px;
         height: 240px;
     }
 }
 
 @media (max-width: 550px) {
-    .catalogWrapperContent{
+    .catalogWrapperContent {
         flex-direction: column;
         justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width:1075px) {
+    .wrapperItem {
+        gap: 40px;
+        flex-direction: column;
         align-items: center;
     }
 }

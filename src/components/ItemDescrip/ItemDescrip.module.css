@@ -122,3 +122,24 @@
     background-color: #292929;
     color: #fff;
 }
+
+@media (max-width:1220px) {
+    .wrapper{
+        width: 50%;
+    }
+    .buttons{
+        width: 100%;
+    }
+    .value{
+        width: auto;
+    }
+    .buy{
+        width: auto;
+    }
+}
+
+@media (max-width:1075px)  {
+    .wrapper{
+        width: 90%;
+    }
+}
