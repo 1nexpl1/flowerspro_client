@@ -17,3 +17,14 @@
         grid-template-columns: repeat(3, 1fr);
     }
 }
+@media (max-width:1090px) {
+    .wrapperList{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width:590px) {
+    .wrapperList{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

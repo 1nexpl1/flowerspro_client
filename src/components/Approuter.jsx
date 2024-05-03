@@ -21,7 +21,7 @@ const Approuter = (props) => {
     {
       Admin ? (
         <Routes>
-          <Route path="/*" element={<Navigate to="/catalog" replace />} />
+          <Route path="/*" element={<Navigate to="/main" replace />} />
           <Route path="/main" element={<MainPage addItem={props.addItem} toggleCart={props.toggleCart}/>} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/catalog" element={<CatalogPage addItem={props.addItem} toggleCart={props.toggleCart}/>} />
@@ -34,7 +34,7 @@ const Approuter = (props) => {
         </Routes>
       ) : (
         <Routes>
-          <Route path="/*" element={<Navigate to="/catalog" replace />} />
+          <Route path="/*" element={<Navigate to="/main" replace />} />
           <Route path="/main" element={<MainPage addItem={props.addItem} toggleCart={props.toggleCart}/>} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/catalog" element={<CatalogPage addItem={props.addItem} toggleCart={props.toggleCart}/>} />

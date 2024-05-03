@@ -51,3 +51,14 @@
         padding-bottom: 320px;
     }
 }
+
+@media (max-width: 755px) {
+    .titleSlide{
+        font-size: 60px;
+        width: 80%;
+    }
+    .description{
+        font-size: 20px;
+    }
+
+}
