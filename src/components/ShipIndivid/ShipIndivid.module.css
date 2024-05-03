@@ -22,7 +22,6 @@
 
 .button {
     height: 35px;
-    width: 25%;
     background-color: transparent;
     border: 2px solid #989898;
     font-size: 16px;
@@ -47,4 +46,27 @@
     font-size: 16px;
     font-family: Graphik;
     margin-bottom: 15px;
+}
+@media (max-width:1400px) {
+    .wrapper{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+    }
+    .block{
+        width: 80%;
+    }
+
+}
+
+@media (max-width:590px) {
+    .image{
+        width: 300px;
+        height: 240px;
+    }
+    .title{
+        text-align: center;
+        width: auto;
+    }
 }

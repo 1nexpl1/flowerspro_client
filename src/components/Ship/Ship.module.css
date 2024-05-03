@@ -36,3 +36,17 @@
         font-size: 16px;
         text-align: center;
 }
+
+@media (max-width:700px) {
+    .shipWrapper{
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     gap: 40px;
+    }
+
+    .block{
+        width: 80%;
+    }
+ 
+ }
