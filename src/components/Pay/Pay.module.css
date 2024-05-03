@@ -39,3 +39,17 @@
     text-align: center;
     color: #292929;
 }
+
+@media (max-width: 680px) {
+    .wrapper{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0;
+        padding-bottom: 60px;
+    }
+    .block{
+        margin-top: 15px;
+        width: 80%;
+    }
+}

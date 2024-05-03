@@ -319,3 +319,20 @@
         height: 60px;
     }
 }
+
+@media (max-width:1200px) {
+    .wrapper{
+        width: 50vw;
+    }
+    .paymentBut{
+        height: 60px;
+    }
+}
+@media (max-width:600px) {
+    .wrapper{
+        width: 75vw;
+    }
+    .paymentBut{
+        height: 60px;
+    }
+}
