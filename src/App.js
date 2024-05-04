@@ -16,7 +16,8 @@ function App() {
   const [openCart, toggleCart] = useToggle();
   const { device } = useContext(Context)
 
-  useEffect(() => {
+  useEffect(() => {   
+    fetchTypes().then(data => device.setTypes(data))
     check().then(data => {
       user.setUser(data)
       user.setIsAuth(true)

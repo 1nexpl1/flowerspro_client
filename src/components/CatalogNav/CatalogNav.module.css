@@ -35,16 +35,11 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    grid-column-gap: 20px;
+    grid-column-gap: 140px;
     grid-row-gap: 20px;
 
 }
 
-.column:nth-child(2) {
-    padding-right: 100px;
-    border-right: 2px solid rgba(0, 0, 0, 0.1);
-    ;
-}
 
 .column:nth-child(1) {
     margin-right: 175px;
@@ -54,4 +49,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.photo img{   
+    width: 175px;
+    height: 175px;
 }

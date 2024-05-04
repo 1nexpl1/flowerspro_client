@@ -192,6 +192,7 @@ html::-webkit-scrollbar-track {
     margin: 0 10%;
     padding-top: 40px;
     width: 80%;
+    padding-bottom: 80px;
 }
 
 .catalogItems {
@@ -403,7 +404,7 @@ html::-webkit-scrollbar-track {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     gap: 5%;
     margin-top: 20px;
 }
