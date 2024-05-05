@@ -6,7 +6,6 @@ const StorieIcon = (props) => {
     const click = (e) => {
         e.preventDefault()
         setModal(!modal)
-        console.log(modal);
     }
     let photo1 = 'https://api.flowers-pro-vp.ru/' + props.el.imgSmall
     return (
@@ -17,7 +16,7 @@ const StorieIcon = (props) => {
                 </button>
                 <h3 className={s.smallTitle} onClick={click}>{props.el.name}</h3>
             </div>
-            {modal ? <Storie click={click} el={props.el}/> : <></>}
+            {modal ? <Storie setModal={setModal} click={click} el={props.el}/> : <></>}
         </>
     )
 }

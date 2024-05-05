@@ -5,7 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 import { Context } from ".";
 import { check } from "./http/userAPI";
-import { fetchBrands, fetchDevices, fetchTypes } from "./http/DeviceAPI";
+import { fetchBrands, fetchDevices, fetchOneDevice, fetchTypes } from "./http/DeviceAPI";
 import { useToggle } from "@uidotdev/usehooks";
 function App() {
   const [items, setItems] = useState([]);
@@ -24,8 +24,67 @@ function App() {
       if (data.role === 'ADMIN') {
         user.setIsAdmin(true)
       }
+    })
+    fetchTypes().then(data => device.setTypes(data))
+    fetchBrands().then(data => device.setBrands(data))
+    fetchDevices(null, null).then(data => {
+      device.setDevices(data.rows)
+      device.setTotalCount(data.count)
+      let prices =[]
+      device.devices.map((e)=>{
+      prices.push(e.price)
+      })
+      device.setMin(Math.min(...prices))
+      device.setMax(Math.max(...prices))
     }).finally(() => setLoading(false))
   }, [])
+
+
+  const click = (type, brand, flower, value) => {
+    device.setSelectedType(type)
+    device.setSelectedBrand(brand)
+    fetchDevices(device.selectedType, device.selectedBrand).then(data => {
+      let arr = []
+      data.rows.map((dev) => {
+        if ((dev.price >= value[0] && dev.price <= value[1])) {
+          if (flower !== null) {
+            fetchOneDevice(dev.id).then(e => {
+              if (e.info) {
+                e.info.map((i) => {
+                  if (i.title === 'Состав' || i.title === 'Состав Букета') {
+                    let res = i.description.split(', ')
+                    let arr2 = []
+                    res.map((el) => {
+                      arr2.push(el.split(' -')[0])
+                    })
+                    if (arr2.includes(flower)) {
+                      arr.push(dev)
+                    }
+                  }
+                })
+              }
+              device.setDevices(arr)
+              device.setTotalCount(data.count)
+            })
+          } else {
+            data.rows.map((dev) => {
+              if ((dev.price >= value[0] && dev.price <= value[1])) {
+                arr.push(dev)
+              }
+            })
+
+            device.setDevices(arr)
+            arr = []
+            device.setTotalCount(data.count)
+          }
+          console.log(device.devices)
+        }
+      })
+    })
+  }
+
+
+
 
   const logout = () => {
     user.setUser({})
@@ -47,8 +106,8 @@ function App() {
   };
   return (
     <BrowserRouter>  
-      <Navbar openCart={openCart} toggleCart={toggleCart} items={items} sum={sum} deleteItem={deleteItem} setSum={setSum} />
-      <Approuter addItem={addItem} toggleCart={toggleCart} logout={logout}/>
+      <Navbar click = {click} openCart={openCart} toggleCart={toggleCart} items={items} sum={sum} deleteItem={deleteItem} setSum={setSum} />
+      <Approuter click = {click} addItem={addItem} toggleCart={toggleCart} logout={logout}/>
     </BrowserRouter>
   );
 }

@@ -4,26 +4,35 @@ import s from "./CatalogNav.module.css";
 import { Context } from "../..";
 import photo from '../../images/preview.jpg'
 import { fetchDevices } from "../../http/DeviceAPI";
-const CatalogNav = () => {
+import { observer } from "mobx-react-lite";
+const CatalogNav = observer((props) => {
   const { device } = useContext(Context)
-  let click = (id) => {
+  let [selectId, setSelectId] = useState()
+  let func = (id) => {
+    fetchDevices(id, null).then(data => {
+      device.setDevices(data.rows)
+      device.setTotalCount(data.count)
+      let prices =[]
+      device.devices.map((e)=>{
+      prices.push(e.price)
+      })
+      device.setMin(Math.min(...prices))
+      device.setMax(Math.max(...prices))
+    })
   }
+  
 
   return (
     <div className={s.wrapper}>
 
       <div className={s.column}>
         {device.types.map((e) => (
-          <Link className={s.link} to="/catalog">
-            <div onClick={() => {
-              device.setSelectedType(e.id)
-              fetchDevices(device.selectedType)
-              console.log(fetchDevices(device.selectedType, null));
-            }} className={s.text}>{e.name}</div>
+          <Link onClick={func} className={s.link} to="/catalog">
+            <div onClick={()=>func(e.id)} className={s.text}>{e.name}</div>
           </Link>
         ))}
         <Link className={s.link} to="/catalog">
-          <div className={s.text}>Смотреть все</div>
+          <div onClick={()=>func(null)} className={s.text}>Смотреть все</div>
         </Link>
       </div>
       <div className={s.photo}>
@@ -31,6 +40,6 @@ const CatalogNav = () => {
       </div>
     </div>
   );
-};
+});
 
 export default CatalogNav;

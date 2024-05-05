@@ -3,7 +3,6 @@ import Stories from 'react-insta-stories';
 import s from './Storie.module.css'
 
 const Storie = (props) => {
-    console.log(props.el);
     let photo1 = 'https://api.flowers-pro-vp.ru/' + props.el.imgSmall
     let photo2 = 'https://api.flowers-pro-vp.ru/' + props.el.imgMain
     const story = [
@@ -20,6 +19,7 @@ const Storie = (props) => {
     <div className={s.modal} onClick={props.click}>
         <div onClick = {(e)=>e.stopPropagation()}>
         <Stories
+            onStoryEnd={()=>props.setModal(false)}
             stories={story}
             defaultInterval={1500}
             width={432}

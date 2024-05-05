@@ -13,15 +13,13 @@ const MainPage = observer((props) => {
   const {content} = useContext(Context) 
   const [loading, setLoading] = useState(true)
   useEffect(()=>{
-    fetchStorie().then(data => {   
-      console.log(data);  
+    fetchStorie().then(data => {  
       content.setStories(data)
     })
     fetchPost().then(data => {      
       content.setPosts(data)
     }).finally(()=>setLoading(false))
   },[])
-  console.log(fetchStorie());
   return (
     <div className='mainWrapper'>
       <Title>Главная</Title>

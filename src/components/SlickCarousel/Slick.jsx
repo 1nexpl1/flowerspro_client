@@ -30,7 +30,7 @@ const Slick = () => {
         <div className="slider-container">
           <Slider {...settings}>
             {content.posts.map((el)=>
-              <CustomSlide item = {el}/>
+              <CustomSlide key={el.id} item = {el}/>
             )}
           </Slider>
         </div>

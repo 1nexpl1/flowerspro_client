@@ -37,50 +37,8 @@ const Filter = observer((props) => {
       })
     })
   }, [])
-  const click = () => {
-    device.setSelectedType(type)
-    device.setSelectedBrand(brand)
-    fetchDevices(device.selectedType, device.selectedBrand).then(data => {
-      let arr = []
-      data.rows.map((dev) => {
-        if ((dev.price >= value[0] && dev.price <= value[1])) {
-          if (flower !== null) {
-            fetchOneDevice(dev.id).then(e => {
-              if (e.info) {
-                e.info.map((i) => {
-                  if (i.title === 'Состав' || i.title === 'Состав Букета') {
-                    let res = i.description.split(', ')
-                    let arr2 = []
-                    res.map((el) => {
-                      arr2.push(el.split(' -')[0])
-                    })
-                    if (arr2.includes(flower)) {
-                      arr.push(dev)
-                    }
-                  }
-                })
-              }
-              device.setDevices(arr)
-              device.setTotalCount(data.count)
-            })
-          } else {
-            data.rows.map((dev) => {
-              if ((dev.price >= value[0] && dev.price <= value[1])) {
-                arr.push(dev)
-              }
-            })
 
-            device.setDevices(arr)
-            arr = []
-            device.setTotalCount(data.count)
-          }
-          if (props.setIsOpen) {
-            props.setIsOpen(false)
-          }
-        }
-      })
-    })
-  }
+  
 
   return (
     <div className={s.wrapper}>
@@ -117,7 +75,9 @@ const Filter = observer((props) => {
           <Checkbox name={name} setType={setFlower} />
         )}
       </div>
-      <button className={s.approve} onClick={click}>
+      <button className={s.approve} onClick={
+        ()=>props.click(type, brand, flower, value)
+      }>
         <span>Применить</span>
       </button>
     </div>

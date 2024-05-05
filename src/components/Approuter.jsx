@@ -24,7 +24,7 @@ const Approuter = (props) => {
           <Route path="/*" element={<Navigate to="/main" replace />} />
           <Route path="/main" element={<MainPage addItem={props.addItem} toggleCart={props.toggleCart}/>} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/catalog" element={<CatalogPage addItem={props.addItem} toggleCart={props.toggleCart}/>} />
+          <Route path="/catalog" element={<CatalogPage addItem={props.addItem} toggleCart={props.toggleCart} click={props.click}/>} />
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/contacts" element={<ContactsPage />} />
           <Route path="/ship" element={<ShipPage />} />
@@ -37,7 +37,7 @@ const Approuter = (props) => {
           <Route path="/*" element={<Navigate to="/main" replace />} />
           <Route path="/main" element={<MainPage addItem={props.addItem} toggleCart={props.toggleCart}/>} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/catalog" element={<CatalogPage addItem={props.addItem} toggleCart={props.toggleCart}/>} />
+          <Route path="/catalog" element={<CatalogPage addItem={props.addItem} toggleCart={props.toggleCart} click={props.click}/>} />
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/contacts" element={<ContactsPage />} />
           <Route path="/ship" element={<ShipPage />} />

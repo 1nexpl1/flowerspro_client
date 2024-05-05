@@ -14,33 +14,15 @@ import FilterMobile from "../components/FilterMobile/FilterMobile";
 const CatalogPage = observer((props) => {
   const  mediaQuerry = window.matchMedia('(max-width:550px)')
   const { device } = useContext(Context)
-  const [loading, setLoading] = useState(true)
-  useEffect(() => {
-    fetchTypes().then(data => device.setTypes(data))
-    fetchBrands().then(data => device.setBrands(data))
-    fetchDevices(null, null).then(data => {
-      device.setDevices(data.rows)
-      device.setTotalCount(data.count)
-      let prices =[]
-      device.devices.map((e)=>{
-      prices.push(e.price)
-      })
-      device.setMin(Math.min(...prices))
-      device.setMax(Math.max(...prices))
-    }).finally(() => setLoading(false))   
-  }, [])
-  if (loading) {
-    return <Spinner animation={"grow"} />
-  } 
   return (
     <div className="catalogWrapper">
       <Title>Каталог</Title>
       <div className="catalogWrapperContent">
         {mediaQuerry.matches ? (
-          <FilterMobile />
+          <FilterMobile click={props.click}/>
         ):(
           <div className="catalogFilter">
-          <Filter/>
+          <Filter click={props.click}/>
           </div>
         )}
         <div className="catalogItems">

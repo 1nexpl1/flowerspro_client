@@ -45,7 +45,7 @@ const Navbar = observer((props) => {
               </Link>
               <Link className={s.linkCatalog} to="/catalog" ref={ref}>
                 <div className={s.link}>Каталог</div>
-                {hovering ? <CatalogNav /> : <></>}
+                {hovering ? <CatalogNav click = {props.click}/> : <></>}
               </Link>
               <Link className={s.link} to="/payment">
                 Оплата
