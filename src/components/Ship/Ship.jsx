@@ -6,7 +6,7 @@ const Ship = () => {
       <div className={s.block}>
         <div className={s.title}>Доставка в день заказа</div>
         <div className={s.desc}>
-          Оформить доставку на текущий день можно ежедневно, с 06 до 21 ч.
+          Оформить доставку на текущий день можно ежедневно, с 09 до 21 ч.
         </div>
       </div>
       <div className={s.block}>
@@ -18,7 +18,7 @@ const Ship = () => {
       <div className={s.block}>
         <div className={s.title}>Самовывоз</div>
         <div className={s.desc}>
-          Возможно осуществить по адресу: Пушкина 1. Забрать
+          Возможно осуществить по адресу: Петрова 13А. Забрать
           самостоятельно можно заранее оформленный заказ.
         </div>
       </div>
