@@ -45,6 +45,13 @@
     height: 28px;
 }
 
+.file{
+    font-family: Graphik;
+    text-transform: none;
+    text-decoration: none;
+    color: #292929;
+}
+
 .buttonBackText {
     font-family: SONY Fixed;
 }
@@ -274,7 +281,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 70px;
+    margin-bottom: 30px;
 }
 .paymentBut{
     position: relative;

@@ -4,6 +4,7 @@ import CartItem from "../CartItem/CartItem";
 import s from "./Cart.module.css";
 import { createOrder } from "../../http/OrderAPI";
 import { Context } from "../..";
+import file from '../../files/oferta.docx'
 const Cart = (props) => {
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
@@ -105,6 +106,7 @@ const Cart = (props) => {
           <span>Перейти к оплате</span>
         </button>
       </div>
+      <a className={s.file} href={file} download>Договор оферты</a>
     </div>
   );
 };
