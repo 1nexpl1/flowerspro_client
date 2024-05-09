@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     gap: 2%;
+    margin-bottom: 50px;
 }
 .item{
     display: flex;

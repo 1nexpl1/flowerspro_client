@@ -3,6 +3,7 @@ import Title from "../components/UI/Title/Title";
 import Contacts from "../components/Contacts/Contacts";
 import HoverContact from "../components/HoverContact/HoverContact";
 import MapYandex from "../components/MapYandex/MapYandex";
+import UrBlock from "../components/UrBlock/UrBlock";
 
 const ContactsPage = () => {
 
@@ -12,7 +13,9 @@ const ContactsPage = () => {
       <div className="subTitleContacts">Где мы находимся</div>
       <MapYandex />
       <div className="subTitleContacts">Свяжитесь с нами удобным способом</div>
-      <Contacts />
+      <Contacts />    
+      <div className="subTitleContacts">Юридические данные</div>
+      <UrBlock />
       <HoverContact/>
     </div>
   );

@@ -232,7 +232,7 @@ html::-webkit-scrollbar-track {
     margin: 0 10%;
     justify-self: center;
     width: 80%;
-    height: 100vh;
+    padding-bottom: 50px;
 }
 
 
