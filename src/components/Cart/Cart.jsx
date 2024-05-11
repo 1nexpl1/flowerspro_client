@@ -18,9 +18,9 @@ const Cart = (props) => {
   const [number, setNumber] = useState('')
   const { user } = useContext(Context)
   let jsonItems = JSON.stringify(props.items)
-  const addOrder = () => {
+  const addOrder = async () => {
     if (validatePhoneNumber(number)) {
-      if (number, name, adress, props.items) {
+      if (number && name && adress && props.items) {
         const formData = new FormData()
         formData.append('adress', adress)
         formData.append('name', name)
@@ -32,7 +32,8 @@ const Cart = (props) => {
         createOrder(formData).then(data => {
           props.toggle()
         })
-        window.location.href = GoToPay(props.sum)
+        let link = await GoToPay(props.sum)
+        window.location.href = link
 
       } else {
         alert('Не все поля заполнены')
