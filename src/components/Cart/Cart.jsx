@@ -5,32 +5,46 @@ import s from "./Cart.module.css";
 import { createOrder } from "../../http/OrderAPI";
 import { Context } from "../..";
 import file from '../../files/oferta.docx'
+import md5 from 'md5'
+import { GoToPay } from "../../http/pay";
+
+
+let message = 'message'
 const Cart = (props) => {
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
-  const [adress, setAdress] = useState('');
-  const [name, setName] = useState('')
+  const [adress, setAdress] = useState(null);
+  const [name, setName] = useState(null)
   const [number, setNumber] = useState('')
   const { user } = useContext(Context)
   let jsonItems = JSON.stringify(props.items)
-  console.log(props);
   const addOrder = () => {
-    if (number, name, adress, props.items) {
-      const formData = new FormData()
-      formData.append('adress', adress)
-      formData.append('name', name)
-      formData.append('number', number)
-      formData.append('value', props.sum)
-      formData.append('status', 'оплачено')
-      formData.append('items', jsonItems)
-      formData.append('userId', user.user.id)
-      createOrder(formData).then(data => {
-        props.toggle()
-      })
+    if (validatePhoneNumber(number)) {
+      if (number, name, adress, props.items) {
+        const formData = new FormData()
+        formData.append('adress', adress)
+        formData.append('name', name)
+        formData.append('number', number)
+        formData.append('value', props.sum)
+        formData.append('status', 'подтверждение оплаты')
+        formData.append('items', jsonItems)
+        formData.append('userId', user.user.id)
+        createOrder(formData).then(data => {
+          props.toggle()
+        })
+        window.location.href = GoToPay(props.sum)
+
+      } else {
+        alert('Не все поля заполнены')
+      }
     } else {
-      alert('Не все поля заполнены')
+      alert('Не верный номер телефона')
     }
 
+  }
+  function validatePhoneNumber(input) {
+    const regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+    return regex.test(input);
   }
   return (
     <div className={s.wrapper}>
@@ -66,48 +80,48 @@ const Cart = (props) => {
             <input
               className={s.checkSquare}
               type="checkbox"
-              checked={checked1}
-              onClick={() => setChecked1(!checked1)}
-            />
-            Уточнить у получателя
-          </label>
-          <label className={s.checkbox}>
-            <input
-              className={s.checkSquare}
-              type="checkbox"
               checked={checked2}
               onClick={() => setChecked2(!checked2)}
             />
-            Забрать самому
+            Согласен с договором оферты
           </label>
         </div>
       </div>
-      <div className={s.titleCartItems}>Товары в корзине</div>
-      <div className={s.items}>
-        {props.items.map((arr) => (
-          <CartItem
-            deleteItem={props.deleteItem}
-            id={arr.id}
-            name={arr.name}
-            price={arr.price}
-            count={arr.count}
-            img={arr.img}
-            sum={props.sum}
-            setSum={props.setSum}
-          />
-        ))}
-      </div>
-      <div className={s.line}></div>
-      <div className={s.sum}>
-        Сумма: <div className={s.num}>{props.sum}₽</div>
-      </div>
-      <div className={s.payment}>
-        <button className={s.paymentBut} onClick={addOrder}>
-          <span>Перейти к оплате</span>
-        </button>
-      </div>
-      <a className={s.file} href={file} download>Договор оферты</a>
-    </div>
+      {props.sum == 0 ?
+        <div className={s.titleCartItems}>Корзина пуста</div>
+        :
+        <>
+          <div className={s.titleCartItems}>Товары в корзине</div>
+          <div className={s.items}>
+            {props.items.map((arr) => (
+              <CartItem
+                deleteItem={props.deleteItem}
+                id={arr.id}
+                name={arr.name}
+                price={arr.price}
+                count={arr.count}
+                img={arr.img}
+                sum={props.sum}
+                setSum={props.setSum}
+              />
+            ))}
+          </div>
+          <div className={s.line}></div>
+          <div className={s.sum}>
+            Сумма: <div className={s.num}>{props.sum}₽</div>
+          </div>
+          <div className={s.payment}>
+              <button className={s.paymentBut} onClick={addOrder}>
+                <span>Перейти к оплате</span>
+              </button>
+          </div>
+
+
+          <a className={s.file} href={file} download>Договор оферты</a>
+        </>
+      }
+
+    </div >
   );
 };
 
