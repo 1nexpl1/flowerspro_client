@@ -84,6 +84,7 @@ const Navbar = observer((props) => {
                 items={props.items}
                 toggle={props.toggleCart}
                 sum={props.sum}
+                toggleAuth={toggleAuth}
                 setSum={props.setSum}
               />
             ) : (
