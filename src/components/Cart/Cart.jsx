@@ -18,7 +18,7 @@ const Cart = (props) => {
   const [number, setNumber] = useState('')
   const { user } = useContext(Context)
   let jsonItems = JSON.stringify(props.items)
-  const addOrder = async () => {
+  const addOrder = () => {
     if (validatePhoneNumber(number)) {
       if (number && name && adress && props.items) {
         const formData = new FormData()
@@ -32,14 +32,14 @@ const Cart = (props) => {
         createOrder(formData).then(data => {
           props.toggle()
         })
-        let link = await GoToPay(props.sum)
-        window.location.href = link
-
+        return true
       } else {
         alert('Не все поля заполнены')
+        return false
       }
     } else {
       alert('Не верный номер телефона')
+      return false
     }
 
   }
@@ -112,9 +112,21 @@ const Cart = (props) => {
             Сумма: <div className={s.num}>{props.sum}₽</div>
           </div>
           <div className={s.payment}>
-              <button className={s.paymentBut} onClick={addOrder}>
-                <span>Перейти к оплате</span>
-              </button>
+              {validatePhoneNumber(number) && name && adress && props.items ? (
+            <form action='https://auth.robokassa.ru/Merchant/Index.aspx' method='POST'>
+                <button type='submit' className={s.paymentBut} onClick={addOrder}>
+                  <input type='hidden' name='MerchantLogin' value='flowers-pro-vp.ru' />
+                  <input type='hidden' name='OutSum' value={props.sum} />
+                  <input type='hidden' name='SignatureValue' value={md5(`flowers-pro-vp.ru:${props.sum}::Theteda123-45`)} />
+                  <span>Перейти к оплате</span>
+                </button>
+            </form>
+              ) : (
+                <button className={s.paymentBut} onClick={addOrder}>
+                  <span>Перейти к оплате</span>
+                </button>
+              )}
+
           </div>
 
 

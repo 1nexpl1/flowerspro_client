@@ -321,6 +321,10 @@
     width: 100%;
 }
 
+.submit{
+    display: none;
+}
+
 @media (max-width:1865px) {
     .paymentBut{
         height: 60px;
