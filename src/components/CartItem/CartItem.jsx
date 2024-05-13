@@ -23,7 +23,7 @@ const CartItem = (props) => {
       <div className={s.itemInfo}>
         <div>
           <h3 className={s.itemTitle}>{props.name}</h3>
-          <div className={s.price}>{props.price}</div>
+          <div className={s.price}>{props.price}₽</div>
         </div>
         <div className={s.value}>
           <button className="valueButDel" onClick={countIncrem}>

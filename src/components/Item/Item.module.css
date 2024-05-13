@@ -8,6 +8,12 @@
     height: 330px;
 }
 
+.photoWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .wrapperHovering {
     width: 250px;
     border: 2px solid #989898;

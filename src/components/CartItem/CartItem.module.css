@@ -132,3 +132,28 @@
         width: 5%;
     }
 }
+
+@media (max-width:780px) {
+    .itemPhoto{
+        width: 30%;
+    }
+
+    .itemPhoto img{
+        height: 90px;
+    }
+
+    .item{
+        height: 90px;
+    }
+
+    .itemInfo{
+        width: 80%;
+        height: 90px;
+    }
+}
+
+@media (max-width:780px) {
+    .itemTitle{
+        font-size: 14px;
+    }
+}

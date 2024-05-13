@@ -60,7 +60,7 @@ const Item = (props) => {
         </div>
       ) : (
         <div>
-          <div>
+          <div className={s.photoWrapper}>
             <img className={s.photo} src={photo} alt="" />
           </div>
           <div className={s.description}>
