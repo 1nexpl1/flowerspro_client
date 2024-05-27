@@ -124,7 +124,7 @@ const Cart = (props) => {
                     <input type='hidden' name='MerchantLogin' value='flowers-pro-vp.ru' />
                     <input type='hidden' name='OutSum' value={props.sum} />
                     <input type='hidden' name='SignatureValue' value={md5(`flowers-pro-vp.ru:${props.sum}::Theteda123-45`)} />
-                    <button type='submit' className={s.paymentBut} onClick={addOrder} onTouchEnd={addOrder}>
+                    <button className={s.paymentBut} onClick={addOrder} onTouchStart={addOrder}>
                       <span>Перейти к оплате</span>
                     </button>
                   </form>
