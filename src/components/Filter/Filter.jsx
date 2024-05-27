@@ -26,7 +26,9 @@ const Filter = observer((props) => {
               let res = e.description.split(', ')
               let arr2 = []
               res.map((el) => {
-                arr2.push(el.split(' -')[0])
+                if (el !== ''){
+                  arr2.push(el.split(' -')[0])
+                }
               })
               let res2 = [...device.flowers, ...arr2]
               let uniqRes = [...new Set(res2)]
@@ -76,7 +78,7 @@ const Filter = observer((props) => {
         )}
       </div>
       <button className={s.approve} onClick={
-        ()=>props.click(type, brand, flower, value)
+        ()=>props.click(type, brand, flower, value, setType, setBrand)
       }>
         <span>Применить</span>
       </button>

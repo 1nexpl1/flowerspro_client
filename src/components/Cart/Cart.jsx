@@ -8,8 +8,6 @@ import file from '../../files/oferta.docx'
 import md5 from 'md5'
 import { GoToPay } from "../../http/pay";
 
-
-let message = 'message'
 const Cart = (props) => {
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
@@ -19,7 +17,6 @@ const Cart = (props) => {
   const { user } = useContext(Context)
   let jsonItems = JSON.stringify(props.items)
 
-  console.log(user.isAuth);
   const addOrder = () => {
     if (validatePhoneNumber(number)) {
       if (number && name && adress && props.items) {
@@ -50,7 +47,7 @@ const Cart = (props) => {
     return regex.test(input);
   }
 
-  const GoToAuth = () =>{
+  const GoToAuth = () => {
     props.toggleAuth()
     props.toggle()
   }
@@ -123,14 +120,14 @@ const Cart = (props) => {
               </div>
               <div className={s.payment}>
                 {validatePhoneNumber(number) && name && adress && props.items ? (
-                  <form action='https://auth.robokassa.ru/Merchant/Index.aspx' method='POST'>
-                    <button type='submit' className={s.paymentBut} onClick={addOrder}>
+                  <button type='submit' className={s.paymentBut} onClick={addOrder} onTouchStart={addOrder}>
+                    <form action='https://auth.robokassa.ru/Merchant/Index.aspx' method='POST'>
                       <input type='hidden' name='MerchantLogin' value='flowers-pro-vp.ru' />
                       <input type='hidden' name='OutSum' value={props.sum} />
                       <input type='hidden' name='SignatureValue' value={md5(`flowers-pro-vp.ru:${props.sum}::Theteda123-45`)} />
                       <span>Перейти к оплате</span>
-                    </button>
-                  </form>
+                    </form>
+                  </button>
                 ) : (
                   <button className={s.paymentBut} onClick={addOrder}>
                     <span>Перейти к оплате</span>
@@ -143,9 +140,9 @@ const Cart = (props) => {
           }
         </>
       ) : (
-        <>       
-        <div style={{marginTop:'70px'}} className={s.titleCartItems}>Вы не авторизованы</div>
-        <button className={s.paymentBut} onClick={GoToAuth}>Авторизоваться</button>
+        <>
+          <div style={{ marginTop: '70px' }} className={s.titleCartItems}>Вы не авторизованы</div>
+          <button className={s.paymentBut} onClick={GoToAuth}>Авторизоваться</button>
         </>
       )}
 

@@ -40,9 +40,11 @@ function App() {
   }, [])
 
 
-  const click = (type, brand, flower, value) => {
+  const click = (type, brand, flower, value, setType, setBrand) => {
     device.setSelectedType(type)
     device.setSelectedBrand(brand)
+    setType(null)
+    setBrand(null)
     fetchDevices(device.selectedType, device.selectedBrand).then(data => {
       let arr = []
       data.rows.map((dev) => {
@@ -77,7 +79,6 @@ function App() {
             arr = []
             device.setTotalCount(data.count)
           }
-          console.log(device.devices)
         }
       })
     })
