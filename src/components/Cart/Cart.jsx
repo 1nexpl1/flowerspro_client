@@ -122,7 +122,7 @@ const Cart = (props) => {
                 {validatePhoneNumber(number) && name && adress && props.items ? (
                   <form action='https://auth.robokassa.ru/Merchant/Index.aspx' method='POST'>
 
-                    <button type='submit' className={s.paymentBut} onClick={addOrder} onTouchStart={addOrder}>
+                    <button type='submit' className={s.paymentBut} onTouchStart={addOrder}>
                     <input type='hidden' name='MerchantLogin' value='flowers-pro-vp.ru' />
                     <input type='hidden' name='OutSum' value={props.sum} />
                     <input type='hidden' name='SignatureValue' value={md5(`flowers-pro-vp.ru:${props.sum}::Theteda123-45`)} />
