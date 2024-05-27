@@ -310,7 +310,7 @@
         height: 100%;
         background-color: #292929;
         transition: all .45s;
-        z-index: 1;
+        z-index: 19999;
 }
 
 .paymentBut:hover{
