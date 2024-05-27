@@ -19,7 +19,9 @@ const Cart = (props) => {
 
   const addOrder = () => {
     if (validatePhoneNumber(number)) {
-      if (number && name && adress && props.items) {
+      if (number && name && adress && props.items) {        
+        alert('CТОП')
+        return false
         const formData = new FormData()
         formData.append('adress', adress)
         formData.append('name', name)
@@ -31,7 +33,6 @@ const Cart = (props) => {
         createOrder(formData).then(data => {
           props.toggle()
         })
-        return true
       } else {
         alert('Не все поля заполнены')
         return false
