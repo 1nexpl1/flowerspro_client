@@ -1,0 +1,25 @@
+.checkSquare {
+    min-width: 15px;
+    height: 15px;
+    width: 15px;
+    border: none;
+    outline: 2px solid #292929;
+    background-color: transparent;
+    margin-right: 8px;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+.checkbox {
+    font-size: 16px;
+    font-family: Graphik;
+    font-weight: normal;
+    color: #D1e8E2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: #292929;
+}
+

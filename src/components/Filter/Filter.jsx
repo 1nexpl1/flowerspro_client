@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import s from "./Filter.module.css";
 import { Context } from "../..";
 import Checkbox from "../UI/Checkbox/Checkbox";
@@ -14,8 +14,8 @@ const Filter = observer((props) => {
   const [type, setType] = useState(null)
   const [brand, setBrand] = useState(null)
   const [flower, setFlower] = useState(null)
-
-
+  const [clickApply, setClickApply] = useState(0)
+  let ref = useRef(0)
 
   useEffect(() => {
     device.devices.map((e) => {
@@ -40,6 +40,11 @@ const Filter = observer((props) => {
     })
   }, [])
 
+  const lastClickFunk = () =>{
+    props.click(type, brand, flower, value, setType, setBrand)
+    setClickApply(clickApply + 1)
+  }
+
   
 
   return (
@@ -47,7 +52,7 @@ const Filter = observer((props) => {
       <div className={s.checkboxes}>
         <div className={s.title}>Тип</div>
         {device.types.map(name =>
-          <Checkbox name={name.name} setType={setType} id={name.id} key={name.id} />
+          <Checkbox name={name.name} setType={setType} id={name.id} key={name.id} clickApply = {clickApply}/>
         )}
       </div>
       <div className={s.priceFilt}>
@@ -68,18 +73,16 @@ const Filter = observer((props) => {
       <div className={s.checkboxes}>
         <div className={s.title}>Упаковка</div>
         {device.brands.map(name =>
-          <Checkbox name={name.name} setType={setBrand} id={name.id} key={name.id} />
+          <Checkbox name={name.name} setType={setBrand} id={name.id} key={name.id} clickApply = {clickApply}/>
         )}
       </div>
       <div className={s.checkboxes}>
         <div className={s.title}>Цветы</div>
         {device.flowers.map(name =>
-          <Checkbox name={name} setType={setFlower} />
+          <Checkbox name={name} setType={setFlower} clickApply = {clickApply}/>
         )}
       </div>
-      <button className={s.approve} onClick={
-        ()=>props.click(type, brand, flower, value, setType, setBrand)
-      }>
+      <button className={s.approve} onClick={lastClickFunk}>
         <span>Применить</span>
       </button>
     </div>

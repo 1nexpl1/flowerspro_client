@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import s from './Checkbox.module.css'
 const Checkbox = (props) => {
   const [checked, setChecked] = useState(false);
@@ -6,6 +6,13 @@ const Checkbox = (props) => {
     setChecked(!checked)
     checked ? props.setType(null) : props.id  ? props.setType(props.id) : props.setType(props.name)
   }
+  
+  useEffect(() => {
+    setChecked(false)
+  }, [props.clickApply])
+  
+  
+  
   return (
     <label className={s.checkbox}>
           <input
