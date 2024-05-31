@@ -15,7 +15,7 @@ const Filter = observer((props) => {
   const [brand, setBrand] = useState(null)
   const [flower, setFlower] = useState(null)
   const [clickApply, setClickApply] = useState(0)
-  let ref = useRef(0)
+  const whiteList = ['Альстромерия', 'Роза', 'Хризантема', 'Гвоздика', 'Лилия', 'Пион', 'Эустома', 'Гипсофила', 'Цимбидиум', 'Гербера', 'Гортензия']
 
   useEffect(() => {
     device.devices.map((e) => {
@@ -26,8 +26,11 @@ const Filter = observer((props) => {
               let res = e.description.split(', ')
               let arr2 = []
               res.map((el) => {
-                if (el !== ''){
-                  arr2.push(el.split(' -')[0])
+                if (el !== '') {
+                  let upperLetterElement = el[0].toUpperCase() + el.split(' ')[0].slice(1)
+                  if (whiteList.includes(upperLetterElement)) {
+                    arr2.push(upperLetterElement)
+                  }
                 }
               })
               let res2 = [...device.flowers, ...arr2]
@@ -40,19 +43,21 @@ const Filter = observer((props) => {
     })
   }, [])
 
-  const lastClickFunk = () =>{
-    props.click(type, brand, flower, value, setType, setBrand)
+  const lastClickFunk = () => {
+    props.click(type, brand, flower, value, setType, setBrand, setFlower)
     setClickApply(clickApply + 1)
   }
 
-  
+
+
+
 
   return (
     <div className={s.wrapper}>
       <div className={s.checkboxes}>
         <div className={s.title}>Тип</div>
         {device.types.map(name =>
-          <Checkbox name={name.name} setType={setType} id={name.id} key={name.id} clickApply = {clickApply}/>
+          <Checkbox name={name.name} setType={setType} id={name.id} key={name.id} clickApply={clickApply} />
         )}
       </div>
       <div className={s.priceFilt}>
@@ -73,13 +78,13 @@ const Filter = observer((props) => {
       <div className={s.checkboxes}>
         <div className={s.title}>Упаковка</div>
         {device.brands.map(name =>
-          <Checkbox name={name.name} setType={setBrand} id={name.id} key={name.id} clickApply = {clickApply}/>
+          <Checkbox name={name.name} setType={setBrand} id={name.id} key={name.id} clickApply={clickApply} />
         )}
       </div>
       <div className={s.checkboxes}>
         <div className={s.title}>Цветы</div>
         {device.flowers.map(name =>
-          <Checkbox name={name} setType={setFlower} clickApply = {clickApply}/>
+          <Checkbox name={name} setType={setFlower} clickApply={clickApply} />
         )}
       </div>
       <button className={s.approve} onClick={lastClickFunk}>

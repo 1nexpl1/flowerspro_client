@@ -16,7 +16,7 @@ function App() {
   const [openCart, toggleCart] = useToggle();
   const { device } = useContext(Context)
 
-  useEffect(() => {   
+  useEffect(() => {
     fetchTypes().then(data => device.setTypes(data))
     check().then(data => {
       user.setUser(data)
@@ -30,9 +30,9 @@ function App() {
     fetchDevices(null, null).then(data => {
       device.setDevices(data.rows)
       device.setTotalCount(data.count)
-      let prices =[]
-      device.devices.map((e)=>{
-      prices.push(e.price)
+      let prices = []
+      device.devices.map((e) => {
+        prices.push(e.price)
       })
       device.setMin(Math.min(...prices))
       device.setMax(Math.max(...prices))
@@ -40,11 +40,12 @@ function App() {
   }, [])
 
 
-  const click = (type, brand, flower, value, setType, setBrand) => {
+  const click = (type, brand, flower, value, setType, setBrand, setFlower) => {
     device.setSelectedType(type)
     device.setSelectedBrand(brand)
     setType(null)
     setBrand(null)
+    setFlower(null)
     fetchDevices(device.selectedType, device.selectedBrand).then(data => {
       let arr = []
       data.rows.map((dev) => {
@@ -57,7 +58,10 @@ function App() {
                     let res = i.description.split(', ')
                     let arr2 = []
                     res.map((el) => {
-                      arr2.push(el.split(' -')[0])
+                      if (el !== '') {
+                        let upperLetterElement = el[0].toUpperCase() + el.split(' ')[0].slice(1)
+                        arr2.push(upperLetterElement)
+                      }
                     })
                     if (arr2.includes(flower)) {
                       arr.push(dev)
@@ -106,9 +110,9 @@ function App() {
     setSum(sum - Item.price * Item.count);
   };
   return (
-    <BrowserRouter>  
-      <Navbar click = {click} openCart={openCart} toggleCart={toggleCart} items={items} sum={sum} deleteItem={deleteItem} setSum={setSum} />
-      <Approuter click = {click} addItem={addItem} toggleCart={toggleCart} logout={logout}/>
+    <BrowserRouter>
+      <Navbar click={click} openCart={openCart} toggleCart={toggleCart} items={items} sum={sum} deleteItem={deleteItem} setSum={setSum} />
+      <Approuter click={click} addItem={addItem} toggleCart={toggleCart} logout={logout} />
     </BrowserRouter>
   );
 }
