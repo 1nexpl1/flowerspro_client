@@ -16,7 +16,14 @@ const Cart = (props) => {
   const [number, setNumber] = useState('')
   const { user } = useContext(Context)
   let jsonItems = JSON.stringify(props.items)
-
+  let strok = `https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=flowers-pro-vp.ru&OutSum=${props.sum}&SignatureValue=${md5(`flowers-pro-vp.ru:${props.sum}::Theteda123-45`)}`
+  const testFunc = () => {
+    window.location.href = strok
+  }
+  // <form action='https://auth.robokassa.ru/Merchant/Index.aspx' method='POST'>                    
+  //                   <input type='hidden' name='MerchantLogin' value='flowers-pro-vp.ru' />
+  //                   <input type='hidden' name='OutSum' value={props.sum} />
+  //                   <input type='hidden' name='SignatureValue' value={md5(`flowers-pro-vp.ru:${props.sum}::Theteda123-45`)} />
   const addOrder = () => {
     if (validatePhoneNumber(number)) {
       if (number && name && adress && props.items) {   
@@ -29,8 +36,9 @@ const Cart = (props) => {
         formData.append('items', jsonItems)
         formData.append('userId', user.user.id)
         createOrder(formData).then(data => {
-          props.toggle()     
-          return true   
+          props.toggle()   
+          let strok = `https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=flowers-pro-vp.ru&OutSum=${props.sum}&SignatureValue=${md5(`flowers-pro-vp.ru:${props.sum}::Theteda123-45`)}`
+          window.location.href = strok
         })
       } else {
         alert('Не все поля заполнены')
@@ -120,16 +128,11 @@ const Cart = (props) => {
               </div>
               <div className={s.payment}>
                 {validatePhoneNumber(number) && name && adress && props.items ? (
-                  <form action='https://auth.robokassa.ru/Merchant/Index.aspx' method='POST'>                    
-                    <input type='hidden' name='MerchantLogin' value='flowers-pro-vp.ru' />
-                    <input type='hidden' name='OutSum' value={props.sum} />
-                    <input type='hidden' name='SignatureValue' value={md5(`flowers-pro-vp.ru:${props.sum}::Theteda123-45`)} />
-                    <button className={s.paymentBut} onClick={addOrder} onTouchStart={addOrder}>
+                    <button className={s.paymentBut} onClick={addOrder}>
                       <span>Перейти к оплате</span>
                     </button>
-                  </form>
                 ) : (
-                  <button className={s.paymentBut} onClick={addOrder}>
+                  <button className={s.paymentBut}>
                     <span>Перейти к оплате</span>
                   </button>
                 )}
