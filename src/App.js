@@ -28,7 +28,7 @@ function App() {
     fetchTypes().then(data => device.setTypes(data))
     fetchBrands().then(data => device.setBrands(data))
     fetchDevices(null, null).then(data => {
-      device.setDevices(data.rows)
+      device.setDevices(data.rows.reverse())
       device.setTotalCount(data.count)
       let prices = []
       device.devices.map((e) => {

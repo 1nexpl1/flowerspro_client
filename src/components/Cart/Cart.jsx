@@ -7,7 +7,8 @@ import { Context } from "../..";
 import file from '../../files/oferta.docx'
 import md5 from 'md5'
 import { GoToPay } from "../../http/pay";
-
+import { AddressSuggestions } from 'react-dadata';
+import 'react-dadata/dist/react-dadata.css';
 const Cart = (props) => {
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
@@ -16,14 +17,6 @@ const Cart = (props) => {
   const [number, setNumber] = useState('')
   const { user } = useContext(Context)
   let jsonItems = JSON.stringify(props.items)
-  let strok = `https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=flowers-pro-vp.ru&OutSum=${props.sum}&SignatureValue=${md5(`flowers-pro-vp.ru:${props.sum}::Theteda123-45`)}`
-  const testFunc = () => {
-    window.location.href = strok
-  }
-  // <form action='https://auth.robokassa.ru/Merchant/Index.aspx' method='POST'>                    
-  //                   <input type='hidden' name='MerchantLogin' value='flowers-pro-vp.ru' />
-  //                   <input type='hidden' name='OutSum' value={props.sum} />
-  //                   <input type='hidden' name='SignatureValue' value={md5(`flowers-pro-vp.ru:${props.sum}::Theteda123-45`)} />
   const addOrder = () => {
     if (validatePhoneNumber(number)) {
       if (number && name && adress && props.items) {   
@@ -59,7 +52,7 @@ const Cart = (props) => {
     props.toggleAuth()
     props.toggle()
   }
-
+  console.log(adress);
   return (
     <div className={s.wrapper}>
       <button className={s.buttonBack} onClick={props.toggle}>
@@ -70,12 +63,14 @@ const Cart = (props) => {
         <>
           <h1 className={s.title}>Корзина</h1>
           <div className={s.address}>
-            <input
-              className={s.addressInput}
-              type="text"
-              placeholder="Введите адрес доставки"
+            <AddressSuggestions 
+              token="650a43e28bfdfec31e9f3b18d7211dcf9c542cfe" 
+              inputProps = {{className: s.addressInput, placeholder:"Введите адрес доставки"}} 
               value={adress}
-              onChange={e => setAdress(e.target.value)}
+              onChange={setAdress}
+              containerClassName={s.addressContainer}
+              suggestionsClassName = {s.addressHint}
+              suggestionClassName = {s.addressOneHint}
             />
             <input
               className={s.addressInput}
