@@ -1,26 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import { Button, Container } from "react-bootstrap";
-import CreateBrand from "../components/modals/CreateBrand";
-import CreateDevice from "../components/modals/CreateDevice";
-import CreateType from "../components/modals/CreateType";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import DeleteDevice from '../components/modals/DeleteDevice';
-import DeleteType from '../components/modals/DeleteType';
-import DeleteBrand from '../components/modals/DeleteBrand';
-import CreatePost from '../components/modals/CreatePost';
-import CreateStorie from '../components/modals/CreateStorie';
-import DeleteStorie from '../components/modals/DeleteStorie';
-import DeletePost from '../components/modals/DeletePost';
-import Title from '../components/UI/Title/Title';
-import { fetchOrders } from '../http/OrderAPI';
+import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect, useState } from 'react';
+import { Button, Container } from "react-bootstrap";
 import RawTable from '../components/Profile/RawTable/RawTable';
+import Title from '../components/UI/Title/Title';
+import CreateBrand from "../components/modals/CreateBrand";
+import CreateDevice from "../components/modals/CreateDevice";
+import CreatePost from '../components/modals/CreatePost';
+import CreateSong from '../components/modals/CreateSong';
+import CreateStorie from '../components/modals/CreateStorie';
+import CreateType from "../components/modals/CreateType";
+import DeleteBrand from '../components/modals/DeleteBrand';
+import DeleteDevice from '../components/modals/DeleteDevice';
+import DeletePost from '../components/modals/DeletePost';
+import DeleteStorie from '../components/modals/DeleteStorie';
+import DeleteType from '../components/modals/DeleteType';
+import QrGenegate from '../components/modals/QrGenegate';
+import { fetchOrders } from '../http/OrderAPI';
 
 const AdminPage = () => {
     const [brandVisible, setBrandVisible] = useState(false)
@@ -33,6 +35,8 @@ const AdminPage = () => {
     const [deleteBrandVisible, setDeleteBrandVisible] = useState(false)
     const [deletePostVisible, setDeletePostVisible] = useState(false)
     const [deleteStorieVisible, setDeleteStorieVisible] = useState(false)
+    const [createSongVisible, setCreateSongVisible] = useState(false)
+    const [createQrVisible, setCreateQrVisible] = useState(false)
     const [orders, setOrders] = useState([])
     useEffect(() => {
         fetchOrders().then(data => {
@@ -112,6 +116,20 @@ const AdminPage = () => {
                 >
                     Удалить историю
                 </Button>
+                <Button
+                    variant={"outline-dark"}
+                    className="mt-4 p-2"
+                    onClick={() => setCreateSongVisible(true)}
+                >
+                    Добавить трек
+                </Button>
+                <Button
+                    variant={"outline-dark"}
+                    className="mt-4 p-2"
+                    onClick={() => setCreateQrVisible(true)}
+                >
+                    Сгенерировать QR
+                </Button>
 
                 <div className='adminWrapper'>
                     <Title>Заказы</Title>
@@ -147,6 +165,8 @@ const AdminPage = () => {
                 <DeleteBrand show={deleteBrandVisible} onHide={() => setDeleteBrandVisible(false)} />
                 <DeletePost show={deletePostVisible} onHide={() => setDeletePostVisible(false)} />
                 <DeleteStorie show={deleteStorieVisible} onHide={() => setDeleteStorieVisible(false)} />
+                <CreateSong show={createSongVisible} onHide={() => setCreateSongVisible(false)}/>
+                <QrGenegate show={createQrVisible} onHide={()=> setCreateQrVisible(false)}/>
             </Container>
         </div>
     );
