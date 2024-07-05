@@ -1,6 +1,6 @@
 import axios from "axios"
 export const createSong = async (song) => {
-    const {data} = await axios.post('https://srv.flowers-pro-vp.ru/api/song', {song})
+    const {data} = await axios.post('https://srv.flowers-pro-vp.ru/api/song', song)
     return data
 }
 

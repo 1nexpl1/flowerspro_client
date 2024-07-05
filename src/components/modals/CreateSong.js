@@ -25,6 +25,7 @@ const CreateSong = ({show, onHide}) => {
         formData.append('link', link)
         formData.append('img', file)
         formData.append('file', file1)
+        console.log(createSong(formData));
         createSong(formData).then(data => onHide())
     }
 
