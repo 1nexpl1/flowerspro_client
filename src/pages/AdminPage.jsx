@@ -23,6 +23,7 @@ import DeleteStorie from '../components/modals/DeleteStorie';
 import DeleteType from '../components/modals/DeleteType';
 import QrGenegate from '../components/modals/QrGenegate';
 import { fetchOrders } from '../http/OrderAPI';
+import { fetchSong } from '../http/songAPI';
 
 const AdminPage = () => {
     const [brandVisible, setBrandVisible] = useState(false)
@@ -37,11 +38,11 @@ const AdminPage = () => {
     const [deleteStorieVisible, setDeleteStorieVisible] = useState(false)
     const [createSongVisible, setCreateSongVisible] = useState(false)
     const [createQrVisible, setCreateQrVisible] = useState(false)
+    const [songs, setSongs] = useState([])
     const [orders, setOrders] = useState([])
     useEffect(() => {
-        fetchOrders().then(data => {
-            setOrders(data)
-        })
+        fetchOrders().then(data => setOrders(data))
+        fetchSong().then(data => setSongs(data.rows))
     }, [])
     return (
         <div className='adminWrapper'>
@@ -166,7 +167,7 @@ const AdminPage = () => {
                 <DeletePost show={deletePostVisible} onHide={() => setDeletePostVisible(false)} />
                 <DeleteStorie show={deleteStorieVisible} onHide={() => setDeleteStorieVisible(false)} />
                 <CreateSong show={createSongVisible} onHide={() => setCreateSongVisible(false)}/>
-                <QrGenegate show={createQrVisible} onHide={()=> setCreateQrVisible(false)}/>
+                <QrGenegate show={createQrVisible} onHide={()=> setCreateQrVisible(false)} songs = {songs}/>
             </Container>
         </div>
     );
