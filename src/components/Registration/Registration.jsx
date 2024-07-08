@@ -12,7 +12,7 @@ const Registration = (props) => {
   const [password1, setPassword1] = useState('')
   const { user } = useContext(Context)
   const click = async () => {
-    if (validateEmail(email)) {
+    if (validatePhoneNumber(email)) {
       if (password === password1) {
         try {
           let data = await registration(name, email, password);
@@ -26,13 +26,17 @@ const Registration = (props) => {
         alert('Пароли не совпадают')
       } 
     } else {
-      alert('Некорректный email')
+      alert('Некорректный номер телефона')
     }
 
   }
   function validateEmail(email) {
     let re = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
     return re.test(String(email).toLowerCase());
+  }
+  function validatePhoneNumber(input) {
+    const regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+    return regex.test(input);
   }
 
   return (
@@ -46,7 +50,7 @@ const Registration = (props) => {
       <div className={s.reg}>
         <div className={s.inputs}>
           <input className={s.addressInput} type="text" placeholder="Имя" value={name} onChange={e => setName(e.target.value)}/>
-          <input className={s.addressInput} type="text" placeholder="e-mail" value={email} onChange={e => setEmail(e.target.value)} />
+          <input className={s.addressInput} type="text" placeholder="Номер телефона" value={email} onChange={e => setEmail(e.target.value)} />
           <input className={s.addressInput} type="password" placeholder="Пароль" value={password} onChange={e => setPassword(e.target.value)} />
           <input
             className={s.addressInput}
