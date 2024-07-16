@@ -6,15 +6,19 @@
     align-items: center;
     position: relative;
     height: 330px;
+    cursor: pointer;
 }
 
 .photoWrapper{
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    background-color: #1f1f1f;
+    border-radius: 20px;    
 }
 
-.wrapperHovering {
+/* .wrapperHovering {
     width: 250px;
     border: 2px solid #989898;
     display: flex;
@@ -24,15 +28,15 @@
     z-index: 100;
     background-color: #E8E8E8;
     padding-bottom: 30px;
-}
+} */
 
-.wrapperHovering img {
+/* .wrapperHovering img {
     margin-top: 20px;
     width: 230px;
     height: 230px;
     margin-left: 10px;
     margin-right: 10px;
-}
+} */
 
 .input {
     margin-top: 10px;
@@ -77,14 +81,26 @@
 
 
 .buttons {
+    position: absolute;
+    left: 50%;
+    bottom: 80px;
+    transform: translate(-50%, 0);
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(2, 1fr);
-    width: 85%;
+    width: 75%;
     margin-top: 20px;
 }
 
-
+.describe{
+    text-align: center;
+    font-family: 'Graphik';
+    font-size: 14px;
+    color: #ebebeb;
+    height: auto;
+    position: absolute;
+    bottom: 140px;
+}
 
 .value {
     align-self: flex-end;
@@ -93,13 +109,15 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border: 2px solid #989898;
+    border: 2px solid #ebebeb;
     height: 30px;
+    margin-bottom: 10px;
+    border-radius: 5px;
 }
 
 .value button {
     padding: 0;
-    color: #989898;
+    color: #ebebeb;
     width: 33%;
     height: 30px;
     display: flex;
@@ -122,29 +140,32 @@
     justify-content: center;
     align-items: center;
     font-family: SONY Fixed;
-    color: #292929;
+    color: #ebebeb;
     height: 30px;
     width: 34%;
-    border-right: 2px solid #989898;
-    border-left: 2px solid #989898;
+    border-right: 2px solid #ebebeb;
+    border-left: 2px solid #ebebeb;
 }
 
 
 .buy button {
-    width: 50%;
-    height: 30px;
+    width: 100%;
+    height: 35px;
+    border-radius: 5px;
     padding: 0;
     text-align: center;
     font-family: Graphik;
     font-size: 14px;
     background-color: transparent;
-    border: 2px solid #989898;
-    border-top: none;
+    border: 2px solid #ebebeb;
+    color: #ebebeb;
     cursor: pointer;
+    margin-bottom: 10px;
 }
 
-.buy button:nth-child(1) {
-    border-right: none;
+.buy button:nth-child(1){
+    background-color: #ebebeb;
+    color: #303030;
 }
 
 .buy button:active {
@@ -153,8 +174,13 @@
 }
 
 .photo {
+    border-radius: 20px;
     width: 250px;
     height: 250px;
+}
+
+.wrapper:hover .photo{
+    opacity: 0.04;
 }
 
 

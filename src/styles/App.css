@@ -427,7 +427,7 @@ html::-webkit-scrollbar-track {
 @media (max-width:1590px) {
     .catalogItems {
         grid-template-columns: repeat(3, 1fr);
-        gap: 5% 5%
+        gap: 25px 5%
     }
 }
 

@@ -28,7 +28,8 @@
     width: 45%;
 }
 .imageWrapper img{
-    width: 100%;
+    width: 500px;
+    height: 400px;
 }
 
 .title{

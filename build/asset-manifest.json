@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.1a7c939d.css",
-    "main.js": "/static/js/main.4f190772.js",
+    "main.css": "/static/css/main.8f7ed17c.css",
+    "main.js": "/static/js/main.0560e215.js",
     "static/media/preview.jpg": "/static/media/preview.fbc8a3b51963be0c0725.jpg",
     "static/media/PayPhot.png": "/static/media/PayPhot.cd0ae3b6e60b57ff0d7a.png",
     "static/media/KorPhot.png": "/static/media/KorPhot.cfff11a520935d168b61.png",
@@ -13,6 +13,9 @@
     "static/media/logoflowers.png": "/static/media/logoflowers.154405a01999518e43cb.png",
     "static/media/Wermut-Italic.ttf": "/static/media/Wermut-Italic.67fc0084f12fb57d5fde.ttf",
     "static/media/Wermut.ttf": "/static/media/Wermut.aba548ead68525c6f702.ttf",
+    "static/media/enter.jpeg": "/static/media/enter.7f9dc4a95aa1407a07ba.jpeg",
+    "static/media/buket.jpeg": "/static/media/buket.be98cd8c9cd681c3ec34.jpeg",
+    "static/media/team.jpeg": "/static/media/team.70f3fc10e6a8669043de.jpeg",
     "static/media/GraphikLCG-Bold.woff": "/static/media/GraphikLCG-Bold.c9ff0f7c3d4ed57d90d3.woff",
     "static/media/GraphikLCG-Regular.woff": "/static/media/GraphikLCG-Regular.b4fc93d5073c5d6f5235.woff",
     "static/media/logo-vk.png": "/static/media/logo-vk.c81febf087193d0d26db.png",
@@ -24,11 +27,11 @@
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
-    "main.1a7c939d.css.map": "/static/css/main.1a7c939d.css.map",
-    "main.4f190772.js.map": "/static/js/main.4f190772.js.map"
+    "main.8f7ed17c.css.map": "/static/css/main.8f7ed17c.css.map",
+    "main.0560e215.js.map": "/static/js/main.0560e215.js.map"
   },
   "entrypoints": [
-    "static/css/main.1a7c939d.css",
-    "static/js/main.4f190772.js"
+    "static/css/main.8f7ed17c.css",
+    "static/js/main.0560e215.js"
   ]
 }
