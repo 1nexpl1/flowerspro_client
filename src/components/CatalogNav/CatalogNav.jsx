@@ -35,9 +35,7 @@ const CatalogNav = observer((props) => {
           <div onClick={()=>func(null)} className={s.text}>Смотреть все</div>
         </Link>
       </div>
-      <div className={s.photo}>
-        <img src={photo} alt="" />
-      </div>
+      
     </div>
   );
 });
