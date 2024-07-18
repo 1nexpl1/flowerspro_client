@@ -16,7 +16,6 @@ const Registration = (props) => {
       if (password === password1) {
         try {
           let data = await registration(name, email, password);
-          console.log(data);
           user.setIsAuth(true)
           props.toggle()
         } catch (e) {
@@ -30,10 +29,7 @@ const Registration = (props) => {
     }
 
   }
-  function validateEmail(email) {
-    let re = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
-    return re.test(String(email).toLowerCase());
-  }
+  
   function validatePhoneNumber(input) {
     const regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
     return regex.test(input);
@@ -49,16 +45,22 @@ const Registration = (props) => {
       <h1 className={s.title}>Регистрация</h1>
       <div className={s.reg}>
         <div className={s.inputs}>
-          <input className={s.addressInput} type="text" placeholder="Имя" value={name} onChange={e => setName(e.target.value)}/>
-          <input className={s.addressInput} type="text" placeholder="Номер телефона" value={email} onChange={e => setEmail(e.target.value)} />
-          <input className={s.addressInput} type="password" placeholder="Пароль" value={password} onChange={e => setPassword(e.target.value)} />
-          <input
-            className={s.addressInput}
-            type="password"
-            placeholder="Повторите пароль"
-            value={password1}
-            onChange={e => setPassword1(e.target.value)}
-          />
+          <div className={s.inputGroup}>    
+            <input type="text" value={name} onChange={e => setName(e.target.value)}/>
+            <label for='name'>Имя</label>
+          </div>
+          <div className={s.inputGroup}>    
+            <input type="text" value={email} onChange={e => setEmail(e.target.value)}/>
+            <label for='name'>Номер телефона</label>
+          </div>
+          <div className={s.inputGroup}>    
+            <input type="password" value={password} onChange={e => setPassword(e.target.value)}/>
+            <label for='name'>Пароль</label>
+          </div>
+          <div className={s.inputGroup}>    
+            <input type="password" value={password1} onChange={e => setPassword1(e.target.value)}/>
+            <label for='name'>Повторите пароль</label>
+          </div>
         </div>
         <div className={s.checkboxes}>
           <label className={s.checkbox}>

@@ -19,7 +19,7 @@ const Cart = (props) => {
   let jsonItems = JSON.stringify(props.items)
   const addOrder = () => {
     if (validatePhoneNumber(number)) {
-      if (number && name && adress && props.items) {   
+      if (number && name && adress && props.items) {
         const formData = new FormData()
         formData.append('adress', adress)
         formData.append('name', name)
@@ -29,7 +29,7 @@ const Cart = (props) => {
         formData.append('items', jsonItems)
         formData.append('userId', user.user.id)
         createOrder(formData).then(data => {
-          props.toggle()   
+          props.toggle()
           let strok = `https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=flowers-pro-vp.ru&OutSum=${props.sum}&SignatureValue=${md5(`flowers-pro-vp.ru:${props.sum}::Theteda123-45`)}`
           window.location.href = strok
         })
@@ -48,7 +48,7 @@ const Cart = (props) => {
     return regex.test(input);
   }
 
-  const GoToAuth = () =>{
+  const GoToAuth = () => {
     props.toggleAuth()
     props.toggle()
   }
@@ -63,15 +63,17 @@ const Cart = (props) => {
         <>
           <h1 className={s.title}>Корзина</h1>
           <div className={s.address}>
-            <AddressSuggestions 
-              token="650a43e28bfdfec31e9f3b18d7211dcf9c542cfe" 
-              inputProps = {{className: s.addressInput, placeholder:"Введите адрес доставки"}} 
+            <AddressSuggestions
+              token="650a43e28bfdfec31e9f3b18d7211dcf9c542cfe"
+              inputProps={{ className: s.addressInput, placeholder: "Введите адрес доставки" }}
               value={adress}
               onChange={setAdress}
               containerClassName={s.addressContainer}
-              suggestionsClassName = {s.addressHint}
-              suggestionClassName = {s.addressOneHint}
+              suggestionsClassName={s.addressHint}
+              suggestionClassName={s.addressOneHint}
             />
+
+
             <input
               className={s.addressInput}
               type="text"
@@ -123,9 +125,9 @@ const Cart = (props) => {
               </div>
               <div className={s.payment}>
                 {validatePhoneNumber(number) && name && adress && props.items ? (
-                    <button className={s.paymentBut} onClick={addOrder}>
-                      <span>Перейти к оплате</span>
-                    </button>
+                  <button className={s.paymentBut} onClick={addOrder}>
+                    <span>Перейти к оплате</span>
+                  </button>
                 ) : (
                   <button className={s.paymentBut}>
                     <span>Перейти к оплате</span>
@@ -138,9 +140,9 @@ const Cart = (props) => {
           }
         </>
       ) : (
-        <>       
-        <div style={{marginTop:'70px'}} className={s.titleCartItems}>Вы не авторизованы</div>
-        <button className={s.paymentBut} onClick={GoToAuth}>Авторизоваться</button>
+        <>
+          <div style={{ marginTop: '70px' }} className={s.titleCartItems}>Вы не авторизованы</div>
+          <button className={s.paymentBut} onClick={GoToAuth}>Авторизоваться</button>
         </>
       )}
 

@@ -7,7 +7,7 @@ import { observer } from 'mobx-react-lite'
 const Login = observer((props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const {user} = useContext(Context)
+  const { user } = useContext(Context)
   const click = async () => {
     if (validateEmail(email) || validatePhoneNumber(email)) {
       try {
@@ -15,11 +15,11 @@ const Login = observer((props) => {
         user.setUser(user)
         user.setIsAuth(true)
         props.toggle()
-    } catch (e) {
-      if (e.response.data.message) {
-        alert(e.response.data.message)
+      } catch (e) {
+        if (e.response.data.message) {
+          alert(e.response.data.message)
+        }
       }
-    }
     } else {
       alert('Некорректный email или номер телефона')
     }
@@ -35,25 +35,31 @@ const Login = observer((props) => {
   }
   return (
     <div className={s.wrapper}>
-    <button className={s.buttonBack} onClick={props.toggle}>
-      <IoIosArrowBack className={s.buttonBackIcon} />
-      <div className={s.buttonBackText}>Назад</div>
-    </button>
+      <button className={s.buttonBack} onClick={props.toggle}>
+        <IoIosArrowBack className={s.buttonBackIcon} />
+        <div className={s.buttonBackText}>Назад</div>
+      </button>
 
-    <h1 className={s.title}>Вход</h1>
-    <div className={s.reg}>
-      <div className={s.inputs}>
-      <input className={s.addressInput} placeholder="e-mail или номер телефона" value={email} onChange={e => setEmail(e.target.value)}/>
-          <input className={s.addressInput} type="password" placeholder="Пароль" value={password} onChange={e => setPassword(e.target.value)}/>
-      </div>
-      <div className={s.register}>
-        <button className={s.registerBut} onClick={click}>Войти</button>
-      </div>
-      <div className={s.change}>
-      У меня нет аккаунта <span onClick={() =>{props.setIsAuth(true)}}>Зарегистрироваться</span>
+      <h1 className={s.title}>Вход</h1>
+      <div className={s.reg}>
+        <div className={s.inputs}>
+          <div className={s.inputGroup}>
+            <input type="text" value={email} onChange={e => setEmail(e.target.value)} />
+            <label for='name'>e-mail или номер телефона</label>
+          </div>
+          <div className={s.inputGroup}>
+            <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
+            <label for='name'>Пароль</label>
+          </div>
+        </div>
+        <div className={s.register}>
+          <button className={s.registerBut} onClick={click}>Войти</button>
+        </div>
+        <div className={s.change}>
+          У меня нет аккаунта <span onClick={() => { props.setIsAuth(true) }}>Зарегистрироваться</span>
+        </div>
       </div>
     </div>
-  </div>
   )
 })
 
