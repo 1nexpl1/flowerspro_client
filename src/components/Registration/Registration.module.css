@@ -95,7 +95,7 @@ input:focus ~ label, input:valid ~ label {
     background-color: #e8e8e8;
 }
 
-.inputGroup :is(input:focus) {
+.inputGroup :is(input:focus, input:valid) {
     border-color: rgb(150, 150, 200);
 }
 
@@ -165,13 +165,9 @@ input:focus ~ label, input:valid ~ label {
 }
 
 
-
-
-
-
-
 .registerBut {
-    width: 85%;
+    position: relative;
+    width: 92%;
     height: 40px;
     border: 2px solid #292929;
     color: #292929;
@@ -179,8 +175,8 @@ input:focus ~ label, input:valid ~ label {
     font-family: SONY Fixed;
     font-style: 22px;
     cursor: pointer;
-
     transition: all .45s;
+    z-index: 1999;
 }
 
 .registerBut span {
@@ -204,9 +200,10 @@ input:focus ~ label, input:valid ~ label {
     color: #E8E8E8;
 }
 
-.paymentBut:hover::before {
+.registerBut:hover::before {
     width: 100%;
 }
+
 
 .change {
     margin-top: 20px;

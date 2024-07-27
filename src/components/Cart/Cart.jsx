@@ -63,31 +63,25 @@ const Cart = (props) => {
         <>
           <h1 className={s.title}>Корзина</h1>
           <div className={s.address}>
-            <AddressSuggestions
-              token="650a43e28bfdfec31e9f3b18d7211dcf9c542cfe"
-              inputProps={{ className: s.addressInput, placeholder: "Введите адрес доставки" }}
-              value={adress}
-              onChange={setAdress}
-              containerClassName={s.addressContainer}
-              suggestionsClassName={s.addressHint}
-              suggestionClassName={s.addressOneHint}
-            />
+
+            <div className={s.inputGroup}>
+              <AddressSuggestions
+                token="650a43e28bfdfec31e9f3b18d7211dcf9c542cfe"
+                value={adress}
+                onChange={setAdress}
+                inputProps={{required: 'true', type: 'text', placeholder: 'Введите адрес доставки', className: s.inputHint}}
+              />
+            </div>
+            <div className={s.inputGroup}>
+              <input required type="text" value={number} onChange={e => setNumber(e.target.value)} />
+              <label for='name'>Введите номер телефона</label>
+            </div>
+            <div className={s.inputGroup}>
+              <input required type="text" value={name} onChange={e => setName(e.target.value)} />
+              <label for='name'>Введите имя получателя</label>
+            </div>
 
 
-            <input
-              className={s.addressInput}
-              type="text"
-              placeholder="Введите номер телефона"
-              value={number}
-              onChange={e => setNumber(e.target.value)}
-            />
-            <input
-              className={s.addressInput}
-              type="text"
-              placeholder="Введите имя получателя"
-              value={name}
-              onChange={e => setName(e.target.value)}
-            />
             <div className={s.checkboxes}>
               <label className={s.checkbox}>
                 <input

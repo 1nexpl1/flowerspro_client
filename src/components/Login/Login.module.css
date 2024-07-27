@@ -102,7 +102,7 @@ input:focus ~ label, input:valid ~ label {
     background-color: #e8e8e8;
 }
 
-.inputGroup :is(input:focus) {
+.inputGroup :is(input:focus, input:valid) {
     border-color: rgb(150, 150, 200);
 }
 
@@ -178,23 +178,28 @@ input:focus ~ label, input:valid ~ label {
 
 .registerBut::before{
     position: absolute;
-        content: "";
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 100%;
-        background-color: #292929;
-        transition: all .45s;
-        z-index: 1;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #292929;
+    transition: all .45s;
 }
 
 .registerBut:hover{
     color: #E8E8E8;
 }
 
-.paymentBut:hover::before{
+.registerBut:hover::before{
     width: 100%;
 }
+
+
+
+
+
+
 
 .change{
     margin-top: 20px;

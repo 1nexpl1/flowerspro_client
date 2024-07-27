@@ -1,4 +1,4 @@
-.checkSquare {
+/* .checkSquare {
     min-width: 15px;
     height: 15px;
     width: 15px;
@@ -21,5 +21,61 @@
     cursor: pointer;
     text-decoration: none;
     color: #292929;
+} */
+
+.checkbox>input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
 }
 
+/* для элемента label связанного с .custom-radio */
+.checkbox>span {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+
+/* создание в label псевдоэлемента  before со следующими стилями */
+.checkbox>span::before {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #adb5bd;
+    border-radius: 50%;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+}
+
+/* стили при наведении курсора на радио */
+.checkbox>input:not(:disabled):not(:checked)+span:hover::before {
+    border-color: #292929;
+}
+
+/* стили для активной радиокнопки (при нажатии на неё) */
+.checkbox>input:not(:disabled):active+span::before {
+    background-color:#292929;
+    border-color: #292929;
+}
+
+/* стили для радиокнопки, находящейся в фокусе */
+.checkbox>input:focus+span::before {
+    box-shadow: 0 0 0 0.2rem rgba(0, 19, 39, 0.25);
+}
+
+/* стили для радиокнопки, находящейся в фокусе и не находящейся в состоянии checked */
+.checkbox>input:focus:not(:checked)+span::before {
+    border-color: #243446;
+}
+
+/* стили для радиокнопки, находящейся в состоянии checked */
+.checkbox>input:checked+span::before {
+    border-color: #292929;
+    background-color:#292929;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+}

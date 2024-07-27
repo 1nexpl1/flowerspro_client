@@ -46,19 +46,19 @@ const Registration = (props) => {
       <div className={s.reg}>
         <div className={s.inputs}>
           <div className={s.inputGroup}>    
-            <input type="text" value={name} onChange={e => setName(e.target.value)}/>
+            <input required type="text" value={name} onChange={e => setName(e.target.value)}/>
             <label for='name'>Имя</label>
           </div>
           <div className={s.inputGroup}>    
-            <input type="text" value={email} onChange={e => setEmail(e.target.value)}/>
+            <input required type="text" value={email} onChange={e => setEmail(e.target.value)}/>
             <label for='name'>Номер телефона</label>
           </div>
           <div className={s.inputGroup}>    
-            <input type="password" value={password} onChange={e => setPassword(e.target.value)}/>
+            <input required type="password" value={password} onChange={e => setPassword(e.target.value)}/>
             <label for='name'>Пароль</label>
           </div>
           <div className={s.inputGroup}>    
-            <input type="password" value={password1} onChange={e => setPassword1(e.target.value)}/>
+            <input required type="password" value={password1} onChange={e => setPassword1(e.target.value)}/>
             <label for='name'>Повторите пароль</label>
           </div>
         </div>
@@ -83,9 +83,7 @@ const Registration = (props) => {
             использования сайта FlowersPro.
           </label>
         </div>
-        <div className={s.register}>
-          <button className={s.registerBut} onClick={click}>Зарегистрироваться</button>
-        </div>
+          <button className={s.registerBut} onClick={click}><span>Зарегистрироваться</span></button>
         <div className={s.change}>
           У меня уже есть аккаунт <span onClick={() => { props.setIsAuth(false) }}>Войти</span>
         </div>

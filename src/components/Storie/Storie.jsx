@@ -1,6 +1,7 @@
 import React from 'react'
 import Stories from 'react-insta-stories';
 import s from './Storie.module.css'
+import { IoCloseOutline } from "react-icons/io5";
 
 const Storie = (props) => {
     let photo1 = 'https://api.flowers-pro-vp.ru/' + props.el.imgSmall
@@ -15,19 +16,21 @@ const Storie = (props) => {
             },
         },
     ];
-  return (
-    <div className={s.modal} onClick={props.click}>
-        <div onClick = {(e)=>e.stopPropagation()}>
-        <Stories
-            onStoryEnd={()=>props.setModal(false)}
-            stories={story}
-            defaultInterval={1500}
-            width={432}
-            height={768}
-        />
+    return (
+        <div className={s.modal} onClick={props.click}>
+            <div onClick={(e) => e.stopPropagation()}>
+                <Stories
+                    onStoryEnd={() => props.setModal(false)}
+                    stories={story}
+                    defaultInterval={1500}
+                    width={432}
+                    height={768}
+                    keyboardNavigation={false}
+                    onNext = {()=>props.setModal(false)}
+                />
+            </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default Storie

@@ -44,17 +44,15 @@ const Login = observer((props) => {
       <div className={s.reg}>
         <div className={s.inputs}>
           <div className={s.inputGroup}>
-            <input type="text" value={email} onChange={e => setEmail(e.target.value)} />
+            <input required type="text" value={email} onChange={e => setEmail(e.target.value)} />
             <label for='name'>e-mail или номер телефона</label>
           </div>
           <div className={s.inputGroup}>
-            <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
+            <input required type="password" value={password} onChange={e => setPassword(e.target.value)} />
             <label for='name'>Пароль</label>
           </div>
         </div>
-        <div className={s.register}>
-          <button className={s.registerBut} onClick={click}>Войти</button>
-        </div>
+          <button className={s.registerBut} onClick={click}><span>Войти</span></button>
         <div className={s.change}>
           У меня нет аккаунта <span onClick={() => { props.setIsAuth(true) }}>Зарегистрироваться</span>
         </div>

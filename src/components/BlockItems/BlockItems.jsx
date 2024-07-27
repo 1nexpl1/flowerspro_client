@@ -5,7 +5,7 @@ import Item from '../Item/Item'
 
 const BlockItems = (props) => {
     const { device } = useContext(Context)
-    let eight = device.devices.slice(-8)
+    let eight = device.devices.slice(0, 8)
     return (
         <div className={s.wrapper}>
             <h1 className={s.title}>Новинки</h1>

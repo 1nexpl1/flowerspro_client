@@ -57,7 +57,7 @@ const Filter = observer((props) => {
       <div className={s.checkboxes}>
         <div className={s.title}>Тип</div>
         {device.types.map(name =>
-          <Checkbox name={name.name} setType={setType} id={name.id} key={name.id} clickApply={clickApply} />
+          <Checkbox name={name.name} setType={setType} id={name.id} key={name.id} clickApply={clickApply}/>
         )}
       </div>
       <div className={s.priceFilt}>

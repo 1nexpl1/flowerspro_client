@@ -77,7 +77,7 @@ const Profile = (props) => {
             </div>
 
 
-            <button className={s.paymentBut} onClick={props.logout}>Выйти</button>
+            <button className={s.paymentBut} onClick={props.logout}><span>Выйти</span></button>
         </div>
     )
 }

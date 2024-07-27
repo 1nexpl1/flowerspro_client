@@ -6,7 +6,7 @@
     padding-bottom: 500px;
 }
 
-.title{
+.title {
     font-family: Graphik;
     font-size: 34px;
     margin-top: 15px;
@@ -14,18 +14,19 @@
     color: #292929;
 }
 
-.subTitle{   
-    font-family: Wermut;   
+.subTitle {
+    font-family: Wermut;
     font-size: 26px;
 }
 
-.text{
+.text {
     font-family: Graphik;
     font-size: 18px;
     color: #292929;
     margin-bottom: 5px;
 }
-.textDisc{
+
+.textDisc {
     position: absolute;
     top: 50px;
     left: 15px;
@@ -34,7 +35,8 @@
     font-size: 38px;
     color: #c4c4c4;
 }
-.textDiscrip{
+
+.textDiscrip {
     position: absolute;
     top: 20px;
     left: 15px;
@@ -45,7 +47,7 @@
     margin-bottom: 5px;
 }
 
-.numberCartDisc{
+.numberCartDisc {
     position: absolute;
     bottom: 55px;
     right: 15px;
@@ -55,7 +57,8 @@
     color: #c4c4c4;
     margin-bottom: 5px;
 }
-.numberCart{
+
+.numberCart {
     position: absolute;
     bottom: 20px;
     right: 15px;
@@ -64,7 +67,8 @@
     font-size: 32px;
     color: #c4c4c4;
 }
-.textDiscWrapper{    
+
+.textDiscWrapper {
     position: relative;
     border-radius: 25px;
     width: 350px;
@@ -72,12 +76,12 @@
     background-color: #292929;
 }
 
-.orders{
+.orders {
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-.paymentBut{
+.paymentBut {
     position: relative;
     width: 30%;
     height: 40px;
@@ -88,29 +92,30 @@
     font-style: 22px;
     cursor: pointer;
     transition: all .45s;
+    z-index: 1999;
 }
 
-.paymentBut span{
+.paymentBut span {
     position: relative;
     z-index: 20000;
 }
 
-.paymentBut::before{
+.paymentBut::before {
     position: absolute;
-        content: "";
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 100%;
-        background-color: #292929;
-        transition: all .45s;
-        z-index: 1;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #292929;
+    transition: all .45s;
+    z-index: 1;
 }
 
-.paymentBut:hover{
+.paymentBut:hover {
     color: #E8E8E8;
 }
 
-.paymentBut:hover::before{
+.paymentBut:hover::before {
     width: 100%;
 }

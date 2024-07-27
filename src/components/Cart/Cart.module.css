@@ -180,6 +180,15 @@
 }
 
 
+
+.inputHint::placeholder{
+    font-size: 100%;
+    pointer-events: none;
+    color: rgb(100, 100, 100);
+}
+
+
+
 /* Input */
 .inputs{
     display: flex;
@@ -302,6 +311,7 @@ input:focus ~ label, input:valid ~ label {
 /* Checkbox */
 
 .checkboxes {
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;

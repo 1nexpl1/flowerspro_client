@@ -4,6 +4,8 @@ import ImageGallery from "react-image-gallery";
 import s from './Carousel.module.css'
 import "react-image-gallery/styles/css/image-gallery.css";
 import { FaAngleLeft } from "react-icons/fa";
+import LeftButton from './Controls/LeftButton/LeftButton';
+import RightButton from './Controls/RightButton/RightButton';
 
 const Carousel = (props) => {
     const mediaQuerry = window.matchMedia('(max-width: 940px)')
@@ -103,7 +105,18 @@ const Carousel = (props) => {
                 </div>
             ) : (
                 <div>
-                    <ImageGallery items={images} thumbnailPosition={'left'} showPlayButton={false} showFullscreenButton={false} />
+                    <ImageGallery
+                     items={images} 
+                     thumbnailPosition={'left'}
+                     showPlayButton={false} 
+                     showFullscreenButton={false} 
+                     renderLeftNav={(onClick, disabled) => (
+                        <LeftButton onClick={onClick} disabled={disabled} />
+                     )}
+                     renderRightNav={(onClick, disabled) => (
+                        <RightButton onClick={onClick} disabled={disabled} />
+                     )}
+                    />
                 </div>
             )}
         </>

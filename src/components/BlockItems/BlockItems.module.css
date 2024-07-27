@@ -1,8 +1,12 @@
 .wrapperList {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 15px 15px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 350px;
+    justify-content: space-between;
+    grid-row-gap: 5px;
+    grid-column-gap: 155px;
+    position: relative;
+    width: 100%;
 }
 
 .title {

@@ -10,3 +10,13 @@
     align-items: center;
     z-index: 100;
 }
+
+.butClose{
+    background-color: aqua;
+    z-index: 1000000000;
+}
+
+.butCloseIcon{
+    width: 20px;
+    height: 20px;
+}
