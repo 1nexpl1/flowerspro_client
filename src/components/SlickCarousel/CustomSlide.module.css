@@ -1,64 +1,99 @@
 .slide {
     background-color: #f1f6e9;
     border-radius: 35px;
-    padding: 20px 40px;
-    padding-bottom: 250px;
     position: relative;
+    height: auto;
+    display: block;
+}
+
+.text {
+    position: absolute;
+    bottom: 40px;
+    height: 90%;
+    z-index: 10000;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1.3fr 1.2fr 0.5fr;
+    gap: 15px 0px;
+    grid-auto-flow: row;
+    justify-items: center;
+    grid-template-areas:
+        "."
+        "."
+        ".";
+
+
 }
 
 .titleSlide {
-    
+    padding-top: 30px;
     font-family: Wermut;
-    width: 70%;
+    color: #ececec;
+    font-weight: bold;
     font-size: 96px;
-    color: #292929;
-    margin-bottom: 20px;
+    align-self: flex-start;
+    text-align: center;
 }
-.description{
+
+.description {
+    text-align: center;
     font-family: Graphik;
-    color: #292929;
-    margin-bottom: 20px;
-    font-size: 26px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    line-height: 26px;
 }
+
 .linkSlide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: Graphik;
-    font-size: 26px;
+    font-size: 24px;
+    font-weight: bold;
     text-decoration: none;
-    color: #292929;
-    margin-top: 40px;
+    margin-top: -80px;
+    /* border: 2px solid;
+    border-radius: 1em;
+    height: 1.6em;
+    padding: 0.3em;
+    padding-left: 0.6em; */
 }
 
 .photo1 {
     border-radius: 20px;
-    position: absolute;
-    right: 310px;
-    bottom: 30px;
-    width: 250px;
-    height: 250px;
-} 
-.photo2 {
-    
-    border-radius: 20px;
-    position: absolute;
-    right: 40px;
-    bottom: 30px;
-    width: 250px;
-    height: 250px;
+    position: static;
+    left: 0;
+    top: 0;
+    width: 100%;
 }
 
-@media (max-width: 950px) {
-    .slide{
-        padding-bottom: 320px;
-    }
+.photo2 {
+    border-radius: 20px;
+    position: static;
+    left: 0;
+    top: 0;
+    width: 100%;
 }
+
+
 
 @media (max-width: 755px) {
-    .titleSlide{
-        font-size: 60px;
-        width: 80%;
-    }
-    .description{
-        font-size: 20px;
+    .titleSlide {
+        font-size: 38px;
+        line-height: 48px;
     }
 
+    .text{
+        
+        grid-template-rows: 1.7fr 1.2fr 0.1fr;
+    }
+
+    .description {
+        display: none;    
+    }
+
+    .linkSlide{
+        font-size: 18px;
+    }
 }

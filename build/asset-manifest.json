@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.84d1105f.css",
-    "main.js": "/static/js/main.8c99a0a4.js",
+    "main.css": "/static/css/main.afdb6e7e.css",
+    "main.js": "/static/js/main.79c73519.js",
     "static/media/preview.jpg": "/static/media/preview.fbc8a3b51963be0c0725.jpg",
     "static/media/PayPhot.png": "/static/media/PayPhot.cd0ae3b6e60b57ff0d7a.png",
     "static/media/KorPhot.png": "/static/media/KorPhot.cfff11a520935d168b61.png",
@@ -15,9 +15,11 @@
     "static/media/Wermut.ttf": "/static/media/Wermut.aba548ead68525c6f702.ttf",
     "static/media/enter.jpeg": "/static/media/enter.7f9dc4a95aa1407a07ba.jpeg",
     "static/media/buket.jpeg": "/static/media/buket.be98cd8c9cd681c3ec34.jpeg",
+    "static/media/hoho.jpg": "/static/media/hoho.849b8532630efe0de2d6.jpg",
     "static/media/team.jpeg": "/static/media/team.70f3fc10e6a8669043de.jpeg",
     "static/media/GraphikLCG-Bold.woff": "/static/media/GraphikLCG-Bold.c9ff0f7c3d4ed57d90d3.woff",
     "static/media/GraphikLCG-Regular.woff": "/static/media/GraphikLCG-Regular.b4fc93d5073c5d6f5235.woff",
+    "static/media/xxx.jpg": "/static/media/xxx.1013bdc93363958778e6.jpg",
     "static/media/logo-vk.png": "/static/media/logo-vk.c81febf087193d0d26db.png",
     "static/media/SONY-Fixed.ttf": "/static/media/SONY-Fixed.744fd5c27058919d8d1a.ttf",
     "static/media/oferta.docx": "/static/media/oferta.66712e8912be62d59d8a.docx",
@@ -27,11 +29,11 @@
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
-    "main.84d1105f.css.map": "/static/css/main.84d1105f.css.map",
-    "main.8c99a0a4.js.map": "/static/js/main.8c99a0a4.js.map"
+    "main.afdb6e7e.css.map": "/static/css/main.afdb6e7e.css.map",
+    "main.79c73519.js.map": "/static/js/main.79c73519.js.map"
   },
   "entrypoints": [
-    "static/css/main.84d1105f.css",
-    "static/js/main.8c99a0a4.js"
+    "static/css/main.afdb6e7e.css",
+    "static/js/main.79c73519.js"
   ]
 }

@@ -22,7 +22,6 @@ const MainPage = observer((props) => {
   },[])
   return (
     <div className='mainWrapper'>
-      <Title>Главная</Title>
       <div className='mainSlick'>
         <Slick />
       </div>
