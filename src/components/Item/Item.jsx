@@ -4,6 +4,7 @@ import { useHover } from "@uidotdev/usehooks";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { fetchOneDevice } from "../../http/DeviceAPI";
+import {motion} from 'framer-motion'
 const Item = (props) => {
   const [ref, hovering] = useHover();
   const [count, setCount] = useState(1);
@@ -44,7 +45,13 @@ const Item = (props) => {
     describe = null
   }
   return (
-    <div className={s.wrapper} ref={ref}
+    <motion.div 
+    initial = {{y: '10px', opacity: 0}}
+    animate = {{y: 0, opacity: 1}}
+    exit = {{y: '50%', opacity: 0}}
+    // exit = {{scale: '500px'}}
+    transition={{duration: 0.75, ease: "easeInOut"}}
+    className={s.wrapper} ref={ref}
       onClick={() => router(`/catalog/${props.item.id}`)}>
       {hovering ? (
         <div className={s.wrapperHovering}>
@@ -93,7 +100,8 @@ const Item = (props) => {
           </div>
         </div>
       ) : (
-        <div>
+        <motion.div
+        >
           <div className={s.photoWrapper}>
             <img className={s.photo} src={photo} alt="" />
           </div>
@@ -102,9 +110,9 @@ const Item = (props) => {
             <div className={s.desc}>{props.item.desc}</div>
             <div className={s.price}>{props.item.price}₽</div>
           </div>
-        </div>
+        </motion.div>
       )}
-    </div>
+    </motion.div>
   );
 };
 

@@ -7,7 +7,7 @@
     width: 25vw;
     background-color: #E8E8E8;
     padding-top: 40px;
-    z-index: 10000;
+    z-index: 1000000000;
 }
 
 .wrapper::-webkit-scrollbar{

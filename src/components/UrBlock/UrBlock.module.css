@@ -1,5 +1,6 @@
 .wrappeTable{
     width: 50%;
+    overflow: hidden;
 }
 .file{
     font-family: Graphik;

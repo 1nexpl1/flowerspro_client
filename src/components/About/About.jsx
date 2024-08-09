@@ -3,11 +3,17 @@ import s from "./About.module.css";
 import fphoto from '../../images/enter.jpeg'
 import sphoto from '../../images/buket.jpeg'
 import tphoto from '../../images/team.jpeg'
+import {motion} from 'framer-motion'
 
 const About = () => {
   return (
     <div className={s.wrapper}>
-      <div className={s.block}>
+      <motion.div 
+      initial={{ x: "-100%", opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      exit={{ x: "-100%", opacity: 0 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+      className={s.block}>
         <div className={s.text}>
           <div className={s.title}>Flowers Pro</div>
           <div className={s.descrip}>
@@ -20,8 +26,13 @@ const About = () => {
         <div className={s.imageWrapper}>
           <img className={s.photoSettings} src={fphoto} alt="" />
         </div>
-      </div>
-      <div className={s.block}>
+      </motion.div>
+      <motion.div 
+      initial={{ x: "100%", opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      exit={{ x: "100%", opacity: 0 }}
+      transition={{ duration: 0.5, delay: 0.4 }}
+      className={s.block}>
         <div className={s.text}>
           <div className={s.title}>Команда Flowers Pro</div>
           <div className={s.descrip}>
@@ -36,8 +47,13 @@ const About = () => {
         <div className={s.imageWrapper}>
           <img src={tphoto} alt="" />
         </div>
-      </div>
-      <div className={s.block}>
+      </motion.div>
+      <motion.div 
+      initial={{ x: "-100%", opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      exit={{ x: "-100%", opacity: 0 }}
+      transition={{ duration: 0.5, delay: 0.6 }}
+       className={s.block}>
         <div className={s.text}>
           <div className={s.title}>Идеальный букет для нас</div>
           <div className={s.descrip}>
@@ -53,7 +69,7 @@ const About = () => {
         <div className={s.imageWrapper}>
           <img src={sphoto} alt="" />
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

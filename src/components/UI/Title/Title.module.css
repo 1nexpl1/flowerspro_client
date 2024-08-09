@@ -1,7 +1,11 @@
+.textWrapper{
+    overflow: hidden;
+}
+
 .text{
+    color: #292929;
     font-family: SONY Fixed;
     font-size: 36px;
-    color: #292929;
 }
 
 @media (max-width:1350px) {

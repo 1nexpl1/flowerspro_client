@@ -1,18 +1,21 @@
 import React, { useState } from "react";
-import s from "./Auth.module.css";
-import { IoIosArrowBack } from "react-icons/io";
 import Registration from "../Registration/Registration";
 import Login from "../Login/Login";
+import {AnimatePresence, motion} from 'framer-motion'
 const Auth = (props) => {
   const [isAuth, setIsAuth] = useState(false)
-  return (
+  return ( 
     <>  
-    {isAuth ? (
+    <AnimatePresence>
+    {isAuth && (
       <Registration toggle = {props.toggle} setIsAuth = {setIsAuth} toggleAuth={props.toggleAuth}/>
-    ):(
+    )}
+    </AnimatePresence>
+    <AnimatePresence>
+    {!isAuth && (
       <Login toggle = {props.toggle} setIsAuth = {setIsAuth} toggleAuth={props.toggleAuth} /> 
     )}
-    
+    </AnimatePresence>
     </>
   )
 };

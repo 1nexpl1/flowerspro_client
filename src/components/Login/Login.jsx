@@ -4,6 +4,7 @@ import { IoIosArrowBack } from 'react-icons/io'
 import { login, registration } from '../../http/userAPI'
 import { Context } from '../..'
 import { observer } from 'mobx-react-lite'
+import {motion} from 'framer-motion'
 const Login = observer((props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -34,7 +35,12 @@ const Login = observer((props) => {
     return regex.test(input);
   }
   return (
-    <div className={s.wrapper}>
+    <motion.div
+    initial={{scale: 1.1, opacity: 0}}
+    animate={{scale: 1, opacity: 1}}
+    exit={{scale: 1.1, opacity: 0}}
+    transition={{duration:0.3}} 
+    className={s.wrapper}>
       <button className={s.buttonBack} onClick={props.toggle}>
         <IoIosArrowBack className={s.buttonBackIcon} />
         <div className={s.buttonBackText}>Назад</div>
@@ -57,7 +63,7 @@ const Login = observer((props) => {
           У меня нет аккаунта <span onClick={() => { props.setIsAuth(true) }}>Зарегистрироваться</span>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 })
 

@@ -3,7 +3,7 @@ import Title from "../components/UI/Title/Title";
 import Pay from "../components/Pay/Pay";
 import HoverContact from "../components/HoverContact/HoverContact";
 import photo from '../images/PayPhot.png'
-
+import { motion } from 'framer-motion'
 
 const PaymentPage = () => {
   return (
@@ -11,17 +11,34 @@ const PaymentPage = () => {
       <Title>Оплата</Title>
       <div className="paymentContent">
         <div>
-          <div className="subTitlePayment">Как происходит оплата?</div>
+          <div
+            className="subTitlePayment">
+            <motion.h3
+              initial={{ y: "-100%", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: "100%", opacity: 0 }}
+              transition={{ duration: 0.5 }}>
+              Как происходит оплата?
+            </motion.h3>
+          </div>
 
           <div className="blocksPaymentWrapper">
             <div className="imageWrapperPayment">
-              <img
+              <motion.img
+                initial={{ x: "-100%", opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: "-100%", opacity: 0 }}
+                transition={{ duration: 0.5 }}
                 src={photo}
                 alt=""
                 className="imagePayment"
               />
             </div>
-            <div className="blocksPayment">
+            <motion.div className="blocksPayment"
+              initial={{ x: "100%", opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: "100%", opacity: 0 }}
+              transition={{ duration: 0.5 }}>
               <div className="blockPay">
                 1. На странице авторизации потребуется ввести номер карты, имя
                 владельца карты, срок действия карты, верификационный номер
@@ -41,10 +58,17 @@ const PaymentPage = () => {
                 карты на соответствующей странице необходимо нажать кнопку
                 «Оплата заказа банковской картой».
               </div>
-            </div>
+            </motion.div>
           </div>
-          <div className="subTitlePayment">Гарантии честности</div>
-          <Pay />
+            <motion.div
+            initial={{ y: "100%", opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: "100%", opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            >
+              <div className="subTitlePayment">Гарантии честности</div>
+              <Pay />
+            </motion.div>
         </div>
       </div>
       <HoverContact />

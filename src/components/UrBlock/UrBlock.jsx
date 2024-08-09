@@ -2,9 +2,15 @@ import React from 'react'
 import s from './UrBlock.module.css'
 import Table from 'react-bootstrap/Table';
 import file from '../../files/oferta.docx'
+import {motion} from 'framer-motion'
 const UrBlock = () => {
     return (
-        <div className={s.wrappeTable}>
+        <motion.div 
+        initial={{ x: "100%" }}
+        animate={{ x: 0 }}
+        exit={{ x: "-100%" }}
+        transition={{duration: 0.5}}
+        className={s.wrappeTable}>           
             <Table striped bordered hover>
                 <tbody>
                     <tr>
@@ -26,7 +32,7 @@ const UrBlock = () => {
                 </tbody>
             </Table>           
             <a className={s.file} href={file} download>Договор оферты</a>
-        </div>
+        </motion.div>
     )
 }
 

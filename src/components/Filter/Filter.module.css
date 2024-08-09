@@ -1,5 +1,7 @@
 .wrapper{
     min-height: 90vh;
+    padding: 0 10px;
+    overflow: hidden;
 }
 .checkboxes {
     display: flex;

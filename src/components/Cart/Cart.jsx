@@ -1,14 +1,14 @@
+import md5 from 'md5';
 import React, { useContext, useState } from "react";
-import { IoIosArrowBack } from "react-icons/io";
-import CartItem from "../CartItem/CartItem";
-import s from "./Cart.module.css";
-import { createOrder } from "../../http/OrderAPI";
-import { Context } from "../..";
-import file from '../../files/oferta.docx'
-import md5 from 'md5'
-import { GoToPay } from "../../http/pay";
 import { AddressSuggestions } from 'react-dadata';
 import 'react-dadata/dist/react-dadata.css';
+import { IoIosArrowBack } from "react-icons/io";
+import { Context } from "../..";
+import file from '../../files/oferta.docx';
+import { createOrder } from "../../http/OrderAPI";
+import CartItem from "../CartItem/CartItem";
+import s from "./Cart.module.css";
+import {motion} from 'framer-motion'
 const Cart = (props) => {
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
@@ -52,9 +52,13 @@ const Cart = (props) => {
     props.toggleAuth()
     props.toggle()
   }
-  console.log(adress);
   return (
-    <div className={s.wrapper}>
+    <motion.div
+    initial={{scale: 1.1, opacity: 0}}
+    animate={{scale: 1, opacity: 1}}
+    exit={{scale: 1.1, opacity: 0}}
+    transition={{duration:0.3}} 
+    className={s.wrapper}>
       <button className={s.buttonBack} onClick={props.toggle}>
         <IoIosArrowBack className={s.buttonBackIcon} />
         <div className={s.buttonBackText}>Назад</div>
@@ -141,7 +145,7 @@ const Cart = (props) => {
       )}
 
 
-    </div >
+    </motion.div >
   );
 };
 

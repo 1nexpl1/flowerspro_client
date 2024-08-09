@@ -11,9 +11,8 @@ import Auth from "../Auth/Auth";
 import { Context } from "../..";
 import { MdLogout } from "react-icons/md";
 import { observer } from "mobx-react-lite";
-import { NavDropdown } from "react-bootstrap";
-import { motion } from "framer-motion"
 import { NavMobile } from "../NavMobile/NavMobile";
+import { AnimatePresence } from "framer-motion";
 const Navbar = observer((props) => {
   const [openAuth, toggleAuth] = useToggle();
   const [ref, hovering] = useHover();
@@ -24,28 +23,24 @@ const Navbar = observer((props) => {
   useEffect(() => {
     setIsAuth(user.isAuth)
   }, [user.isAuth])
-  const logout = () => {
-    user.setUser({})
-    user.setIsAuth(false)
-  }
-  
+
 
 
   return (
-    
+
     <>
       <div className={s.wrapper}>
         <div className={s.navbar}>
           {mediaQuerry.matches ? (
             <NavMobile />
-          ):(
+          ) : (
             <>
               <Link className={s.link} to="/main">
                 Главная
               </Link>
               <Link className={s.linkCatalog} to="/catalog" ref={ref}>
                 <div className={s.link}>Каталог</div>
-                {hovering ? <CatalogNav click = {props.click}/> : <></>}
+                {hovering ? <CatalogNav click={props.click} /> : <></>}
               </Link>
               <Link className={s.link} to="/payment">
                 Оплата
@@ -60,7 +55,7 @@ const Navbar = observer((props) => {
                 Контакты
               </Link>
             </>
-          )}           
+          )}
         </div>
         <div className={s.logoWrapper}>
           <img
@@ -72,24 +67,25 @@ const Navbar = observer((props) => {
         </div>
         <div className={s.icons}>
           <div className={s.link}>
-            {isAuth ? <FaRegUser className={s.icon} onClick={() => router(`/profile`)} /> : <MdLogout className={s.icon} onClick={toggleAuth} />}
+              {isAuth ? <FaRegUser className={s.icon} onClick={() => router(`/profile`)} /> : <MdLogout className={s.icon} onClick={toggleAuth} />}
 
-            {openAuth ? <Auth toggle={toggleAuth} /> : <></>}
+              {openAuth && (<Auth toggle={toggleAuth} />)}
           </div>
           <div className={s.cart}>
             <FaShoppingCart className={s.icon} onClick={props.toggleCart} />
-            {props.openCart ? (
-              <Cart
-                deleteItem={props.deleteItem}
-                items={props.items}
-                toggle={props.toggleCart}
-                sum={props.sum}
-                toggleAuth={toggleAuth}
-                setSum={props.setSum}
-              />
-            ) : (
-              <></>
-            )}
+
+            <AnimatePresence>
+              {props.openCart && (
+                <Cart
+                  deleteItem={props.deleteItem}
+                  items={props.items}
+                  toggle={props.toggleCart}
+                  sum={props.sum}
+                  toggleAuth={toggleAuth}
+                  setSum={props.setSum}
+                />
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </div>

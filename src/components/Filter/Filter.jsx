@@ -5,8 +5,7 @@ import Checkbox from "../UI/Checkbox/Checkbox";
 import RangeSlider from "../Slider/Slider";
 import { observer } from "mobx-react-lite";
 import { fetchDevices, fetchOneDevice } from "../../http/DeviceAPI";
-import { Spinner } from "react-bootstrap";
-import { FaBullseye } from "react-icons/fa";
+import { motion } from 'framer-motion'
 
 const Filter = observer((props) => {
   const { device } = useContext(Context)
@@ -54,42 +53,49 @@ const Filter = observer((props) => {
 
   return (
     <div className={s.wrapper}>
-      <div className={s.checkboxes}>
-        <div className={s.title}>Тип</div>
-        {device.types.map(name =>
-          <Checkbox name={name.name} setType={setType} id={name.id} key={name.id} clickApply={clickApply}/>
-        )}
-      </div>
-      <div className={s.priceFilt}>
-        <div className={s.title}>Цена</div>
-        <RangeSlider MIN={device.min} MAX={device.max} value={value} setValue={setValue} />
-        <div className={s.inputs}>
-          <div className={s.input}>
-            <span>от</span>
-            <input type="text" name="" id="" value={value[0]} onChange={(e) => setValue([e.target.value, value[1]])} />
-          </div>
-          <div className={s.input}>
-            <span>до</span>
-            <input type="text" name="" id="" value={value[1]} onChange={(e) => setValue([value[0], e.target.value])} />
+      <motion.div
+        initial={{ x: "-100%", opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: "-100%", opacity: 0 }}
+        transition={{ duration: 0.5 }}
+        >
+        <div className={s.checkboxes}>
+          <div className={s.title}>Тип</div>
+          {device.types.map(name =>
+            <Checkbox name={name.name} setType={setType} id={name.id} key={name.id} clickApply={clickApply} />
+          )}
+        </div>
+        <div className={s.priceFilt}>
+          <div className={s.title}>Цена</div>
+          <RangeSlider MIN={device.min} MAX={device.max} value={value} setValue={setValue} />
+          <div className={s.inputs}>
+            <div className={s.input}>
+              <span>от</span>
+              <input type="text" name="" id="" value={value[0]} onChange={(e) => setValue([e.target.value, value[1]])} />
+            </div>
+            <div className={s.input}>
+              <span>до</span>
+              <input type="text" name="" id="" value={value[1]} onChange={(e) => setValue([value[0], e.target.value])} />
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className={s.checkboxes}>
-        <div className={s.title}>Упаковка</div>
-        {device.brands.map(name =>
-          <Checkbox name={name.name} setType={setBrand} id={name.id} key={name.id} clickApply={clickApply} />
-        )}
-      </div>
-      <div className={s.checkboxes}>
-        <div className={s.title}>Цветы</div>
-        {device.flowers.map(name =>
-          <Checkbox name={name} setType={setFlower} clickApply={clickApply} />
-        )}
-      </div>
-      <button className={s.approve} onClick={lastClickFunk}>
-        <span>Применить</span>
-      </button>
+        <div className={s.checkboxes}>
+          <div className={s.title}>Упаковка</div>
+          {device.brands.map(name =>
+            <Checkbox name={name.name} setType={setBrand} id={name.id} key={name.id} clickApply={clickApply} />
+          )}
+        </div>
+        <div className={s.checkboxes}>
+          <div className={s.title}>Цветы</div>
+          {device.flowers.map(name =>
+            <Checkbox name={name} setType={setFlower} clickApply={clickApply} />
+          )}
+        </div>
+        <button className={s.approve} onClick={lastClickFunk}>
+          <span>Применить</span>
+        </button>
+      </motion.div>
     </div>
   );
 });
