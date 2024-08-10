@@ -365,7 +365,8 @@ input:focus ~ label, input:valid ~ label {
 .paymentBut{
     position: relative;
     width: 85%;
-    height: 40px;
+    height: 45px;
+    border-radius: 10px;
     border: 2px solid #292929;
     color: #292929;
     background-color: transparent;
@@ -380,25 +381,7 @@ input:focus ~ label, input:valid ~ label {
     z-index: 20000;
 }
 
-.paymentBut::before{
-    position: absolute;
-        content: "";
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 100%;
-        background-color: #292929;
-        transition: all .45s;
-        z-index: 19999;
-}
 
-.paymentBut:hover{
-    color: #E8E8E8;
-}
-
-.paymentBut:hover::before{
-    width: 100%;
-}
 
 .submit{
     display: none;

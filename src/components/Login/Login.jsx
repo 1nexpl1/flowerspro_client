@@ -4,7 +4,7 @@ import { IoIosArrowBack } from 'react-icons/io'
 import { login, registration } from '../../http/userAPI'
 import { Context } from '../..'
 import { observer } from 'mobx-react-lite'
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
 const Login = observer((props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -36,11 +36,11 @@ const Login = observer((props) => {
   }
   return (
     <motion.div
-    initial={{scale: 1.1, opacity: 0}}
-    animate={{scale: 1, opacity: 1}}
-    exit={{scale: 1.1, opacity: 0}}
-    transition={{duration:0.3}} 
-    className={s.wrapper}>
+      initial={{ scale: 1.1, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      exit={{ scale: 1.1, opacity: 0 }}
+      transition={{ duration: 0.3 }}
+      className={s.wrapper}>
       <button className={s.buttonBack} onClick={props.toggle}>
         <IoIosArrowBack className={s.buttonBackIcon} />
         <div className={s.buttonBackText}>Назад</div>
@@ -58,7 +58,14 @@ const Login = observer((props) => {
             <label for='name'>Пароль</label>
           </div>
         </div>
-          <button className={s.registerBut} onClick={click}><span>Войти</span></button>
+        <motion.button
+          className={s.registerBut}
+          onClick={click}
+          whileTap={{ scale: 0.9 }}
+          whileHover={{ scale: 1.1 }}
+          transition={{ type: "spring", stiffness: 1000, damping: 100 }}>
+            <span>Войти</span>
+        </motion.button>
         <div className={s.change}>
           У меня нет аккаунта <span onClick={() => { props.setIsAuth(true) }}>Зарегистрироваться</span>
         </div>

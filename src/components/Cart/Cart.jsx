@@ -8,7 +8,7 @@ import file from '../../files/oferta.docx';
 import { createOrder } from "../../http/OrderAPI";
 import CartItem from "../CartItem/CartItem";
 import s from "./Cart.module.css";
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
 const Cart = (props) => {
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
@@ -54,11 +54,11 @@ const Cart = (props) => {
   }
   return (
     <motion.div
-    initial={{scale: 1.1, opacity: 0}}
-    animate={{scale: 1, opacity: 1}}
-    exit={{scale: 1.1, opacity: 0}}
-    transition={{duration:0.3}} 
-    className={s.wrapper}>
+      initial={{ scale: 1.1, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      exit={{ scale: 1.1, opacity: 0 }}
+      transition={{ duration: 0.3 }}
+      className={s.wrapper}>
       <button className={s.buttonBack} onClick={props.toggle}>
         <IoIosArrowBack className={s.buttonBackIcon} />
         <div className={s.buttonBackText}>Назад</div>
@@ -73,7 +73,7 @@ const Cart = (props) => {
                 token="650a43e28bfdfec31e9f3b18d7211dcf9c542cfe"
                 value={adress}
                 onChange={setAdress}
-                inputProps={{required: 'true', type: 'text', placeholder: 'Введите адрес доставки', className: s.inputHint}}
+                inputProps={{ required: 'true', type: 'text', placeholder: 'Введите адрес доставки', className: s.inputHint }}
               />
             </div>
             <div className={s.inputGroup}>
@@ -123,13 +123,23 @@ const Cart = (props) => {
               </div>
               <div className={s.payment}>
                 {validatePhoneNumber(number) && name && adress && props.items ? (
-                  <button className={s.paymentBut} onClick={addOrder}>
+                  <motion.button
+                    className={s.paymentBut}
+                    onClick={addOrder}
+                    whileTap={{ scale: 0.9 }}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 1000, damping: 100 }}>
                     <span>Перейти к оплате</span>
-                  </button>
-                ) : (
-                  <button className={s.paymentBut}>
+                  </motion.button>
+                ) : (                  
+                  <motion.button
+                    className={s.paymentBut}
+                    onClick={addOrder}
+                    whileTap={{ scale: 0.9 }}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 1000, damping: 100 }}>
                     <span>Перейти к оплате</span>
-                  </button>
+                  </motion.button>
                 )}
               </div>
               <a className={s.file} href={file} download>Договор оферты</a>
@@ -140,7 +150,15 @@ const Cart = (props) => {
       ) : (
         <>
           <div style={{ marginTop: '70px' }} className={s.titleCartItems}>Вы не авторизованы</div>
-          <button className={s.paymentBut} onClick={GoToAuth}>Авторизоваться</button>
+
+          <motion.button
+            className={s.paymentBut}
+            onClick={GoToAuth}
+            whileTap={{ scale: 0.9 }}
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 1000, damping: 100 }}>
+            <span>Авторизоваться</span>
+          </motion.button>
         </>
       )}
 

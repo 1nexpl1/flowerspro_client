@@ -67,9 +67,10 @@ const Navbar = observer((props) => {
         </div>
         <div className={s.icons}>
           <div className={s.link}>
-              {isAuth ? <FaRegUser className={s.icon} onClick={() => router(`/profile`)} /> : <MdLogout className={s.icon} onClick={toggleAuth} />}
-
+            {isAuth ? <FaRegUser className={s.icon} onClick={() => router(`/profile`)} /> : <MdLogout className={s.icon} onClick={toggleAuth} />}
+            <AnimatePresence>
               {openAuth && (<Auth toggle={toggleAuth} />)}
+            </AnimatePresence>
           </div>
           <div className={s.cart}>
             <FaShoppingCart className={s.icon} onClick={props.toggleCart} />
