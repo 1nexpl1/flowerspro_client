@@ -8,3 +8,9 @@
     text-decoration: none;
     color: #292929;
 }
+
+@media (max-width: 880px) {
+    .wrappeTable{
+        width: 100%;
+    }
+}

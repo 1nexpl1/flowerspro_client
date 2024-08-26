@@ -74,7 +74,12 @@
         width: 100%;
     }
     .imageWrapper{
-        width: 70%;
+        width: 100%;
+    }
+
+    .imageWrapper img{
+        width: 100%;
+        height: auto;
     }
     .block{
         flex-direction: column;
