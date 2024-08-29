@@ -7,8 +7,9 @@ const MapYandex = () => {
     return (
         <div className={s.map}>
             <YMaps>
-                <Map defaultState={{ center: [56.976020, 60.596504], zoom: 15 }}  width = {'100%'} height={'100%'}  >
+                <Map defaultState={{ center: [56.896142, 60.595718], zoom: 10 }}  width = {'100%'} height={'100%'}  >
                     <Placemark geometry={[56.976020, 60.596504]} />
+                    <Placemark geometry={[56.816265, 60.594933]} />
                 </Map>
             </YMaps>
         </div>
