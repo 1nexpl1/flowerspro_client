@@ -8,10 +8,11 @@ const CustomSlide = (props) => {
   let photo2 = 'https://api.flowers-pro-vp.ru/' + props.item.imgs2
   const mediaQuerry = window.matchMedia("(max-width: 755px)")
   return (
+    <Link to = '/catalog'>
     <div style={{ background: props.item.color }} className={s.slide}>
       <div className={s.text} style={{color: props.item.color}}>
         <h3 className={s.titleSlide}>{props.item.title}</h3>
-        <Link className={s.linkSlide} to="/catalog" style={{color: props.item.color}}>В каталог {">"}</Link>
+        <Link className={s.linkSlide} to="/catalog" style={{color: 'transparent'}}>В каталог {">"}</Link>
         <div className={s.description}>{props.item.description}</div>
       </div>
       <div>
@@ -26,6 +27,7 @@ const CustomSlide = (props) => {
       }
       </div>
     </div>
+    </Link>
   );
 }
 
