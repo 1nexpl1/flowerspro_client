@@ -17,11 +17,12 @@ const Cart = (props) => {
   const [number, setNumber] = useState('')
   const { user } = useContext(Context)
   let jsonItems = JSON.stringify(props.items)
+  console.log(adress.value);
   const addOrder = () => {
     if (validatePhoneNumber(number)) {
       if (number && name && adress && props.items) {
         const formData = new FormData()
-        formData.append('adress', adress)
+        formData.append('adress', adress.value)
         formData.append('name', name)
         formData.append('number', number)
         formData.append('value', props.sum)
