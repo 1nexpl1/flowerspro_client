@@ -5,6 +5,7 @@ import HoverContact from "../components/HoverContact/HoverContact";
 import MapYandex from "../components/MapYandex/MapYandex";
 import UrBlock from "../components/UrBlock/UrBlock";
 import { motion, useIsPresent, useSpring } from "framer-motion";
+import ContactAdresses from "../components/ContactAdresses/ContactAdresses";
 
 const ContactsPage = () => {
   const isPresent = useIsPresent()
@@ -20,15 +21,15 @@ const ContactsPage = () => {
           transition={{ duration: 0.5 }}
         >Где мы находимся</motion.div>
       </div>
-      <div className="contactsMap">
-        <motion.div
+      <motion.div 
           initial={{ x: "-100%", opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: "-100%", opacity: 0 }}
-          transition={{ duration: 0.5 }}>
+          transition={{ duration: 0.5 }}
+          className="Map">
+          <ContactAdresses />
           <MapYandex />
-        </motion.div>
-      </div>
+      </motion.div>
       <div className="subTitleContacts">
         <motion.div
           initial={{ y: "-100%", opacity: 0 }}

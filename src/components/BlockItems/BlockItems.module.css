@@ -2,11 +2,11 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 350px;
-    justify-content: space-between;
     grid-row-gap: 5px;
-    grid-column-gap: 155px;
     position: relative;
     width: 100%;
+    justify-items: center;
+    align-items: center;
 }
 
 .title {

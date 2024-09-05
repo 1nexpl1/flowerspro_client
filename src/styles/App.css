@@ -271,6 +271,19 @@ html::-webkit-scrollbar-track {
 .contactsMap{
     overflow: hidden;
 }
+
+.Map{
+    display: flex;
+    width: 100%;
+    gap: 5%;
+    flex-direction: row;
+}
+
+@media (max-width: 990px) {
+    .Map{
+        flex-direction: column;
+    }
+}
 .subTitleContacts {
     overflow: hidden;
     text-align: center;
