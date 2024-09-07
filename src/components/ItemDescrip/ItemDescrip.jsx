@@ -5,6 +5,7 @@ import { FaMinus, FaPlus, FaTelegram, FaWhatsapp } from 'react-icons/fa';
 import { FaTelegramPlane } from "react-icons/fa";
 import { Context } from '../..';
 import { observer } from 'mobx-react-lite';
+import { Link, useNavigate } from 'react-router-dom';
 const ItemDescrip = observer((props) => {
     const [count, setCount] = useState(1);
     const countIncrem = () => {
@@ -12,6 +13,8 @@ const ItemDescrip = observer((props) => {
     }
     let item = props.item
     item["count"] = count
+    
+    let router = useNavigate()
     return (
         <div className={s.wrapper}>
             <h1 className={s.h1title}>{props.item.name}</h1>
@@ -50,6 +53,8 @@ const ItemDescrip = observer((props) => {
                     </div>
                 </>
             )}
+            <div className={s.linktoqrtext}>У нас появилась возможность добавить звук к букету, узнайте подробнее <span className={s.linktoqr} onClick={() => router(`/qrinfo`)}>Здесь</span></div>
+
             <div className={s.icons}>
                 <FaTelegramPlane />
                 <FaWhatsapp />

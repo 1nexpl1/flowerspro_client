@@ -11,6 +11,7 @@ import ItemPage from "../pages/ItemPage.jsx";
 import { Context } from "../index.js";
 import Profile from "./Profile/Profile.jsx";
 import { AnimatePresence } from "framer-motion";
+import QRInfo from "../pages/QRInfo.jsx";
 
 const Approuter = (props) => {
 
@@ -33,6 +34,7 @@ const Approuter = (props) => {
               <Route path="/contacts" element={<ContactsPage />} />
               <Route path="/ship" element={<ShipPage />} />
               <Route path="/admin" element={<AdminPage />} />
+              <Route path="/qrinfo" element={<QRInfo />} />
               <Route path="/profile" element={<Profile logout={props.logout} />} />
               <Route path="/catalog/:id" element={<ItemPage addItem={props.addItem} toggleCart={props.toggleCart} />} />
             </Routes>
@@ -45,6 +47,7 @@ const Approuter = (props) => {
               <Route path="/catalog" element={<CatalogPage addItem={props.addItem} toggleCart={props.toggleCart} click={props.click} />} />
               <Route path="/payment" element={<PaymentPage />} />
               <Route path="/contacts" element={<ContactsPage />} />
+              <Route path="/qrinfo" element={<QRInfo />} />
               <Route path="/ship" element={<ShipPage />} />
               <Route path="/profile" element={<Profile logout={props.logout} />} />
               <Route path="/catalog/:id" element={<ItemPage addItem={props.addItem} toggleCart={props.toggleCart} />} />

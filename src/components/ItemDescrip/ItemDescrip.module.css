@@ -123,6 +123,18 @@
     color: #fff;
 }
 
+.linktoqrtext{
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #292929;
+    font-family: 'Graphik';
+    font-size: 18px;
+}
+
+.linktoqr{
+    color: #2e6fac;
+}
+
 @media (max-width:1220px) {
     .wrapper{
         width: 50%;
