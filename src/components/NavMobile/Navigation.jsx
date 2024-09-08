@@ -11,7 +11,7 @@ const variants = {
   }
 };
 
-export const Navigation = ({toggle}) => (
+export const Navigation = ({ toggle }) => (
   <motion.ul variants={variants} className="ul">
     {itemIds.map(i => (
       <MenuItem toggle={toggle} i={i} key={i.id} />
@@ -19,9 +19,10 @@ export const Navigation = ({toggle}) => (
   </motion.ul>
 );
 
-const itemIds = [{ id: 0, name: 'Главная', to: '/main' }, 
-{ id: 1, name: 'Каталог', to: '/catalog' }, 
-{ id: 2, name: 'Оплата', to: '/payment' }, 
-{id: 3, name: 'Доставка', to: '/ship'}, 
-{id: 4, name: 'О нас', to: '/about'},
-{id: 4, name: 'Контакты', to: '/contacts'}];
+const itemIds = [{ id: 0, name: 'Главная', to: '/main' },
+{ id: 1, name: 'Каталог', to: '/catalog' },
+{ id: 2, name: 'Оплата', to: '/payment' },
+{ id: 3, name: 'Доставка', to: '/ship' },
+{ id: 4, name: 'О нас', to: '/about' },
+{ id: 4, name: 'Контакты', to: '/contacts' },
+{ id: 4, name: 'Музыкальная открытка', to: '/qrinfo' },];

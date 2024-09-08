@@ -24,8 +24,6 @@ const Navbar = observer((props) => {
     setIsAuth(user.isAuth)
   }, [user.isAuth])
 
-
-
   return (
 
     <>
@@ -53,6 +51,9 @@ const Navbar = observer((props) => {
               </Link>
               <Link className={s.link} to="/contacts">
                 Контакты
+              </Link>
+              <Link className={s.link} to="/qrinfo">
+                Музыкальная открытка
               </Link>
             </>
           )}
