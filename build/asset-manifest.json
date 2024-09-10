@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.791fe5d1.css",
-    "main.js": "/static/js/main.98e82d5a.js",
+    "main.css": "/static/css/main.88b097fe.css",
+    "main.js": "/static/js/main.6f4cc9f2.js",
     "static/media/qr2.png": "/static/media/qr2.59c2375950bcc988a896.png",
     "static/media/preview.jpg": "/static/media/preview.fbc8a3b51963be0c0725.jpg",
     "static/media/PayPhot.png": "/static/media/PayPhot.cd0ae3b6e60b57ff0d7a.png",
@@ -15,7 +15,9 @@
     "static/media/Wermut-Italic.ttf": "/static/media/Wermut-Italic.67fc0084f12fb57d5fde.ttf",
     "static/media/Wermut.ttf": "/static/media/Wermut.aba548ead68525c6f702.ttf",
     "static/media/enter.jpeg": "/static/media/enter.7f9dc4a95aa1407a07ba.jpeg",
+    "static/media/salonekb.jpg": "/static/media/salonekb.b94603591f9c6ced57b8.jpg",
     "static/media/buket.jpeg": "/static/media/buket.be98cd8c9cd681c3ec34.jpeg",
+    "static/media/salonvp.jpg": "/static/media/salonvp.a4e8d08b342ff8f1a510.jpg",
     "static/media/hoho.jpg": "/static/media/hoho.849b8532630efe0de2d6.jpg",
     "static/media/team.jpeg": "/static/media/team.70f3fc10e6a8669043de.jpeg",
     "static/media/GraphikLCG-Bold.woff": "/static/media/GraphikLCG-Bold.c9ff0f7c3d4ed57d90d3.woff",
@@ -30,11 +32,11 @@
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
-    "main.791fe5d1.css.map": "/static/css/main.791fe5d1.css.map",
-    "main.98e82d5a.js.map": "/static/js/main.98e82d5a.js.map"
+    "main.88b097fe.css.map": "/static/css/main.88b097fe.css.map",
+    "main.6f4cc9f2.js.map": "/static/js/main.6f4cc9f2.js.map"
   },
   "entrypoints": [
-    "static/css/main.791fe5d1.css",
-    "static/js/main.98e82d5a.js"
+    "static/css/main.88b097fe.css",
+    "static/js/main.6f4cc9f2.js"
   ]
 }
