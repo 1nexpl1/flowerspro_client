@@ -1,29 +1,32 @@
-.wrapper{
+.wrapper {
     width: 100%;
     display: flex;
     flex-direction: row;
-    gap: 5%;
+    gap: 3%;
     margin-bottom: 40px;
 }
-.itemWrapper{
+
+.itemWrapper {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: start;
+    align-items: start;
     gap: 20px;
 }
-.photo{
+
+.photo {
     width: 350px;
     height: 230px;
 }
 
-svg{
+svg {
     width: 25px;
     height: 25px;
     color: #292929;
 }
-.mainWrapper{
+
+.mainWrapper {
     width: 60%;
     display: flex;
     flex-direction: column;
@@ -31,41 +34,50 @@ svg{
 }
 
 @media (max-width: 1570px) {
-    .mainWrapper{
+    .itemWrapper {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mainWrapper {
         width: 100%;
     }
 }
 
-.Time{
+.Time {
     width: 100%;
     text-align: center;
     font-family: 'Graphik';
     font-size: 36px;
 }
 
-.addres{
+.addres {
     display: flex;
     flex-direction: row;
-    gap: 5%;
+    gap: 3%;
     width: 100%;
     margin-bottom: 12px;
 }
 
-.number{
+.number {
     width: 100%;
     display: flex;
     flex-direction: row;
-    gap: 5%;
+    gap: 3%;
+    height: auto;
+    align-items: center;
+
 }
 
-.textWrapper{
+.textWrapper {
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: start;
-
+    width: 100%;
 }
-.title{
+
+.title {
     width: 100%;
     color: #292929;
     font-size: 48px;
@@ -75,7 +87,7 @@ svg{
     margin-bottom: 15px;
 }
 
-.subtitle{
+.subtitle {
     color: #292929;
     font-family: 'Graphik';
     font-size: 22px;
@@ -83,20 +95,29 @@ svg{
     font-weight: 500;
 }
 
-.text{
+.text {
     color: #292929;
     font-family: 'Graphik';
-    font-style: 20px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media (max-width: 900px) {
-    .wrapper{
+    .wrapper {
         flex-direction: column;
     }
-    .itemWrapper{
+
+    .itemWrapper {
         margin-bottom: 30px;
     }
-    .title{
+
+    .title {
         text-align: center;
+    }
+
+    .textWrapper{
+        width: auto;
     }
 }

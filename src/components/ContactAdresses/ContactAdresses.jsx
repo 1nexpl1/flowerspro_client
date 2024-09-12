@@ -20,7 +20,7 @@ const ContactAdresses = () => {
         <div className={s.number}>
         <FaPhone />
         <FaWhatsapp />
-        <div className={s.text}>+7(912)66-44-689</div>
+        <div className={s.text}>+7 (912) 66-44-096</div>
         </div>
         </div>
       </div>
@@ -35,7 +35,7 @@ const ContactAdresses = () => {
         <div className={s.number}>
         <FaPhone />
         <FaWhatsapp />
-        <div className={s.text}>+7(912)66-44-096</div>
+        <div className={s.text}>+7 (912) 66-44-689</div>
         </div>
         </div>
       </div>

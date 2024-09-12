@@ -324,7 +324,7 @@ html::-webkit-scrollbar-track {
     display: flex;
     width: 100%;
     gap: 5%;
-    flex-direction: row;
+    flex-direction: row-reverse;
 }
 
 @media (max-width: 1570px) {
